@@ -1,0 +1,22 @@
+.container {
+    top: 10px;
+    bottom: 10px;
+    width: auto;
+    height: auto;
+    padding: 42px 50px;
+    color: rgb(10, 10, 10);
+    box-sizing: border-box;
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.6);
+    border-radius: 10px;
+    z-index: 0;
+    background-color: #fff;
+}
+
+body {
+    /* background: url('/img/background.jpg'); */
+    /* background-repeat: no-repeat; */
+    /* background-size: auto; */
+    
+    /* overflow-x: hidden !important;
+    overflow-y: scroll !important; */
+}

@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -9,65 +10,102 @@
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
-    <!-- Fonts -->
-    <link rel="dns-prefetch" href="//fonts.bunny.net">
-    <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
-
     <!-- Scripts -->
-    @vite(['resources/sass/app.scss', 'resources/js/app.js'])
+    <script src="{{ asset('js/app.js') }}" defer></script>
+
+    <!-- Fonts -->
+    <link rel="dns-prefetch" href="//fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+
+    <!-- Styles -->
+    <script src="https://kit.fontawesome.com/1bf0086160.js" crossorigin="anonymous"></script>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+        integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+        integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous">
+    </script>
+
+
+    <!-- Styles -->
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/generalStyle.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/navbar.css') }}" rel="stylesheet">
+
 </head>
+
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
-            <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
-                </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
 
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav me-auto">
-
-                    </ul>
-
-                    <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ms-auto">
-                        <!-- Authentication Links -->
-                        @guest
-                            @if (Route::has('login'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+        <nav class="navbar-custom">
+            <div class="container-menu">
+                <div class="header-navigation-menu">
+                    <div class="header-icon">
+                        <img src="/img/LogoBlanco.png" alt="">
+                    </div>
+                    <button class="navbar-nav-toggle">
+                        <span></span>
+                    </button>
+                    <div class="navbar-navigation">
+                        <ul>
+                            @guest
+                                <li>
+                                    <a href="{{ route('login') }}">{{ __('Iniciar sesión    ') }}<i
+                                            class="fas fa-sign-in-alt"></i></a>
                                 </li>
-                            @endif
-
-                            @if (Route::has('register'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                <li>
+                                    <a href="{{ route('register') }}">{{ __('Crear cuenta   ') }}<i
+                                            class="fas fa-user-plus"></i></a>
                                 </li>
-                            @endif
-                        @else
-                            <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }}
-                                </a>
-
-                                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
+                            @else
+                                <li style="font-size: 12px;" class="dropdown">
+                                    <a href="#" class="sub-menu-toggle">
+                                        {{ __('A ') }} <span class="caret"><i class="fas fa-indent"></i></span>
                                     </a>
+                                    <ul class="sub-menu">
+                                        <li>
+                                            <a href="/evaluacion" style="cursor: pointer">{{ __('A1 ') }}<i
+                                                    class="fas fa-chart-bar"></i></a>
+                                        </li>
+                                        <li>
+                                            <a href="/estadisticas" style="cursor: pointer">{{ __('A2 ') }}<i
+                                                    class="fas fa-paste"></i></a>
+                                        </li>
+                                    </ul>
+                                </li>
 
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                        @csrf
-                                    </form>
-                                </div>
-                            </li>
-                        @endguest
-                    </ul>
+                                <li style="font-size: 12px;" class="dropdown">
+                                    <a href="#" class="sub-menu-toggle">
+                                        {{ __('B') }} <span class="caret"><i class="fas fa-indent"></i></span>
+                                    </a>
+                                    <ul class="sub-menu">
+                                        <li>
+                                            <a href="/evaluacion/create" style="cursor: pointer">{{ __('B1 ') }}<i
+                                                    class="fas fa-folder-plus"></i></a>
+                                        </li>
+                                    </ul>
+                                </li>
+
+                                <li>
+                                    <a href="{{ route('logout') }}"
+                                        onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                        <span class="icon"><i class="fas fa-walking"></i></span>
+                                        <span class="title">
+                                            {{ __('Cerrar Sesion') }}
+                                            <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                                class="d-none">
+                                                @csrf
+                                            </form>
+                                        </span>
+                                    </a>
+                                </li>
+
+                            @endguest
+                        </ul>
+                    </div>
                 </div>
             </div>
         </nav>
@@ -77,4 +115,5 @@
         </main>
     </div>
 </body>
+
 </html>
