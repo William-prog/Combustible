@@ -1,6 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\DepartamentosController;
+use App\Http\Controllers\AreaController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -19,4 +22,6 @@ Route::get('/', function () {
 
 Auth::routes();
 
+Route::resource('departamento', DepartamentosController::class);
+Route::resource('area', AreaController::class);
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
