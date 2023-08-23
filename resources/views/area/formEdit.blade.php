@@ -16,14 +16,13 @@
                     <label for="areaDepartamento">Area de Departamento: </label>
                     <select class="form-select" aria-label="Default select example" name="areaDepartamento"
                         id="areaDepartamento">
-                        @foreach ($departamento as $dato)
-                            <option value="{{ $dato->id }}">{{ $dato->departamentoNombre }}</option>
+                        @foreach ($departamento as $datoDpto)
+                            <option value="{{ $datoDpto->id }}">{{ $datoDpto->departamentoNombre }}</option>
                         @endforeach
                     </select>
 
                     <label for="areaDescripcion">Descripcion del area: </label>
-                    <input type="text" value="{{ $dato->areaDescripcion }}" placeholder="Descripcion"
-                        class="form-control" name="areaDescripcion" id="areaDescripcion">
+                    <input type="text" value="{{$dato->areaDescripcion}}" class="form-control" name="areaDescripcion" id="areaDescripcion">
 
                     <input class="btn btn-primary" type="submit">
                 </div>

@@ -2,3 +2,4 @@
     @csrf
     {{ method_field('PATCH')}}
     @include('area.formEdit')
+</form>
