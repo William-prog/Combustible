@@ -21,10 +21,9 @@
                                         <td>{{ $dato->areaNombre }}</td>
                                         <td>
                                             @foreach ($departamento as $datoDepartamento)
-                                            @if ($dato->areaDepartamento==$datoDepartamento->id)
-                                            {{$datoDepartamento->departamentoNombre}}
-                                            @endif
-                                                
+                                                @if ($dato->areaDepartamento == $datoDepartamento->id)
+                                                    {{ $datoDepartamento->departamentoNombre }}
+                                                @endif
                                             @endforeach
                                         </td>
                                         <td>{{ $dato->areaDescripcion }}</td>

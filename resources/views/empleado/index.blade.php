@@ -27,10 +27,10 @@
                                                     {{ $datoDepartamento->departamentoNombre }}
                                                 @endif
                                             @endforeach
-                                            
+
                                         </td>
-                                            <a class="button" href="{{ url('/empleado/' . $dato->id . '/edit') }}">Editar</a>
-                                        </td> 
+                                        <a class="button" href="{{ url('/empleado/' . $dato->id . '/edit') }}">Editar</a>
+                                        </td>
                                     </tr>
                                 @endforeach
                             </tbody>
