@@ -15,23 +15,23 @@
                             name="vehiculoEco" id="vehiculoEco">
 
                         <label for="vehiculoPlacas">Placas del vehiculo:</label>
-                        <input type="text" value="{{ $dato->vehiculoPlacas }} placeholder=" class="form-control"
+                        <input type="text" value="{{ $dato->vehiculoPlacas }} " placeholder="" class="form-control"
                             name="vehiculoPlacas" id="vehiculoPlacas">
 
                         <label for="vehiculoModelo">Modelo del vehiculo:</label>
-                        <input type="text" value="{{ $dato->vehiculoModelo }} placeholder=" class="form-control"
+                        <input type="text" value="{{ $dato->vehiculoModelo }} " placeholder="" class="form-control"
                             name="vehiculoModelo" id="vehiculoModelo">
 
                         <label for="vehiculoMarca">Marca del vehiculo:</label>
-                        <input type="text" value="{{ $dato->vehiculoMarca }} placeholder=" class="form-control"
+                        <input type="text" value="{{ $dato->vehiculoMarca }} " placeholder="" class="form-control"
                             name="vehiculoMarca" id="vehiculoMarca">
 
                         <label for="vehiculoAño">Año del vehiculo:</label>
-                        <input type="text" value="{{ $dato->vehiculoAño }} placeholder=" class="form-control"
+                        <input type="text" value="{{ $dato->vehiculoAño }} " placeholder="" class="form-control"
                             name="vehiculoAño" id="vehiculoAño">
 
                         <label for="vehiculoCombustible">Combustible:</label>
-                        <input type="text" value="{{ $dato->vehiculoCombustible }} placeholder=" class="form-control"
+                        <input type="text" value="{{ $dato->vehiculoCombustible }} " placeholder="" class="form-control"
                             name="vehiculoCombustible" id="vehiculoCombustible">
 
                         <input class="btn btn-primary" type="submit">

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\empleado;
+use App\Models\departamentos;
 use Illuminate\Http\Request;
 
 class EmpleadoController extends Controller
@@ -12,7 +13,9 @@ class EmpleadoController extends Controller
      */
     public function index()
     {
-        //
+        $empleado = empleado::all();
+        $departamento = departamentos::all();
+        return view('empleado.index', compact('empleado', 'departamento'));
     }
 
     /**
@@ -20,7 +23,8 @@ class EmpleadoController extends Controller
      */
     public function create()
     {
-        //
+        $departamento = departamentos::all();
+        return view('empleado.create', compact('departamento'));
     }
 
     /**
@@ -28,7 +32,15 @@ class EmpleadoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $registrerEmpleado = new empleado();
+
+        $registrerEmpleado-> empleadoNumero =$request->empleadoNumero;
+        $registrerEmpleado-> empleadoNombre =$request->empleadoNombre;
+        $registrerEmpleado-> empleadoPuesto =$request->empleadoPuesto;
+        $registrerEmpleado-> empleadoDepartamento =$request->empleadoDepartamento;
+
+        $registrerEmpleado->save();
+        return redirect('empleado');
     }
 
     /**
@@ -42,17 +54,26 @@ class EmpleadoController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(empleado $empleado)
+    public function edit($id)
     {
-        //
+        $dato = empleado::findOrFail($id);
+        $departamento = departamentos::all();
+        return view('empleado.edit', compact('dato','departamento'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, empleado $empleado)
+    public function update(Request $request, $id)
     {
-        //
+        $registrerEmpleado = empleado::find($id);
+        $registrerEmpleado-> empleadoNumero =$request->empleadoNumero;
+        $registrerEmpleado-> empleadoNombre =$request->empleadoNombre;
+        $registrerEmpleado-> empleadoPuesto =$request->empleadoPuesto;
+        $registrerEmpleado-> empleadoDepartamento =$request->empleadoDepartamento;
+
+        $registrerEmpleado->save();
+        return redirect('empleado');
     }
 
     /**

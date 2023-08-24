@@ -21,8 +21,8 @@
 
                         <label for="empleadoDepartamento">Departamento del empleado:</label>
                         <select class="form-select" aria-label="Default select example" name="empleadoDepartamento" id="empleadoDepartamento">
-                            @foreach ($depto as $dato)
-                                <option value="{{ $dato->id }}">{{ $dato->deptoName }}</option>
+                            @foreach ($departamento as $dato)
+                                <option value="{{ $dato->id }}">{{ $dato->departamentoNombre }}</option>
                             @endforeach
                         </select>
 

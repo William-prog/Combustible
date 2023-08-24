@@ -29,6 +29,8 @@
                                             @endforeach
 
                                         </td>
+                                        <td>
+
                                         <a class="button" href="{{ url('/empleado/' . $dato->id . '/edit') }}">Editar</a>
                                         </td>
                                     </tr>
