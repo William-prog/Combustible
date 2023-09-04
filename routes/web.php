@@ -5,7 +5,8 @@ use App\Http\Controllers\DepartamentosController;
 use App\Http\Controllers\AreaController;
 use App\Http\Controllers\EmpleadoController;
 use App\Http\Controllers\VehiculosController;
-
+use App\Http\Controllers\PanelAdminController;
+use App\Http\Controllers\archivoExcelController;
 
 
 /*
@@ -27,6 +28,8 @@ Auth::routes();
 
 Route::resource('departamento', DepartamentosController::class);
 Route::resource('area', AreaController::class);
+Route::resource('panel', PanelAdminController::class);
 Route::resource('empleado', EmpleadoController::class);
 Route::resource('vehiculo', VehiculosController::class);
+Route::resource('excel', archivoExcelController::class);
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

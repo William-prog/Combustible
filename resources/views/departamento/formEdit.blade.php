@@ -1,41 +1,33 @@
-@extends('layouts.app')
 
-@section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
+    <div class="row">
+        <div class="col-md-12">
             <div class="card">
                 <div class="card-header">{{ __('Editar Departamentos') }}</div>
-                <p></p>
-                Vista Departamentos Edicion
-                <p></p>
-               <label for="departamentoNombre">Nombre del departamento: </label>
-               <input type="text" value="{{$dato->departamentoNombre}}" placeholder="Escribe el nuevo departamento" class="form-control" name="departamentoNombre" id="departamentoNombre">
-               
-               <label for="departamentoCC">Departamento de Centro de Costos: </label>
-               <input type="text" value="{{$dato->departamentoCC}}" placeholder="Departamento centro de costos" class="form-control" name="departamentoCC" id="departamentoCC">
+                <div class="card-body">
+                    <label for="departamentoNombre" class="mb-3">Nombre del departamento:</label>
+                    <input type="text" value="{{ $dato->departamentoNombre }}" placeholder="Escribe el nuevo departamento" class="form-control mb-3" name="departamentoNombre" id="departamentoNombre">
+                    
+                    <label for="departamentoCC" class="mb-3">Departamento de Centro de Costos:</label>
+                    <input type="text" value="{{ $dato->departamentoCC }}" placeholder="Departamento centro de costos" class="form-control mb-3" name="departamentoCC" id="departamentoCC">
+                    
+                    <label for="departamentoDescripcion" class="mb-3">Descripción del departamento:</label>
+                    <input type="text" value="{{ $dato->departamentoDescripcion }}" placeholder="Descripción" class="form-control mb-3" name="departamentoDescripcion" id="departamentoDescripcion">
+                    
+                    <label for="departamentoArea" class="mb-3">Area:</label>
+                <select class="form-select mb-3" aria-label="Seleccione el tipo de combustible"
+                    name="departamentoArea" id="departamentoArea">
+                    <option value="Set" {{ $dato->departamentoArea == 'Set' ? 'selected' : '' }}>Set
+                    </option>
+                    <option value="Operacion" {{ $dato->departamentoArea == 'Operacion' ? 'selected' : '' }}>Operacion
+                    </option>
+                    <option value="Ambos" {{ $dato->departamentoArea == 'Ambos' ? 'selected' : '' }}>Ambos
+                    </option>
+                </select>
 
-               <label for="departamentoDescripcion">Descripcion del departamento: </label>
-               <input type="text" value="{{$dato->departamentoDescripcion}}" placeholder="Descripcion" class="form-control" name="departamentoDescripcion" id="departamentoDescripcion">
-
-               <label for="deptoArea">Area: </label>
-               
-
-               <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
-                <input type="radio" class="btn-check" name="departamentoArea" id="departamentoArea1" value="set" autocomplete="on" checked>
-                <label class="btn btn-outline-primary" for="departamentoArea1">Set</label>
-              
-                <input type="radio" class="btn-check" name="departamentoArea" id="departamentoArea2" value="operacion" autocomplete="on">
-                <label class="btn btn-outline-primary" for="departamentoArea2">Operacion</label>
-              
-                <input type="radio" class="btn-check" name="departamentoArea" id="departamentoArea3" value="ambas" autocomplete="on">
-                <label class="btn btn-outline-primary" for="departamentoArea3">Ambas</label>
-              </div>
-              <input class="btn btn-primary" type="submit">
-              
+                    <br><br>
+                    <input class="btn btn-primary" type="submit">
+                </div>
             </div>
-
         </div>
     </div>
-</div>
-@endsection
+

@@ -39,7 +39,7 @@ class AreaController extends Controller
 
         $registrerArea->save();
 
-        return redirect('area');
+        return redirect('panel');
     }
 
     /**
@@ -72,7 +72,7 @@ class AreaController extends Controller
         $registrerArea->areaDescripcion = $request->areaDescripcion;
         $registrerArea->save();
 
-        return redirect('area');
+        return redirect('panel');
     }
 
     /**
