@@ -1,33 +1,23 @@
-@extends('layouts.app')
+<div class="row">
+    <div class="col-md-12">
+        <form>
+            <label for="areaNombre">Nombre de la área:</label>
+            <input type="text" value="{{ $dato->areaNombre }}" class="form-control" name="areaNombre" id="areaNombre"
+                placeholder="Escribe el nombre de la área">
 
-@section('content')
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-8">
-                <div class="card">
-                    <div class="card-header">{{ __('Editar Rol') }}</div>
-                    <p></p>
-                    Vista Areas Edicion
-                    <p></p>
-                    <label for="areaNombre">Nombre de la area: </label>
-                    <input type="text" value="{{ $dato->areaNombre }}" placeholder="Escribe el nombre de la area"
-                        class="form-control" name="areaNombre" id="areaNombre">
+            <label for="areaDepartamento">Área de Departamento:</label>
+            <select class="form-select" aria-label="Default select example" name="areaDepartamento"
+                id="areaDepartamento">
+                @foreach ($departamento as $datoDpto)
+                    <option value="{{ $datoDpto->id }}">{{ $datoDpto->departamentoNombre }}</option>
+                @endforeach
+            </select>
 
-                    <label for="areaDepartamento">Area de Departamento: </label>
-                    <select class="form-select" aria-label="Default select example" name="areaDepartamento"
-                        id="areaDepartamento">
-                        @foreach ($departamento as $datoDpto)
-                            <option value="{{ $datoDpto->id }}">{{ $datoDpto->departamentoNombre }}</option>
-                        @endforeach
-                    </select>
-
-                    <label for="areaDescripcion">Descripcion del area: </label>
-                    <input type="text" value="{{$dato->areaDescripcion}}" class="form-control" name="areaDescripcion" id="areaDescripcion">
-
-                    <input class="btn btn-primary" type="submit">
-                </div>
-            </div>
-        </div>
+            <label for="areaDescripcion">Descripción del área:</label>
+            <input type="text"  value="{{ $dato->areaDescripcion }}" class="form-control" name="areaDescripcion"
+                id="areaDescripcion">
+            <br>
+            <input class="btn btn-primary" type="submit">
+        </form>
     </div>
-    </div>
-@endsection
+</div>

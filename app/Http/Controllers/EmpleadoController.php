@@ -69,7 +69,7 @@ class EmpleadoController extends Controller
         $registrerEmpleado-> empleadoDepartamento =$request->empleadoDepartamento;
 
         $registrerEmpleado->save();
-        return redirect('empleado');
+        return redirect('panel');
     }
 
     /**
@@ -102,7 +102,7 @@ class EmpleadoController extends Controller
         $registrerEmpleado-> empleadoDepartamento =$request->empleadoDepartamento;
 
         $registrerEmpleado->save();
-        return redirect('empleado');
+        return redirect('panel');
     }
 
     /**

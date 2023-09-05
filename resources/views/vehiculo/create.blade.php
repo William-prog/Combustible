@@ -1,5 +1,5 @@
 <form action="{{ url('/vehiculo') }}" method="post" enctype="multipart/form-data">
     @csrf
-    @include('vehiculo.form');
+    @include('vehiculo.form')
 
 </form>

@@ -73,7 +73,7 @@ class VehiculosController extends Controller
         $registrerVehiculo-> vehiculoAño =$request->vehiculoAño;
         $registrerVehiculo-> vehiculoCombustible =$request->vehiculoCombustible;
         $registrerVehiculo->save();
-        return redirect('vehiculo');
+        return redirect('panel');
     }
 
     /**
@@ -89,6 +89,7 @@ class VehiculosController extends Controller
      */
     public function edit($id)
     {
+        
         $dato=vehiculos::findOrFail($id);
         return view('vehiculo.edit', compact('dato'));
     }
@@ -98,7 +99,7 @@ class VehiculosController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $registrerdepartamento = vehiculos::find($id);
+        $registrerVehiculo = vehiculos::find($id);
 
         $registrerVehiculo-> vehiculoEco =$request->vehiculoEco;
         $registrerVehiculo-> vehiculoPlacas =$request->vehiculoPlacas;
@@ -107,7 +108,7 @@ class VehiculosController extends Controller
         $registrerVehiculo-> vehiculoAño =$request->vehiculoAño;
         $registrerVehiculo-> vehiculoCombustible =$request->vehiculoCombustible;
         $registrerVehiculo->save();
-        return redirect('vehiculo');
+        return redirect('panel');
     }
 
     /**

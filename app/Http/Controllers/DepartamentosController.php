@@ -72,7 +72,7 @@ class DepartamentosController extends Controller
 
         $registrerdepartamento->save();
         
-        return redirect('departamento');
+        return redirect('panel');
     }
 
     /**
@@ -106,7 +106,7 @@ class DepartamentosController extends Controller
 
         $registrerdepartamento->save();
         
-        return redirect('departamento');
+        return redirect('panel');
     }
 
     /**

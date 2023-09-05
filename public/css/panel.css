@@ -1,0 +1,110 @@
+/* Estilos generales */
+body, html, ul, li {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background-color: white;
+    font-size: 16px;
+  
+}
+
+/* Contenido principal */
+.content {
+   
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1300px; /* Opcional: limita el ancho del contenido */
+}
+
+.main-content {
+    background-color: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+    font-size: 18px;
+}
+
+/* Contenedor de íconos */
+.icon-container {
+    display: flex;
+    justify-content: center; /* Centra los íconos horizontalmente */
+    align-items: center;
+    margin-top: 20px; /* Ajusta el margen superior */
+}
+
+/* Estilos para íconos */
+.icon-box {
+    width: 90px; /* Reduce el tamaño de los iconos */
+    height: 90px;
+    padding: 10px; /* Ajusta el espaciado */
+    margin: 10px;
+}
+
+.icon-box i {
+    font-size: 40px; /* Reduce el tamaño de los íconos */
+    padding: 10px; /* Ajusta el espaciado */
+}
+
+.icon-box i:hover {
+    color: #FF771F;
+    border-color: #242424;
+}
+
+.icon-label {
+    font-size: 13px;
+    margin-top: 5px; /* Ajusta el margen superior */
+}
+
+/* Botón */
+
+.btn:hover {
+    background-color: #242424;
+}
+
+/* Párrafos */
+p {
+    font-family: 'roboto', sans-serif;
+}
+
+/* Margen inferior para alinear elementos */
+.mb-3 {
+    text-align: center;
+}
+
+.panel-left {
+    position: sticky;
+    
+    top: 0;
+    left: 0;
+    width: 30%; 
+    height: 100%; 
+    z-index: 1; 
+    margin-right: 0px;
+    
+}
+
+.panel-right {
+    width: 70%;
+    background-color: #fff;
+    padding: 20px;
+   
+}
+
+
+.panel-main {
+    position: relative;
+    z-index: 4;
+}
+.btn,
+.btn:focus {
+    outline: none;
+    background-color: #FF771F;
+}
