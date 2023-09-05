@@ -1,23 +1,28 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-6">
-            <div class="card">
-                <div class="card-header">Subir Archivo</div>
-                <div class="card-body">
-                    <form>
-                        <div class="form-group">
-                            <label for="fileInput">Seleccionar archivo</label>
-                            <input type="file" class="form-control-file" id="fileInput">
-                        </div>
-                        <button type="submit" class="btn btn-primary">Subir</button>
-                    </form>
-                </div>
+    <div class="container">
+        <div class="card bg-light mt-3">
+            <div class="card-header">
+                Importar y Exportar Usando Laravel
+            </div>
+            <div class="card-body">
+                <form action="{{ route('import') }}" method="post" enctype="multipart/form-data">
+                    @csrf
+                    <input type="file" name="file" class="form-control">
+                    <br>
+                    <button class="btn btn-success">
+                        Import consumo Data
+                    </button>
+                    <a class="btn btn-warning" href="{{ route('export') }}">
+                        Export Consumo Data
+                    </a>
+                </form>
             </div>
         </div>
     </div>
-</div>
-@endsection
 
+    <div class="container mt-4">
+        @include('excel.tabla') <!-- Incluye la vista de la tabla -->
+    </div>
+@endsection

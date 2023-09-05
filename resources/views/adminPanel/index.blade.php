@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <link href="{{ asset('css/panel.css') }}" rel="stylesheet">
+    <link href="{{ asset('/css/panel.css') }}" rel="stylesheet">
     <script src="resources/js/scroll.js"></script>
 
     <div class="admin-panel  ">
@@ -48,7 +48,7 @@
 
                 </div>
 
-                <div class="accordion accordion-flush " id="accordionFlushExample">
+                <div class="accordion accordion-flush  " id="accordionFlushExample">
                     <div class="accordion-item">
                         <div id="flush-collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
                             <div class="accordion-body ">
@@ -73,7 +73,7 @@
                                         <div class="col-md-3 panel-left">
                                             @include('vehiculo.create')
                                         </div>
-                                        <div class="col-md-9 panel-rightx">
+                                        <div class="col-md-9 panel-right">
                                             @include('vehiculo.index')
                                         </div>
                                     </div>

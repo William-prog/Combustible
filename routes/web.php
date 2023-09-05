@@ -6,7 +6,8 @@ use App\Http\Controllers\AreaController;
 use App\Http\Controllers\EmpleadoController;
 use App\Http\Controllers\VehiculosController;
 use App\Http\Controllers\PanelAdminController;
-use App\Http\Controllers\archivoExcelController;
+use App\Http\Controllers\ConsumoController;
+
 
 
 /*
@@ -31,5 +32,15 @@ Route::resource('area', AreaController::class);
 Route::resource('panel', PanelAdminController::class);
 Route::resource('empleado', EmpleadoController::class);
 Route::resource('vehiculo', VehiculosController::class);
-Route::resource('excel', archivoExcelController::class);
+
+Route::resource('consumo', ConsumoController::class);
+
+Route::get('/file-import',[ConsumoController::class, 'importView'])->name('import');
+
+Route::post('/import',[ConsumoController::class, 'import'])->name('import');
+Route::get('/export-consumo',[ConsumoController::class,'exportConsumo'])->name('export');
+
+
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+

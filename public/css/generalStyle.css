@@ -13,10 +13,9 @@
 }
 
 body {
-    /* background: url('/img/background.jpg'); */
-    /* background-repeat: no-repeat; */
-    /* background-size: auto; */
-    
-    /* overflow-x: hidden !important;
-    overflow-y: scroll !important; */
+    background-image: url('/css/consumo.jpeg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    height: 100vh;
 }
