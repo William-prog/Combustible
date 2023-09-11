@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\departamentos;
+use App\Models\valeCombustible;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
 
 class DepartamentosController extends Controller
@@ -15,6 +18,37 @@ class DepartamentosController extends Controller
         $departamento = departamentos::all();
         return view('departamento.index', compact('departamento'));
     }
+    
+    public function fetchDep(Request $request)
+    {
+        if ($request->ajax()) {
+            $query = $request->get('query');
+
+
+            if ($query != '' && departamentos::where('id', '=', $query)->exists()) {
+                $response = DB::table('departamentos')->where('id', 'like', $query)->get();
+                $data = $response;
+
+                foreach ($data as $key) {
+                    $info = array(
+                        'valeCc' => $key->departamentoCC,
+                    );
+                }
+                echo json_encode($info);
+            } else {
+                if (strlen($query) == 3) {
+                    echo json_encode("NO HAY DEPARTAMENTOS REALACIONADO");
+                    $info = array(
+                        'valeCc' => '',
+                    );
+                }
+            }
+        }
+    }
+    
+
+    
+    
 
     /**
      * Show the form for creating a new resource.

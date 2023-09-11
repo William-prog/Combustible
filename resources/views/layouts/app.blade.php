@@ -12,6 +12,8 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -112,6 +114,170 @@
 
         <main class="py-4">
             @yield('content')
+            <script src="https://kit.fontawesome.com/df7aaa1fc6.js" crossorigin="anonymous"></script>
+            <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+                integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
+            </script>
+            <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+                integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+            </script>
+            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+                integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous">
+            </script>
+
+            <script src="{{ asset('js/navbar-responsive.js') }}"></script>
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+            <script>
+                function limitCar(element) {
+                    var max_chars = 2;
+                    if (element.value.length > max_chars) {
+                        element.value = element.value.substr(0, max_chars);
+                    }
+                }
+
+                $(document).ready(function() {
+                    fetchCar();
+                    // don´t allow user to submit if they´re
+                    // focused on any input field
+                    $(".form-control").keydown(function(e) {
+                        if (e.keyCode == 13) {
+                            e.preventDefault();
+                        }
+                    });
+
+                    function fetchCar(query = '') {
+                        $.ajax({
+                                url: "/callCar",
+                                context: this,
+                                method: 'GET',
+                                cache: false,
+                                data: {
+                                    query: query
+                                },
+                                dataType: 'json',
+                            })
+                            .done(function(data) {
+
+                                document.getElementById('valePlacas').value = data.valePlacas;
+                                document.getElementById('valeCombustible').value = data
+                                    .valeCombustible;
+                                document.getElementById('valeMarca').value = data
+                                    .valeMarca;
+                                document.getElementById('valeModelo').value = data
+                                    .valeModelo;
+                                document.getElementById('valeAño').value = data
+                                    .valeAño;
+
+                            });
+
+                        function callback() {
+                            $('#valePlacas').val(data.valePlacas);
+                        }
+                    }
+
+                    $(document).on('keyup', '#valeEconomico', function() {
+                        var query = $(this).val();
+                        fetchCar(query);
+
+                    });
+                });
+            </script>
+
+            {{--  Busca Empleados --}}
+            <script>
+                function limitEmp(element) {
+                    var max_chars = 2;
+                    if (element.value.length > max_chars) {
+                        element.value = element.value.substr(0, max_chars);
+                    }
+                }
+
+                $(document).ready(function() {
+                    fetchEmp();
+                    // don´t allow user to submit if they´re
+                    // focused on any input field
+                    $(".form-control").keydown(function(e) {
+                        if (e.keyCode == 13) {
+                            e.preventDefault();
+                        }
+                    });
+
+                    function fetchEmp(query = '') {
+                        $.ajax({
+                                url: "/callEmp",
+                                context: this,
+                                method: 'GET',
+                                cache: false,
+                                data: {
+                                    query: query
+                                },
+                                dataType: 'json',
+                            })
+                            .done(function(data) {
+
+                                document.getElementById('valeSolicitante').value = data.valeSolicitante;
+
+                            });
+
+                        function callback() {
+                            $('#valeSolicitante').val(data.valeSolicitante);
+                        }
+                    }
+
+                    $(document).on('keyup', '#valeNumero', function() {
+                        var query = $(this).val();
+                        fetchEmp(query);
+
+                    });
+                });
+            </script>
+
+            <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+            {{--  Busca Departamento --}}
+            <script>
+                function limitDep(element) {
+                    var max_chars = 2;
+                    if (element.value.length > max_chars) {
+                        element.value = element.value.substr(0, max_chars);
+                    }
+                }
+
+                $(document).ready(function() {
+                    fetchDep();
+                    // don´t allow user to submit if they´re
+                    // focused on any input field
+                    $(".form-control").keydown(function(e) {
+                        if (e.keyCode == 13) {
+                            e.preventDefault();
+                        }
+                    });
+
+                    function fetchDep(query = '') {
+                        $.ajax({
+                                url: "/callDep",
+                                context: this,
+                                method: 'GET',
+                                cache: false,
+                                data: {
+                                    query: query
+                                },
+                                dataType: 'json',
+                            })
+                            .done(function(data) {
+                               
+                                $('#valeCc').val(data.valeCc);
+                            });
+                    }
+
+                   
+                    $('#choice1').change(function() {
+                        var query = $(this).val();
+                        fetchDep(query);
+                    });
+                });
+            </script>
+
         </main>
     </div>
 </body>
