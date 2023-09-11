@@ -1,31 +1,37 @@
 <div class="row">
     <div class="col-md-12">
         <div  class="card ">
-            <div class="card-header  ">Registrar Vehiculo</div>
+            <div class="card-header mb-3"  style="background-color: #FF771F; color: white;"    >Registrar Vehiculo</div>
             <div class="card-body">
             
                 <form>
-                    <div class="mb-3">
+                    <div >
                         <label for="vehiculoEco" class="form-label">Número económico:</label>
                         <input type="text" class="form-control"  name="vehiculoEco" id="vehiculoEco" placeholder="">
                     </div>
-                    <div class="mb-3">
+                    <br>
+                    <div >
                         <label for="vehiculoPlacas" class="form-label">Placas:</label>
                         <input type="text" class="form-control"  name="vehiculoPlacas" id="vehiculoPlacas" placeholder="">
                     </div>
-                    <div class="mb-3">
+                    <br>
+                    <div >
                         <label for="vehiculoModelo" class="form-label">Modelo:</label>
                         <input type="text" class="form-control" name="vehiculoModelo" id="vehiculoModelo" placeholder="">
                     </div>
-                    <div class="mb-3">
+                    <br>
+                    <div >
                         <label for="vehiculoMarca" class="form-label">Marca:</label>
                         <input type="text" class="form-control"  name="vehiculoMarca" id="vehiculoMarca" placeholder="">
                     </div>
-                    <div class="mb-3">
+                    <br>
+                    <div >
                         <label for="vehiculoAño" class="form-label">Año:</label>
                         <input type="text" class="form-control"  name="vehiculoAño" id="vehiculoAño" placeholder="">
                     </div>
-                    <div class="mb-3">
+                    
+                    <br>
+                    <div class="mb-3" >
                         <label for="vehiculoCombustible" class="form-label">Combustible:</label>
                         <div class="mb-3 text-center">
                         <div class="btn-group" role="group" aria-label="Basic radio toggle button group">

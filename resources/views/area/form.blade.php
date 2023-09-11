@@ -3,14 +3,15 @@
 <div class="row ">
     <div class="col-md-12  ">
         <div class="card ">
-            <div class="card-header">{{ __('Registro Area') }}</div>
+            <div class="card-header mb-3"  style="background-color: #FF771F; color: white;">{{ __('Registro Area') }}</div>
             <div class="card-body">
                 <form>
-                    <div class="mb-3">
-                        <label for="areaNombre" class="form-label">Nombre de la área:</label>
+                    <div >
+                        <label for="areaNombre" class="form-label">Nombre :</label>
                         <input type="text" class="form-control" name="areaNombre" id="areaNombre" placeholder="Escribe el nombre de la área">
                     </div>
-                    <div class="mb-3">
+                    <br>
+                    <div >
                         <label for="areaDepartamento" class="form-label">Área de Departamento:</label>
                         <select class="form-select" aria-label="Default select example"name="areaDepartamento" id="areaDepartamento">
                             @foreach ($departamento as $dato)
@@ -18,10 +19,11 @@
                             @endforeach
                         </select>
                     </div>
-                    <div class="mb-3">
-                        <label for="areaDescripcion" class="form-label">Descripción del área:</label>
+                    <br>
+                    <div >
+                        <label for="areaDescripcion" class="form-label">Descripción:</label>
                         <input type="text" class="form-control" name="areaDescripcion" id="areaDescripcion" placeholder="Descripción">
-                    </div>
+                    </div> <br>
                     <div class="mb-3 text-center">
                     <button type="submit" class="btn btn-primary">Guardar</button>
                     </div>
