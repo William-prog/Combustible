@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\vehiculos;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
 
 class VehiculosController extends Controller
@@ -15,7 +17,40 @@ class VehiculosController extends Controller
         $vehiculo = vehiculos::all();
         return view('vehiculo.index', compact('vehiculo'));
     }
+    public function fetchCar(Request $request)
+    {
+        if ($request->ajax()) {
+            $query = $request->get('query');
 
+
+            if ($query != '' && vehiculos::where('vehiculoEco', '=', $query)->exists()) {
+                $response = DB::table('vehiculos')->where('vehiculoEco', 'like', $query)->get();
+                $data = $response;
+                foreach ($data as $key) {
+                    $info = array(
+                        'valePlacas' => $key->vehiculoPlacas,
+                        'valeCombustible'=>$key->vehiculoCombustible,
+                        'valeMarca'=>$key->vehiculoMarca,
+                        'valeModelo' => $key->vehiculoModelo,
+                        'valeAño' =>$key->vehiculoAño,
+                    );
+                }
+                echo json_encode($info);
+            } else {
+                if (strlen($query) == 3) {
+                    echo json_encode("NO HAY VEHICULO RELACIONADO");
+                    $info = array(
+                        'valePlacas' => '',
+                        'valeCombustible' => '',
+                        'valeMarca' => '',
+                        'valeModelo' => '',
+                        'valeAño' => '',
+                       
+                    );
+                }
+            }
+        }
+    }
     /**
      * Show the form for creating a new resource.
      */

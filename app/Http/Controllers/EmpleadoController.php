@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\empleado;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 use App\Models\departamentos;
 use Illuminate\Http\Request;
 
@@ -16,6 +18,33 @@ class EmpleadoController extends Controller
         $empleado = empleado::all();
         $departamento = departamentos::all();
         return view('empleado.index', compact('empleado', 'departamento'));
+    }
+
+    public function fetchEmp(Request $request)
+    {
+        if ($request->ajax()) {
+            $query = $request->get('query');
+
+
+            if ($query != '' && empleado::where('empleadoNumero', '=', $query)->exists()) {
+                $response = DB::table('empleados')->where('empleadoNumero', 'like', $query)->get();
+                $data = $response;
+
+                foreach ($data as $key) {
+                    $info = array(
+                        'valeSolicitante' => $key->empleadoNombre,
+                    );
+                }
+                echo json_encode($info);
+            } else {
+                if (strlen($query) == 3) {
+                    echo json_encode("NO HAY EMPLEADO REALACIONADO");
+                    $info = array(
+                        'valeSolicitante' => '',
+                    );
+                }
+            }
+        }
     }
 
     /**
