@@ -1,4 +1,4 @@
-
+<script src="resources/js/error.js"></script>
 <div class="row">
     <div class="col-md-12">
         <div class="card ">
@@ -6,24 +6,24 @@
             <div class="card-body">
                
                 <form>
-                    <div >
+                    <div>
                         <label for="empleadoNumero" class="form-label" style="text-align: left;">Número:</label>
-                        <input type="text" class="form-control" name="empleadoNumero" id="empleadoNumero" placeholder="">
+                        <input type="text" class="form-control" name="empleadoNumero" id="empleadoNumero" placeholder="" pattern="\d+" title="Solo se permiten números"required>
                     </div>
                     <br>
                     <div >
                         <label for="empleadoNombre" class="form-label">Nombre:</label>
-                        <input type="text" class="form-control" name="empleadoNombre" id="empleadoNombre" placeholder="">
+                        <input type="text" class="form-control" name="empleadoNombre" id="empleadoNombre" placeholder=""required>
                     </div>
                     <div >
                         <br>
                         <label for="empleadoPuesto" class="form-label">Puesto:</label>
-                        <input type="text" class="form-control" name="empleadoPuesto" id="empleadoPuesto" placeholder="">
+                        <input type="text" class="form-control" name="empleadoPuesto" id="empleadoPuesto" placeholder=""required>
                     </div>
                     <br>
                     <div >
                         <label for="empleadoDepartamento" class="form-label">Departamento:</label>
-                        <select class="form-select" aria-label="Default select example" name="empleadoDepartamento" id="empleadoDepartamento">
+                        <select class="form-select" aria-label="Default select example" name="empleadoDepartamento" id="empleadoDepartamento"required>
                             @foreach ($departamento as $dato)
                                 <option value="{{ $dato->id }}">{{ $dato->departamentoNombre }}</option>
                             @endforeach

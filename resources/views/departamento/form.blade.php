@@ -8,18 +8,18 @@
                     <div >
                         <label for="departamentoNombre" class="form-label">Nombre:</label>
                         <input type="text" class="form-control" name="departamentoNombre" id="departamentoNombre"
-                            placeholder="Escribe el departamento">
+                            placeholder="Escribe el departamento"required>
                     </div> 
                     <br>
                     <div >
                         <label for="departamentoCC" class="form-label">Centro de Costos:</label>
-                        <input type="text" class="form-control" name="departamentoCC" id="departamentoCC" placeholder="Departamento CC">
+                        <input type="text" class="form-control" name="departamentoCC" id="departamentoCC" placeholder="Departamento CC"pattern="\d+" title="Solo se permiten números"required>
                     </div>
                     <br>
                     <div >
                         <label for="departamentoDescripcion" class="form-label">Descripción :</label>
                         <input type="text" class="form-control" name="departamentoDescripcion" id="departamentoDescripcion"
-                            placeholder="Descripción del departamento">
+                            placeholder="Descripción del departamento"required>
                     </div> 
                     <br>
                     <div class="mb-3">

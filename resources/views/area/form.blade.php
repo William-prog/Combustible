@@ -8,7 +8,7 @@
                 <form>
                     <div >
                         <label for="areaNombre" class="form-label">Nombre :</label>
-                        <input type="text" class="form-control" name="areaNombre" id="areaNombre" placeholder="Escribe el nombre de la área">
+                        <input type="text" class="form-control" name="areaNombre" id="areaNombre" placeholder="Escribe el nombre de la área"required>
                     </div>
                     <br>
                     <div >
@@ -22,7 +22,7 @@
                     <br>
                     <div >
                         <label for="areaDescripcion" class="form-label">Descripción:</label>
-                        <input type="text" class="form-control" name="areaDescripcion" id="areaDescripcion" placeholder="Descripción">
+                        <input type="text" class="form-control" name="areaDescripcion" id="areaDescripcion" placeholder="Descripción"required>
                     </div> <br>
                     <div class="mb-3 text-center">
                     <button type="submit" class="btn btn-primary">Guardar</button>

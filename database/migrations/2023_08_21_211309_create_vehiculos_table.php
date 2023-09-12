@@ -13,11 +13,11 @@ return new class extends Migration
     {
         Schema::create('vehiculos', function (Blueprint $table) {
             $table->id();
-            $table->string('vehiculoEco')->nullable();
+            $table->integer('vehiculoEco')->nullable();
             $table->string('vehiculoPlacas')->nullable();
             $table->string('vehiculoModelo')->nullable();
             $table->string('vehiculoMarca')->nullable();
-            $table->string('vehiculoAño')->nullable();
+            $table->year('vehiculoAño')->nullable();
             $table->string('vehiculoCombustible')->nullable();
 
             $table->timestamps();
