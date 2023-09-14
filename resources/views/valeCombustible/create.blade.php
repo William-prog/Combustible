@@ -1,4 +1,4 @@
-<form action="{{ url('/ValeCombustible') }}" method="post" enctype="multipart/form-data">
+<form action="{{ url('/valeCombustible') }}" method="post" enctype="multipart/form-data">
     @csrf
     @include('valeCombustible.form');
 
