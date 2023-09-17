@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('vale_combustibles', function (Blueprint $table) {
             $table->id();
+            $table->String('valeEstado')->nullable();
             $table->date('valeFecha')->nullable();
             $table->String('valeNumero')->nullable();
             $table->String('valeSolicitante')->nullable();
