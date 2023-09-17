@@ -1,0 +1,49 @@
+/* Estilos para la tabla */
+.table-style {
+    width: 120%;
+    max-width: 100%;
+    overflow-x: auto;
+}
+
+.table-style th, .table-style td {
+    border: 1px solid black;
+    padding: 8px;
+    text-align: center;
+    vertical-align: middle; /* Centrar verticalmente el contenido */
+}
+
+.table-style th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+    padding: 20px; /* Ajusta el espaciado aquí según tus preferencias */
+    text-align: center; /* Centrar horizontalmente el encabezado */
+    border: 1px solid #ccc;
+    vertical-align: middle; /* Centrar verticalmente el encabezado */
+}
+
+/* Estilo para la cabecera de la tabla */
+.table-style th {
+    background-color: black;
+    font-weight: bold;
+    color: white; /* Cambia el color del texto de la cabecera */
+}
+
+/* Estilo para las celdas pares */
+.table-style tr:nth-child(even) {
+    background-color: #ffe5b4;
+}
+
+h1 {
+    text-align: center;
+}
+
+/* Estilo para las celdas de fecha con mayor padding */
+.thFecha {
+    padding: 100px; /* Ajusta el espaciado aquí según tus preferencias */
+}
+
+/* Estilo para centrar horizontalmente el contenido en las celdas */
+.table-style th,
+.table-style td {
+    text-align: center;
+}
