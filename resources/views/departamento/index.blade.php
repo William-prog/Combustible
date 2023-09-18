@@ -7,9 +7,9 @@
                     <table class="table table-striped custom-table">
                                 <thead>
                                     <tr style="background-color: #FF771F; color: white;">
-                                    <th>Nombre del departamento</th>
-                                    <th>Departamento de Centro de Costos</th>
-                                    <th>Descripcion del departamento</th>
+                                    <th>Departamento</th>
+                                    <th>Centro de Costos</th>
+                                    <th>Descripcion</th>
                                     <th>Area de departamento</th>
                                     <th>Acciones</th>
                                     </tr>

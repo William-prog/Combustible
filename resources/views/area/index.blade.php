@@ -8,9 +8,9 @@
                     <table class="table table-striped custom-table">
                         <thead>
                             <tr style="background-color: #FF771F; color: white;">
-                                <th>Nombre del área</th>
+                                <th>Area</th>
                                 <th>Departamento del área</th>
-                                <th>Descripción del área</th>
+                                <th>Descripción</th>
                                 <th>Acciones</th>
                             </tr>
                         </thead>
@@ -51,9 +51,7 @@
                         </tbody>
                     </table>
                 </div>
-
-
-
+            
             </div>
         </div>
     </div>

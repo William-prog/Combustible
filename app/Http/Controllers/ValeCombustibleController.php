@@ -100,26 +100,7 @@ class ValeCombustibleController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $ActualizarVale = valeCombustible::find($id);
-        $ActualizarVale->valeFecha =$request->valeFecha ;
-        $ActualizarVale->valeNumero =$request->valeNumero ;
-        $ActualizarVale->valeSolicitante =$request->valeSolicitante ;
-        $ActualizarVale->valeDepartamento =$request->valeDepartamento ;
-        $ActualizarVale->valeArea =$request->valeArea ;
-        $ActualizarVale->valeCc =$request->valeCc ;
-
-        $ActualizarVale->valeEconomico =$request->valeEconomico ;
-        $ActualizarVale->valePlacas =$request->valePlacas ;
-        $ActualizarVale->valeCombustible =$request->valeCombustible ;
-        $ActualizarVale->valeMarca =$request->valeMarca ;
-        $ActualizarVale->valeModelo =$request->valeModelo ;
-        $ActualizarVale->valeAño =$request->valeAño ;
-        $ActualizarVale->valeKilometraje =$request->valeKilometraje ;
-        $ActualizarVale->valeLitros =$request->valeLitros ;
-        $ActualizarVale->valeCantidad =$request->valeCantidad ;
-        $ActualizarVale->save();
-        return redirect('valeCombustible');
-
+        
     }
 
     /**

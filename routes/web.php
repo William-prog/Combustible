@@ -36,6 +36,11 @@ Route::resource('empleado', EmpleadoController::class);
 Route::resource('vehiculo', VehiculosController::class);
 Route::resource('valeCombustible', ValeCombustibleController::class);
 
+<<<<<<< HEAD
+=======
+Route::post('/valeCombustible/{id}','ValeCombustibleController@update')->name('valeCombustible.update');
+
+>>>>>>> 1e5818d99992744c2bdb4a9304ebff8b8e859672
 Route::get('callCar',[VehiculosController::class,'fetchCar']); 
 Route::get('callEmp',[EmpleadoController::class,'fetchEmp']);
 Route::get('callDep',[DepartamentosController::class,'fetchDep']);

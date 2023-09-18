@@ -35,22 +35,25 @@ body {
 /* Contenedor de íconos */
 .icon-container {
     display: flex;
-    justify-content: center; /* Centra los íconos horizontalmente */
+    justify-content: center; 
     align-items: center;
-    margin-top: 20px; /* Ajusta el margen superior */
+    margin-top: 20px; 
+    flex-wrap: wrap;
+    gap: 20px;
+    text-align: center;
 }
 
-/* Estilos para íconos */
+
 .icon-box {
-    width: 90px; /* Reduce el tamaño de los iconos */
+    width: 90px; 
     height: 90px;
-    padding: 10px; /* Ajusta el espaciado */
+    padding: 10px; 
     margin: 10px;
 }
 
 .icon-box i {
-    font-size: 40px; /* Reduce el tamaño de los íconos */
-    padding: 10px; /* Ajusta el espaciado */
+    font-size: 40px; 
+    padding: 10px; 
 }
 
 .icon-box i:hover {
@@ -70,9 +73,12 @@ body {
 }
 
 /* Párrafos */
+
 p {
-    font-family: 'roboto', sans-serif;
+    font-family: 'Arial', sans-serif;
 }
+
+
 
 /* Margen inferior para alinear elementos */
 .mb-3 {
@@ -106,5 +112,15 @@ p {
 .btn,
 .btn:focus {
     outline: none;
-    background-color: #FF771F;
+    /* background-color: #FF771F; */ /* Comenta o elimina esta línea */
+    background: #FF771F;
+    color: white    ;
+}
+
+.icon-orange {
+    color: #FF771F;
+}
+
+.form-label{
+    text-align: left;
 }

@@ -16,17 +16,17 @@ return new class extends Migration
 
             $table->id();
             $table->string('placas')->nullable();
-            $table->string('numeroTicket')->nullable();
+            $table->biginteger('numeroTicket')->nullable();
             $table->string('descripcion')->nullable();
-            $table->string('numeroVale')->nullable();
+            $table->bigInteger('numeroVale')->nullable();
             $table->string('CC')->nullable();
-            $table->string('fecha')->nullable();
+            $table->date('fecha')->nullable();
 
             $table->string('operador')->nullable();
             $table->string('producto')->nullable();
-            $table->string('litros')->nullable();
-            $table->string('precioLitro')->nullable();
-            $table->string('total')->nullable();
+            $table->double('litros')->nullable();
+            $table->double('precioLitro')->nullable();
+            $table->double('total')->nullable();
 
             $table->timestamps();
         });

@@ -16,6 +16,7 @@ class AreaController extends Controller
         $area = area::all();
         $departamento = departamentos::all();
         return view('area.index', compact('area','departamento'));
+        
     }
 
     /**
