@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\Models\valeCombustible;
 use App\Http\Controllers\Controller;
 use App\Models\departamentos;
@@ -20,17 +21,17 @@ class ValeCombustibleController extends Controller
         $departamento = departamentos::all();
         $empleado = empleado::all();
         $fechaActual = Carbon::now();
-        return view ('valeCombustible.index', compact('vale','departamento','empleado'));
+        return view('valeCombustible.index', compact('vale', 'departamento', 'empleado'));
     }
-   
-    public function actualizarEstado($id, Request $request) 
+
+    public function actualizarEstado($id, Request $request)
     {
         $estadoSeleccionado = $request->input('estadoSeleccionado');
         $dato = valeCombustible::find($id);
         $dato->valeEstado = $estadoSeleccionado;
         $dato->save();
-    return redirect()->route('valeCombustible')->with('mensaje', 'Estado actualizado con éxito');
-}
+        return redirect()->route('valeCombustible')->with('mensaje', 'Estado actualizado con éxito');
+    }
 
     /**
      * Show the form for creating a new resource.
@@ -41,7 +42,7 @@ class ValeCombustibleController extends Controller
         $area = area::all();
         $empleado = empleado::all();
         $fechaActual = Carbon::now();
-        return view('valeCombustible.create',compact('departamento','fechaActual','empleado', 'area'));
+        return view('valeCombustible.create', compact('departamento', 'fechaActual', 'empleado', 'area'));
     }
 
 
@@ -51,22 +52,22 @@ class ValeCombustibleController extends Controller
     public function store(Request $request)
     {
         $registrerVale = new valeCombustible();
-        $registrerVale->valeFecha =$request->valeFecha ;
-        $registrerVale->valeNumero =$request->valeNumero ;
-        $registrerVale->valeSolicitante =$request->valeSolicitante ;
-        $registrerVale->valeDepartamento =$request->valeDepartamento ;
-        $registrerVale->valeArea =$request->valeArea ;
-        $registrerVale->valeCc =$request->valeCc ;
+        $registrerVale->valeFecha = $request->valeFecha;
+        $registrerVale->valeNumero = $request->valeNumero;
+        $registrerVale->valeSolicitante = $request->valeSolicitante;
+        $registrerVale->valeDepartamento = $request->valeDepartamento;
+        $registrerVale->valeArea = $request->valeArea;
+        $registrerVale->valeCc = $request->valeCc;
 
-        $registrerVale->valeEconomico =$request->valeEconomico ;
-        $registrerVale->valePlacas =$request->valePlacas ;
-        $registrerVale->valeCombustible =$request->valeCombustible ;
-        $registrerVale->valeMarca =$request->valeMarca ;
-        $registrerVale->valeModelo =$request->valeModelo ;
-        $registrerVale->valeAño =$request->valeAño ;
-        $registrerVale->valeKilometraje =$request->valeKilometraje ;
-        $registrerVale->valeLitros =$request->valeLitros ;
-        $registrerVale->valeCantidad =$request->valeCantidad ;
+        $registrerVale->valeEconomico = $request->valeEconomico;
+        $registrerVale->valePlacas = $request->valePlacas;
+        $registrerVale->valeCombustible = $request->valeCombustible;
+        $registrerVale->valeMarca = $request->valeMarca;
+        $registrerVale->valeModelo = $request->valeModelo;
+        $registrerVale->valeAño = $request->valeAño;
+        $registrerVale->valeKilometraje = $request->valeKilometraje;
+        $registrerVale->valeLitros = $request->valeLitros;
+        $registrerVale->valeCantidad = $request->valeCantidad;
 
         $registrerVale->valeEstado =  'Pendiente';
 
@@ -92,7 +93,7 @@ class ValeCombustibleController extends Controller
         $departamento = departamentos::all();
         $empleado = empleado::all();
         $fechaActual = Carbon::now();
-        return view('valeCombustible.edit', compact('dato','departamento','empleado'));
+        return view('valeCombustible.edit', compact('dato', 'departamento', 'empleado'));
     }
 
     /**
@@ -101,25 +102,10 @@ class ValeCombustibleController extends Controller
     public function update(Request $request, $id)
     {
         $ActualizarVale = valeCombustible::find($id);
-        $ActualizarVale->valeFecha =$request->valeFecha ;
-        $ActualizarVale->valeNumero =$request->valeNumero ;
-        $ActualizarVale->valeSolicitante =$request->valeSolicitante ;
-        $ActualizarVale->valeDepartamento =$request->valeDepartamento ;
-        $ActualizarVale->valeArea =$request->valeArea ;
-        $ActualizarVale->valeCc =$request->valeCc ;
-
-        $ActualizarVale->valeEconomico =$request->valeEconomico ;
-        $ActualizarVale->valePlacas =$request->valePlacas ;
-        $ActualizarVale->valeCombustible =$request->valeCombustible ;
-        $ActualizarVale->valeMarca =$request->valeMarca ;
-        $ActualizarVale->valeModelo =$request->valeModelo ;
-        $ActualizarVale->valeAño =$request->valeAño ;
-        $ActualizarVale->valeKilometraje =$request->valeKilometraje ;
-        $ActualizarVale->valeLitros =$request->valeLitros ;
-        $ActualizarVale->valeCantidad =$request->valeCantidad ;
+        $ActualizarVale->valeEstado = $request->valeEstado; // Actualizar el estado con el valor del radio button
         $ActualizarVale->save();
-        return redirect('valeCombustible');
 
+        return redirect('valeCombustible');
     }
 
     /**
