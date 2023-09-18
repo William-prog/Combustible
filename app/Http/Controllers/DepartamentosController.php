@@ -7,12 +7,27 @@ use App\Models\valeCombustible;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Crypt;
 
 class DepartamentosController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
+
+
+     public function showEncriptado($departamento_encriptado)
+    {
+        try {
+            $departamento_id = Crypt::decrypt($departamento_encriptado);
+            $departamento = departamentos::findOrFail($departamento_id);
+            // Realiza cualquier otra lógica que necesites para mostrar el recurso
+            return view('departamentos.show', compact('departamento'));
+        } catch (\Illuminate\Contracts\Encryption\DecryptException $e) {
+            // Manejar el error de descifrado aquí
+        }
+    }
+     
     public function index()
     {
         $departamento = departamentos::all();

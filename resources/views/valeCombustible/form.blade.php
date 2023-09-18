@@ -2,7 +2,7 @@
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-md-6">
+            <div class="col-md-9">
                 <div class="card">
                     <div class="card-header">Datos del Solicitante</div>
                     <div class="card-body">
@@ -23,12 +23,10 @@
                             @endforeach
                         </select>
 
-                        <label for="valeArea">Area:</label>
-                        <select class="form-select" aria-label="Default select example" name="valeArea" id="choice2">
-                            @foreach ($area as $datoA)
-                                <option data-option="{{ $datoA->areaDepartamento }}" value="{{ $datoA->areaNombre }}">
-                                    {{ $datoA->areaNombre }}
-                                </option>
+                        <label for="areaDepartamento" class="form-label">Área de Departamento:</label>
+                        <select class="form-select" aria-label="Default select example"name="areaDepartamento" id="areaDepartamento">
+                            @foreach ($departamento as $dato)
+                                <option value="{{ $dato->id }}">{{ $dato->departamentoNombre }}</option>
                             @endforeach
                         </select>
 
@@ -59,7 +57,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-6">
+            <div class="col-md-3">
                 <div class="card">
                     <div class="card-header">Datos del Vehículo</div>
                     <div class="card-body">
@@ -96,3 +94,27 @@
         </div>
     </div>
 @endsection
+
+<script>
+    // Importa la biblioteca para convertir números a palabras
+    const toWords = require('to-words');
+  
+    // Función para actualizar el campo "valeCantidad" al escribir en "valeLitros"
+    document.getElementById('valeLitros').addEventListener('input', function () {
+      const valeLitros = parseFloat(this.value);
+      
+      if (!isNaN(valeLitros)) {
+        const valeCantidad = toWords(valeLitros, { locale: 'es' }); // Puedes especificar el idioma que prefieras
+        document.getElementById('valeCantidad').value = valeCantidad;
+      } else {
+        document.getElementById('valeCantidad').value = '';
+      }
+    });
+
+    document.getElementById('valeLitros').addEventListener('input', function () {
+    console.log('Evento input activado'); // Agrega esta línea para depurar
+    // Resto del código
+});
+
+  </script>
+  
