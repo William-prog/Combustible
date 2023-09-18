@@ -2,7 +2,7 @@
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-md-9">
+            <div class="col-md-6">
                 <div class="card">
                     <div class="card-header">Datos del Solicitante</div>
                     <div class="card-body">
@@ -23,27 +23,29 @@
                             @endforeach
                         </select>
 
-                        <label for="areaDepartamento" class="form-label">Área de Departamento:</label>
-                        <select class="form-select" aria-label="Default select example"name="areaDepartamento" id="areaDepartamento">
-                            @foreach ($departamento as $dato)
-                                <option value="{{ $dato->id }}">{{ $dato->departamentoNombre }}</option>
+                        <label for="valeArea">Area:</label>
+                        <select class="form-select" aria-label="Default select example" name="valeArea" id="choice2">
+                            @foreach ($area as $datoA)
+                                <option data-option="{{ $datoA->areaDepartamento }}" value="{{ $datoA->areaNombre }}">
+                                    {{ $datoA->areaNombre }}
+                                </option>
                             @endforeach
                         </select>
 
-                        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-                        <script>
-                            function filter_options() {
-                                if (typeof $("#choice1").data('options') === "undefined") {
-                                    $("#choice1").data('options', $('#choice2 option').clone());
-                                }
-                                var id = $("#choice1").val();
-                                var options = $("#choice1").data('options').filter('[data-option=' + id + ']');
-                                $('#choice2').html(options);
-                            }
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script>
+        function filter_options() {
+            if (typeof $("#choice1").data('options') === "undefined") {
+                $("#choice1").data('options', $('#choice2 option').clone());
+            }
+            var id = $("#choice1").val();
+            var options = $("#choice1").data('options').filter('[data-option=' + id + ']');
+            $('#choice2').html(options);
+        }
 
-                            $(function() {
-                                //Ejecutar el filtro la primera vez
-                                filter_options();
+        $(function() {
+            //Ejecutar el filtro la primera vez
+            filter_options();
 
                                 //actualizar al cambiar el factor
                                 $("#choice1").change(function() {
@@ -57,7 +59,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-6">
                 <div class="card">
                     <div class="card-header">Datos del Vehículo</div>
                     <div class="card-body">
