@@ -8,6 +8,7 @@ use App\Http\Controllers\VehiculosController;
 use App\Http\Controllers\ValeCombustibleController;
 use App\Http\Controllers\PanelAdminController;
 use App\Http\Controllers\ConsumoController;
+use Illuminate\Support\Facades\Crypt;
 
 
 
@@ -38,6 +39,8 @@ Route::resource('valeCombustible', ValeCombustibleController::class);
 
 Route::post('/valeCombustible/{id}','ValeCombustibleController@update')->name('valeCombustible.update');
 
+Route::resource('panel', PanelAdminController::class);
+
 Route::get('callCar',[VehiculosController::class,'fetchCar']); 
 Route::get('callEmp',[EmpleadoController::class,'fetchEmp']);
 Route::get('callDep',[DepartamentosController::class,'fetchDep']);
@@ -53,5 +56,4 @@ Route::get('/export-consumo',[ConsumoController::class,'exportConsumo'])->name('
 
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
 
