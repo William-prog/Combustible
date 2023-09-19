@@ -28,7 +28,7 @@ return new class extends Migration
             $table->String('valeModelo')->nullable();
             $table->String('valeAño')->nullable();
             $table->String('valeKilometraje')->nullable();
-            $table->date('valeLitros')->nullable();
+            $table->integer('valeLitros')->nullable();
             $table->String('valeCantidad')->nullable();
             $table->timestamps();
 

@@ -62,8 +62,9 @@
                                     <a href="{{ route('register') }}">{{ __('Crear cuenta   ') }}<i
                                             class="fas fa-user-plus"></i></a>
                                 </li>
+                                
                             @else
-                                <li style="font-size: 12px;" class="dropdown">
+                                {{-- <li style="font-size: 12px;" class="dropdown">
                                     <a href="#" class="sub-menu-toggle">
                                         {{ __('A ') }} <span class="caret"><i class="fas fa-indent"></i></span>
                                     </a>
@@ -76,6 +77,7 @@
                                             <a href="/estadisticas" style="cursor: pointer">{{ __('A2 ') }}<i
                                                     class="fas fa-paste"></i></a>
                                         </li>
+                                        
                                     </ul>
                                 </li>
 
@@ -89,7 +91,49 @@
                                                     class="fas fa-folder-plus"></i></a>
                                         </li>
                                     </ul>
+                                </li> --}}
+
+                                <li style="font-size: 12px;" class="dropdown">
+                                    <a href="#" class="sub-menu-toggle">
+                                        {{ __('Vales') }} <span class="caret"><i class="fas fa-indent"></i></span>
+                                    </a>
+                                    <ul class="sub-menu">
+                                        <li>
+                                            <a href="{{ route('valeCombustible.create') }}" style="cursor: pointer">{{ __('Crear ') }}<i class="fas fa-folder-plus"></i></a>
+                                        </li>
+
+                                        <li>
+                                            <a href="{{ route('valeCombustible.index') }}" style="cursor: pointer">{{ __('index ') }}<i class="fas fa-folder-plus"></i></a>
+                                        </li>
+                                       
+                                    </ul>
                                 </li>
+
+
+                                <li style="font-size: 12px;" class="dropdown">
+                                    <a href="#" class="sub-menu-toggle">
+                                        {{ __('Panel') }} <span class="caret"><i class="fas fa-indent"></i></span>
+                                    </a>
+                                    <ul class="sub-menu">
+                                        <li>
+                                            <a href="{{ route('panel.index') }}" style="cursor: pointer">{{ __('Panel De Administrador ') }}<i class="fas fa-folder-plus"></i></a>
+                                        </li>
+
+                                    </ul>
+                                </li>
+
+                                <li style="font-size: 12px;" class="dropdown">
+                                    <a href="#" class="sub-menu-toggle">
+                                        {{ __('Excel') }} <span class="caret"><i class="fas fa-indent"></i></span>
+                                    </a>
+                                    <ul class="sub-menu">
+                                        <li>
+                                            <a href="{{ route('consumo.index') }}" style="cursor: pointer">{{ __('Excel ') }}<i class="fas fa-folder-plus"></i></a>
+                                        </li>
+
+                                    </ul>
+                                </li>
+
 
                                 <li>
                                     <a href="{{ route('logout') }}"

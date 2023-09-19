@@ -1,4 +1,4 @@
-<form action="{{url('/valeCombustible/'.$dato->id) }}" method="post">
+<form action="{{url('/valeCombustible/'.$datoSolicitante->id) }}" method="post">
     @csrf
     {{ method_field('PATCH') }}
     @include('valeCombustible.formEdit')
