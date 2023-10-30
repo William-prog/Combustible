@@ -7,6 +7,7 @@ use App\Http\Controllers\EmpleadoController;
 use App\Http\Controllers\VehiculosController;
 use App\Http\Controllers\ValeCombustibleController;
 use App\Http\Controllers\PanelAdminController;
+use App\Http\Controllers\Estadistica;
 use App\Http\Controllers\ConsumoController;
 use App\Http\Controllers\EstadisticaController;
 use Illuminate\Support\Facades\Crypt;
@@ -37,6 +38,11 @@ Route::resource('panel', PanelAdminController::class);
 Route::resource('empleado', EmpleadoController::class);
 Route::resource('vehiculo', VehiculosController::class);
 Route::resource('valeCombustible', ValeCombustibleController::class);
+Route::resource('estadistica', Estadistica::class);
+
+
+
+
 
 Route::resource('estadistica',EstadisticaController::class);
 
@@ -51,6 +57,8 @@ Route::get('callDep',[DepartamentosController::class,'fetchDep']);
 Route::resource('consumo', ConsumoController::class);
 
 Route::get('/file-import',[ConsumoController::class, 'importView'])->name('import');
+
+
 
 Route::post('/import',[ConsumoController::class, 'import'])->name('import');
 Route::get('/export-consumo',[ConsumoController::class,'exportConsumo'])->name('export');

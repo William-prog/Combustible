@@ -55,13 +55,15 @@
                     <div class="navbar-navigation">
                         <ul>
                             @guest
-                            <li>
-                                <a href="{{ route('login') }}">{{ __('Iniciar sesión    ') }}<i class="fas fa-sign-in-alt"></i></a>
-                            </li>
-                            <li>
-                                <a href="{{ route('register') }}">{{ __('Crear cuenta   ') }}<i class="fas fa-user-plus"></i></a>
-                            </li>
-
+                                <li>
+                                    <a href="{{ route('login') }}">{{ __('Iniciar sesión    ') }}<i
+                                            class="fas fa-sign-in-alt"></i></a>
+                                </li>
+                                <li>
+                                    <a href="{{ route('register') }}">{{ __('Crear cuenta   ') }}<i
+                                            class="fas fa-user-plus"></i></a>
+                                </li>
+                                
                             @else
                             {{-- <li style="font-size: 12px;" class="dropdown">
                                     <a href="#" class="sub-menu-toggle">
@@ -78,64 +80,55 @@
                             </ul>
                             </li>
 
-                            <li style="font-size: 12px;" class="dropdown">
-                                <a href="#" class="sub-menu-toggle">
-                                    {{ __('B') }} <span class="caret"><i class="fas fa-indent"></i></span>
-                                </a>
-                                <ul class="sub-menu">
-                                    <li>
-                                        <a href="/evaluacion/create" style="cursor: pointer">{{ __('B1 ') }}<i class="fas fa-folder-plus"></i></a>
-                                    </li>
-                                </ul>
-                            </li> --}}
+                                <li style="font-size: 12px;" class="dropdown">
+                                    <a href="#" class="sub-menu-toggle">
+                                        {{ __('B') }} <span class="caret"><i class="fas fa-indent"></i></span>
+                                    </a>
+                                    <ul class="sub-menu">
+                                        <li>
+                                            <a href="/evaluacion/create" style="cursor: pointer">{{ __('B1 ') }}<i
+                                                    class="fas fa-folder-plus"></i></a>
+                                        </li>
+                                    </ul>
+                                </li> --}}
 
-                            <li style="font-size: 12px;" class="dropdown">
-                                <a href="#" class="sub-menu-toggle">
-                                    {{ __('Estadisticas') }} <span class="caret"><i class="fas fa-chart-line"></i></span>
-                                </a>
-                                <ul class="sub-menu">
-                                    <li>
-                                        <a href="{{ route('estadistica.index') }}" style="cursor: pointer">{{ __('Graficas ') }}<i class="fas fa-signal"></i></a>
-                                    </li>
-                                </ul>
-                            </li>
+                                <li style="font-size: 12px;" class="dropdown">
+                                    <a href="#" class="sub-menu-toggle">
+                                        {{ __('Vales') }} <span class="caret"><i class="fas fa-indent"></i></span>
+                                    </a>
+                                    <ul class="sub-menu">
+                                        <li>
+                                            <a href="{{ route('valeCombustible.create') }}" style="cursor: pointer">{{ __('Crear ') }}<i class="fas fa-folder-plus"></i></a>
+                                        </li>
 
-                            <li style="font-size: 12px;" class="dropdown">
-                                <a href="#" class="sub-menu-toggle">
-                                    {{ __('Vales') }} <span class="caret"><i class="fas fa-wallet"></i></span>
-                                </a>
-                                <ul class="sub-menu">
-                                    <li>
-                                        <a href="{{ route('valeCombustible.create') }}" style="cursor: pointer">{{ __('Nuevo Vale ') }}<i class="fas fa-address-card"></i></a>
-                                    </li>
-
-                                    <li>
-                                        <a href="{{ route('valeCombustible.index') }}" style="cursor: pointer">{{ __('Autorizar ') }}<i class="fas fa-check"></i></a>
-                                    </li>
-
-                                </ul>
-                            </li>
+                                        <li>
+                                            <a href="{{ route('valeCombustible.index') }}" style="cursor: pointer">{{ __('index ') }}<i class="fas fa-folder-plus"></i></a>
+                                        </li>
+                                       
+                                    </ul>
+                                </li>
 
 
-                            <li style="font-size: 12px;" class="dropdown">
-                                <a href="#" class="sub-menu-toggle">
-                                    {{ __('Panel') }} <span class="caret"><i class="fas fa-indent"></i></span>
-                                </a>
-                                <ul class="sub-menu">
-                                    <li>
-                                        <a href="{{ route('panel.index') }}" style="cursor: pointer">{{ __('Panel De Administrador ') }}<i class="far fa-user"></i></a>
-                                    </li>
-                                </ul>
-                            </li>
+                                <li style="font-size: 12px;" class="dropdown">
+                                    <a href="#" class="sub-menu-toggle">
+                                        {{ __('Panel') }} <span class="caret"><i class="fas fa-indent"></i></span>
+                                    </a>
+                                    <ul class="sub-menu">
+                                        <li>
+                                            <a href="{{ route('panel.index') }}" style="cursor: pointer">{{ __('Panel De Administrador ') }}<i class="fas fa-folder-plus"></i></a>
+                                        </li>
 
-                            <li style="font-size: 12px;" class="dropdown">
-                                <a href="#" class="sub-menu-toggle">
-                                    {{ __('Excel') }} <span class="caret"><i class="fas fa-file-excel"></i></span>
-                                </a>
-                                <ul class="sub-menu">
-                                    <li>
-                                        <a href="{{ route('consumo.index') }}" style="cursor: pointer">{{ __('Excel ') }}<i class="far fa-file"></i></a>
-                                    </li>
+                                    </ul>
+                                </li>
+
+                                <li style="font-size: 12px;" class="dropdown">
+                                    <a href="#" class="sub-menu-toggle">
+                                        {{ __('Excel') }} <span class="caret"><i class="fas fa-indent"></i></span>
+                                    </a>
+                                    <ul class="sub-menu">
+                                        <li>
+                                            <a href="{{ route('consumo.index') }}" style="cursor: pointer">{{ __('Excel ') }}<i class="fas fa-folder-plus"></i></a>
+                                        </li>
 
                                 </ul>
                             </li>

@@ -1,25 +1,25 @@
 <link href="{{ asset('/css/tablaExcel.css') }}" rel="stylesheet">
-<h1>Previsualizacion del Archivo</h1>
+<h1 class="h2">Previsualizacion del Archivo</h1>
 <br>
 <div class="row">
-    <table class="table table-hover table-responsive" style="width: 100%">
+    <table class="table table-hover table-responsive text-center" style="width: 100% ">
         <thead>
-            <tr>
-                <th scope="col" GAR>ID</th>
-                <th scope="col">FECHA</th>
-                <th scope="col">N.TICKET</th>
-                <th scope="col">DESCRIPCION</th>
-                <th scope="col">N.VALE</th>
+            <tr style="background-color: #FF771F; color: white;" >
+                <th scope="col" GAR>id</th>
+                <th scope="col">Fecha</th>
+                <th scope="col">N.ticket</th>
+                <th scope="col">Descripcion</th>
+                <th scope="col">N.vale</th>
                 <th scope="col">CC</th>
-                <th scope="col">PLACAS</th>
-                <th scope="col"class="operador">OPERADOR</th>
-                <th scope="col">PRODUCTO</th>
-                <th scope="col">LITROS</th>
-                <th scope="col">PRECIO</th>
-                <th scope="col">TOTAL</th>
+                <th scope="col">Placas</th>
+                <th scope="col"class="operador">Operador</th>
+                <th scope="col">Producto</th>
+                <th scope="col">Litros</th>
+                <th scope="col">Precio</th>
+                <th scope="col">Total</th>
             </tr>
         </thead>
-        <tbody id="excelTable">
+        <tbody class="text-center" id="excelTable">
 
         </tbody>
     </table>

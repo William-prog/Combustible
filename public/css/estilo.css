@@ -1,0 +1,27 @@
+/* Estilo para el contorno del h3 */
+.contenedor-titulo {
+    border: 2px solid #000; /* Establece un borde sólido de 2 píxeles de ancho y color negro alrededor del h3 */
+    padding: 10px; /* Espaciado interno para que el texto no toque el borde */
+    display: inline-block; /* Para que el borde se ajuste al contenido */
+}
+
+/* Estilo para los div dentro del h3 */
+.contenedor-titulo > div {
+    border: 1px solid #ccc; /* Establece un borde sólido de 1 píxel de ancho y color gris alrededor de los div dentro del h3 */
+    margin: 10px; /* Espaciado externo entre los div */
+    padding: 10px; /* Espaciado interno para que el contenido no toque el borde */
+}
+
+legend{
+    border:solid 1px black;
+    padding: 5px;
+    background: black;
+    border-radius: 15px;
+}
+
+.legend-titulo{
+    border:solid 1px black;
+    padding: 5px;
+    background: black;
+    border-radius: 15px;
+}

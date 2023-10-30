@@ -9,7 +9,10 @@
     box-shadow: 0 15px 25px rgba(0, 0, 0, 0.6);
     border-radius: 10px;
     z-index: 0;
-    background-color: #fff;
+    
+        background-color: rgba(255, 255, 255,.9); /* Cambia el valor del último número (0.9) para ajustar la opacidad */
+    
+    
 }
 
 body {

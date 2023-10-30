@@ -57,7 +57,7 @@ body {
 }
 
 .icon-box i:hover {
-    color: #FF771F;
+    color: blue;
     border-color: #242424;
 }
 
@@ -131,4 +131,8 @@ p {
 
 .btn-outline-primary{
     border: none;
+}
+.icon-selected {
+    color: #FF771F; /* Cambia el color según tu preferencia */
+    transition: color 0.3s ease-in-out; /* Añade una transición suave al color */
 }

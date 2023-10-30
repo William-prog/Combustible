@@ -1,0 +1,4 @@
+.accordion-collapse {
+  transition: max-height 0.3s ease-in-out; /* Añade una transición suave al alto máximo */
+  overflow: hidden; /* Oculta el contenido que se desborda durante la transición */
+}
