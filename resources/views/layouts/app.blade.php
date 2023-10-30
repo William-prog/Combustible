@@ -62,7 +62,6 @@
                                     <a href="{{ route('register') }}">{{ __('Crear cuenta   ') }}<i
                                             class="fas fa-user-plus"></i></a>
                                 </li>
-                                
                             @else
                                 {{-- <li style="font-size: 12px;" class="dropdown">
                                     <a href="#" class="sub-menu-toggle">
@@ -93,42 +92,71 @@
                                     </ul>
                                 </li> --}}
 
-                                <li style="font-size: 12px;" class="dropdown">
-                                    <a href="#" class="sub-menu-toggle">
-                                        {{ __('Vales') }} <span class="caret"><i class="fas fa-indent"></i></span>
-                                    </a>
-                                    <ul class="sub-menu">
-                                        <li>
-                                            <a href="{{ route('valeCombustible.create') }}" style="cursor: pointer">{{ __('Crear ') }}<i class="fas fa-folder-plus"></i></a>
-                                        </li>
-
-                                        <li>
-                                            <a href="{{ route('valeCombustible.index') }}" style="cursor: pointer">{{ __('index ') }}<i class="fas fa-folder-plus"></i></a>
-                                        </li>
-                                       
-                                    </ul>
-                                </li>
 
 
                                 <li style="font-size: 12px;" class="dropdown">
                                     <a href="#" class="sub-menu-toggle">
-                                        {{ __('Panel') }} <span class="caret"><i class="fas fa-indent"></i></span>
+                                        {{ __('Estadisticas') }} <span class="caret"></span>
                                     </a>
                                     <ul class="sub-menu">
                                         <li>
-                                            <a href="{{ route('panel.index') }}" style="cursor: pointer">{{ __('Panel De Administrador ') }}<i class="fas fa-folder-plus"></i></a>
+                                            <a href="{{ route('estadistica.index') }}"
+                                                style="cursor: pointer">{{ __('Estadisticas Vehiculos ') }}</a>
                                         </li>
+
+                                        {{-- <li>
+                                            <a href="{{ route('estadistica.litros') }}"
+                                                style="cursor: pointer">{{ __('Estadistic ') }}</a>
+                                        </li> --}}
+
 
                                     </ul>
                                 </li>
 
+                                
                                 <li style="font-size: 12px;" class="dropdown">
                                     <a href="#" class="sub-menu-toggle">
-                                        {{ __('Excel') }} <span class="caret"><i class="fas fa-indent"></i></span>
+                                        {{ __('Documento') }} <span class="caret"></span>
                                     </a>
                                     <ul class="sub-menu">
                                         <li>
-                                            <a href="{{ route('consumo.index') }}" style="cursor: pointer">{{ __('Excel ') }}<i class="fas fa-folder-plus"></i></a>
+                                            <a href="{{ route('consumo.index') }}"
+                                                style="cursor: pointer">{{ __('Excel ') }}</a>
+                                        </li>
+                                        
+
+                                    </ul>
+                                </li>
+                                
+
+                                <li style="font-size: 12px;" class="dropdown">
+                                    <a href="#" class="sub-menu-toggle">
+                                        {{ __('Vales') }} <span class="caret"></span>
+                                    </a>
+                                    <ul class="sub-menu">
+                                        <li>
+                                            <a href="{{ route('valeCombustible.create') }}"
+                                                style="cursor: pointer">{{ __('Crear ') }}</a>
+                                        </li>
+
+                                        <li>
+                                            <a href="{{ route('valeCombustible.index') }}"
+                                                style="cursor: pointer">{{ __('Vales de combustible ') }}</a>
+                                        </li>
+
+                                    </ul>
+                                </li>
+
+
+
+                                <li style="font-size: 12px;" class="dropdown">
+                                    <a href="#" class="sub-menu-toggle">
+                                        {{ __('Panel') }} <span class="caret"></span>
+                                    </a>
+                                    <ul class="sub-menu">
+                                        <li>
+                                            <a href="{{ route('panel.index') }}"
+                                                style="cursor: pointer">{{ __('Administrador ') }}</a>
                                         </li>
 
                                     </ul>
@@ -309,12 +337,12 @@
                                 dataType: 'json',
                             })
                             .done(function(data) {
-                               
+
                                 $('#valeCc').val(data.valeCc);
                             });
                     }
 
-                   
+
                     $('#choice1').change(function() {
                         var query = $(this).val();
                         fetchDep(query);

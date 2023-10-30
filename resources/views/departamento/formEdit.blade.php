@@ -2,7 +2,7 @@
     <div class="row">
         <div class="col-md-12">
             <div class="card">
-                <div class="card-header">{{ __('Editar Departamentos') }}</div>
+               
                 <div class="card-body">
                     <label for="departamentoNombre" class="mb-3">Nombre del departamento:</label>
                     <input type="text" value="{{ $dato->departamentoNombre }}" placeholder="Escribe el nuevo departamento" class="form-control mb-3" name="departamentoNombre" id="departamentoNombre">

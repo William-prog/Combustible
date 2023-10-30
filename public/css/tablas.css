@@ -1,0 +1,9 @@
+.custom-table {
+    border: 1px solid #ccc; /* Borde sólido de 1 píxel en color gris claro */
+    border-collapse: collapse; /* Colapsar bordes adyacentes en una sola línea */
+}
+
+.custom-table th, .custom-table td {
+    border: 1px solid #ccc; /* Borde sólido de 1 píxel en celdas de encabezado y celdas de datos */
+    padding: 8px; /* Espaciado interno para un aspecto ordenado */
+}

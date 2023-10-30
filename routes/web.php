@@ -7,6 +7,7 @@ use App\Http\Controllers\EmpleadoController;
 use App\Http\Controllers\VehiculosController;
 use App\Http\Controllers\ValeCombustibleController;
 use App\Http\Controllers\PanelAdminController;
+use App\Http\Controllers\Estadistica;
 use App\Http\Controllers\ConsumoController;
 use Illuminate\Support\Facades\Crypt;
 
@@ -36,6 +37,11 @@ Route::resource('panel', PanelAdminController::class);
 Route::resource('empleado', EmpleadoController::class);
 Route::resource('vehiculo', VehiculosController::class);
 Route::resource('valeCombustible', ValeCombustibleController::class);
+Route::resource('estadistica', Estadistica::class);
+
+
+
+
 
 Route::post('/valeCombustible/{id}','ValeCombustibleController@update')->name('valeCombustible.update');
 

@@ -3,7 +3,6 @@
 
             <div class="col-md-12">
                 <div class="card">
-                    <div class="card-header">Editar Empleados</div>
                     <div class="card-body">
                         <label for="empleadoNumero" class="mb-3">Numero:</label>
                         <input type="text" value="{{ $dato->empleadoNumero }}" placeholder="" class="form-control mb-3"

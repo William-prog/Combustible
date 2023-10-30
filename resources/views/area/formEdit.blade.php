@@ -3,7 +3,7 @@
         <form>
             <label for="areaNombre">Nombre de la área:</label>
             <input type="text" value="{{ $dato->areaNombre }}" class="form-control" name="areaNombre" id="areaNombre"
-                placeholder="Escribe el nombre de la área">
+                placeholder="Escribe el nombre de la área"><br>
 
             <label for="areaDepartamento">Área de Departamento:</label>
             <select class="form-select" aria-label="Default select example" name="areaDepartamento"
@@ -11,7 +11,7 @@
                 @foreach ($departamento as $datoDpto)
                     <option value="{{ $datoDpto->id }}">{{ $datoDpto->departamentoNombre }}</option>
                 @endforeach
-            </select>
+            </select><br>
 
             <label for="areaDescripcion">Descripción del área:</label>
             <input type="text"  value="{{ $dato->areaDescripcion }}" class="form-control" name="areaDescripcion"
