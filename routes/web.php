@@ -9,6 +9,7 @@ use App\Http\Controllers\ValeCombustibleController;
 use App\Http\Controllers\PanelAdminController;
 use App\Http\Controllers\Estadistica;
 use App\Http\Controllers\ConsumoController;
+use App\Http\Controllers\EstadisticaController;
 use Illuminate\Support\Facades\Crypt;
 
 
@@ -43,6 +44,8 @@ Route::resource('estadistica', Estadistica::class);
 
 
 
+Route::resource('estadistica',EstadisticaController::class);
+
 Route::post('/valeCombustible/{id}','ValeCombustibleController@update')->name('valeCombustible.update');
 
 Route::resource('panel', PanelAdminController::class);
@@ -61,5 +64,10 @@ Route::post('/import',[ConsumoController::class, 'import'])->name('import');
 Route::get('/export-consumo',[ConsumoController::class,'exportConsumo'])->name('export');
 
 
+
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
