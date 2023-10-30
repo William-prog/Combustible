@@ -55,6 +55,8 @@ Route::resource('consumo', ConsumoController::class);
 
 Route::get('/file-import',[ConsumoController::class, 'importView'])->name('import');
 
+
+
 Route::post('/import',[ConsumoController::class, 'import'])->name('import');
 Route::get('/export-consumo',[ConsumoController::class,'exportConsumo'])->name('export');
 
