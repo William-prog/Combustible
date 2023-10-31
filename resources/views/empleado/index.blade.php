@@ -67,7 +67,7 @@
                                     <td>
                                         <div class="container1">
                                             <a class="btn btn-primary" data-bs-toggle="modal"
-                                                data-bs-target="#modal{{ $dato->id }}"><i class="fas fa-pen-square"
+                                                data-bs-target="#modalX{{ $dato->id }}"><i class="fas fa-pen-square"
                                                     style="color: #fafafa;"></i></a>
                                         </div>
                                         <style>
@@ -81,7 +81,7 @@
                                             }
                                         </style>
 
-                                        <div class="modal fade" id="modal{{ $dato->id }}" tabindex="-1"
+                                        <div class="modal fade" id="modalX{{ $dato->id }}" tabindex="-1"
                                             aria-labelledby="exampleModalLabel" aria-hidden="true">
                                             <div class="modal-dialog">
                                                 <div class="modal-content">

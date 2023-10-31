@@ -5,23 +5,23 @@
             
 
                 <label for="vehiculoEco">Numero economico:</label>
-                <input type="text" value="{{ $dato->vehiculoEco }}" placeholder="" class="form-control"
+                <input type="text" value="{{ $dato->vehiculoEco }}" placeholder="" class="form-control mb-3"
                     name="vehiculoEco" id="vehiculoEco"><br>
 
                 <label for="vehiculoPlacas">Placas del vehiculo:</label>
-                <input type="text" value="{{ $dato->vehiculoPlacas }} " placeholder="" class="form-control"
+                <input type="text" value="{{ $dato->vehiculoPlacas }} " placeholder="" class="form-control  mb-3"
                     name="vehiculoPlacas" id="vehiculoPlacas"><br>
 
                 <label for="vehiculoModelo">Modelo del vehiculo:</label>
-                <input type="text" value="{{ $dato->vehiculoModelo }} " placeholder="" class="form-control"
+                <input type="text" value="{{ $dato->vehiculoModelo }} " placeholder="" class="form-control  mb-3"
                     name="vehiculoModelo" id="vehiculoModelo"><br>
 
                 <label for="vehiculoMarca">Marca del vehiculo:</label>
-                <input type="text" value="{{ $dato->vehiculoMarca }} " placeholder="" class="form-control"
+                <input type="text" value="{{ $dato->vehiculoMarca }} " placeholder="" class="form-control  mb-3"
                     name="vehiculoMarca" id="vehiculoMarca"><br>
 
                 <label for="vehiculoAño">Año del vehiculo:</label>
-                <input type="text" value="{{ $dato->vehiculoAño }} " placeholder="" class="form-control"
+                <input type="text" value="{{ $dato->vehiculoAño }} " placeholder="" class="form-control  mb-3"
                     name="vehiculoAño" id="vehiculoAño">
                 <br>
                 <label for="vehiculoCombustible" class="mb-3">Combustible:</label>
@@ -34,8 +34,8 @@
                 </select>
 
 
-                <div>
-                    <input class="btn btn-primary" type="submit" >
+                <div class="text-center">
+                    <input class="btn btn-primary" type="submit">
                 </div>
 
             </div>

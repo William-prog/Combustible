@@ -15,32 +15,21 @@
         <link rel="mask-icon" type="image/x-icon"
             href="https://cpwebassets.codepen.io/assets/favicon/logo-pin-b4b4269c16397ad2f0f7a01bcdf513a1994f4c94b8af2f191c09eb0d601762b1.svg"
             color="#111" />
-
-
-
-
         <script
             src="https://cpwebassets.codepen.io/assets/common/stopExecutionOnTimeout-2c7831bb44f98c1391d6a4ffda0e1fd302503391ca806e7fcc7b9b87197aec26.js">
         </script>
         <link rel="canonical" href="https://codepen.io/stanko/pen/dyQrOeB">
 
 
-        <script>
-            window.console = window.console || function(t) {};
-        </script>
-
-        <h4 class="text-center">Instrucciones</h4><br>
-
-        <body translate="no">
+        <div class="container">
+            <h4 class=" h3 text-center">Instrucciones:</h4><br>
             <div class="content">
-
                 <div class="pagination">
+                    <!-- Aquí se generan los botones de paginación dinámicamente --><br>
                 </div>
-
                 <div class="state">
                     &nbsp;
-                </div>
-                <br>    
+                </div><br>
                 <div class="controls">
                     <button class="control control--prev" aria-label="Previous">
                         <i class="fas fa-chevron-left"></i>
@@ -51,117 +40,105 @@
                     <button class="control control--next" aria-label="Next">
                         <i class="fas fa-chevron-right"></i>
                     </button>
-
                 </div>
             </div>
-            <br>
-
-            <script>
-                "use strict";
-
-                function getItem(index) {
-                    const item = document.createElement('button');
-                    item.classList.add('pagination-item');
-                    item.addEventListener('animationend', next);
-                    item.addEventListener('click', () => update(index));
-                    const icon = document.createElement('i');
-                    icon.classList.add('fa',
-                        'fa-icon-class');
-                    const progress = document.createElement('div');
-                    progress.classList.add('pagination-progress');
-                    item.appendChild(icon);
-                    item.appendChild(progress);
-                    return item;
+        </div>
+    
+        <script>
+            "use strict";
+    
+            function createPaginationItem(index) {
+                const item = document.createElement('button');
+                item.classList.add('pagination-item');
+                item.addEventListener('animationend', handleAnimationEnd);
+                item.addEventListener('click', () => update(index));
+                
+                const icon = document.createElement('i');
+                icon.classList.add('fa', 'fa-icon-class');
+                
+                const progress = document.createElement('div');
+                progress.classList.add('pagination-progress');
+                
+                item.appendChild(icon);
+                item.appendChild(progress);
+                
+                return item;
+            }
+    
+            function createPaginationItems(itemsCount) {
+                const items = [];
+                for (let i = 0; i < itemsCount; i++) {
+                    items.push(createPaginationItem(i));
                 }
-
-                function createItems(itemsCount) {
-                    const items = [];
-                    for (let i = 0; i < itemsCount; i++) {
-                        items.push(getItem(i));
-                    }
-                    return items;
+                return items;
+            }
+    
+            function handleAnimationEnd(event) {
+                // Mantén esta función si deseas la lógica de la barra de progreso
+                event.target.classList.add(classNames.RUNNING);
+                event.target.classList.remove(classNames.DONE);
+                
+                let sibling = event.target;
+                while ((sibling = sibling.previousSibling)) {
+                    sibling.classList.remove(classNames.RUNNING);
+                    sibling.classList.add(classNames.DONE);
                 }
-
-                function jumpTo(item) {
-                    if (isPaused) {
-                        item.classList.remove(classNames.RUNNING);
-                        item.classList.add(classNames.DONE);
-                    } else {
-                        item.classList.add(classNames.RUNNING);
-                        item.classList.remove(classNames.DONE);
-                    }
-                    let sibling = item;
-                    while ((sibling = sibling.previousSibling)) {
-                        sibling.classList.remove(classNames.RUNNING);
-                        sibling.classList.add(classNames.DONE);
-                    }
-                    sibling = item;
-                    while ((sibling = sibling.nextSibling)) {
-                        sibling.classList.remove(classNames.RUNNING, classNames.DONE);
-                    }
+                
+                sibling = event.target;
+                while ((sibling = sibling.nextSibling)) {
+                    sibling.classList.remove(classNames.RUNNING, classNames.DONE);
                 }
-
-                function update(index) {
-                    activeIndex = index;
-                    jumpTo(items[activeIndex]);
-
-                    // Cambiar el texto en lugar de números
-                    const textOptions = ['1.<br> Selecciona el archivo', '2.<br>  Previsualiza el archivo',
-                        '3.<br>Verifica archivo', '4.<br>Presiona Importar'
-                    ];
-                    $state.innerHTML = textOptions[activeIndex];
-
-
+            }
+    
+            function update(index) {
+                activeIndex = index;
+                handleAnimationEnd({ target: items[activeIndex] });
+                
+                // Cambiar el texto en lugar de números
+                const textOptions = ['1. Selecciona el archivo', '2. Previsualiza el archivo', '3. Verifica archivo', '4. Presiona Importar'];
+                $state.innerHTML = textOptions[activeIndex];
+            }
+    
+            function prev() {
+                if (activeIndex > 0) {
+                    update(activeIndex - 1);
                 }
-
-                function prev() {
-                    if (activeIndex > 0) {
-                        update(activeIndex - 1);
-                    }
+            }
+    
+            function next() {
+                if (activeIndex < ITEMS_COUNT - 1) {
+                    update(activeIndex + 1);
                 }
-
-                function next() {
-                    if (activeIndex < ITEMS_COUNT - 1) {
-                        update(activeIndex + 1);
-                    }
-                }
-
-                function playPause() {
-                    $pagination.classList.toggle(classNames.PAUSED);
-                    isPaused = !isPaused;
-
-                    // When unpausing,
-                    // if the current slide is done, jump to the next one
-                    if (!isPaused && items[activeIndex].classList.contains(classNames.DONE)) {
-                        next();
-                    }
-                }
-
-                const classNames = {
-                    RUNNING: 'pagination-item--running',
-                    DONE: 'pagination-item--done',
-                    PAUSED: 'pagination--paused',
-                };
-
-                let activeIndex = 0;
-                let isPaused = false;
-                const ITEMS_COUNT = 4;
-
-                const items = createItems(ITEMS_COUNT);
-                const $pagination = document.querySelector('.pagination');
-                const $state = document.querySelector('.state');
-                const $prev = document.querySelector('.control--prev');
-                const $next = document.querySelector('.control--next');
-                const $playPause = document.querySelector('.control--play-pause');
-
-                $pagination.replaceChildren(...items);
-                $prev.addEventListener('click', prev);
-                $next.addEventListener('click', next);
-                $playPause.addEventListener('click', playPause);
-                update(activeIndex);
-            </script>
-
-
+            }
+    
+            function playPause() {
+                $pagination.classList.toggle(classNames.PAUSED);
+                isPaused = !isPaused;
+            }
+    
+            const classNames = {
+                RUNNING: 'pagination-item--running',
+                DONE: 'pagination-item--done',
+                PAUSED: 'pagination--paused',
+            };
+    
+            let activeIndex = 0;
+            let isPaused = false;
+            const ITEMS_COUNT = 4;
+    
+            const items = createPaginationItems(ITEMS_COUNT);
+            const $pagination = document.querySelector('.pagination');
+            const $state = document.querySelector('.state');
+            const $prev = document.querySelector('.control--prev');
+            const $next = document.querySelector('.control--next');
+            const $playPause = document.querySelector('.control--play-pause');
+    
+            $pagination.replaceChildren(...items);
+            $prev.addEventListener('click', prev);
+            $next.addEventListener('click', next);
+            $playPause.addEventListener('click', playPause);
+            update(activeIndex);
+        </script>
 
             <div class="card bg-light mt-3">
                 <div class="card-body">

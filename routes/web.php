@@ -8,6 +8,7 @@ use App\Http\Controllers\VehiculosController;
 use App\Http\Controllers\ValeCombustibleController;
 use App\Http\Controllers\PanelAdminController;
 use App\Http\Controllers\Estadistica;
+use App\Http\Controllers\estadisticaValeController;
 use App\Http\Controllers\ConsumoController;
 use Illuminate\Support\Facades\Crypt;
 
@@ -38,6 +39,7 @@ Route::resource('empleado', EmpleadoController::class);
 Route::resource('vehiculo', VehiculosController::class);
 Route::resource('valeCombustible', ValeCombustibleController::class);
 Route::resource('estadistica', Estadistica::class);
+Route::resource('estadisticaVale', estadisticaValeController::class);
 
 
 

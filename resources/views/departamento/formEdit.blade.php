@@ -23,9 +23,9 @@
                     <option value="Ambos" {{ $dato->departamentoArea == 'Ambos' ? 'selected' : '' }}>Ambos
                     </option>
                 </select>
-
-                    <br><br>
-                    <input class="btn btn-primary" type="submit">
+                    <div class="text-center">
+                        <input class="btn btn-primary" type="submit">
+                    </div>
                 </div>
             </div>
         </div>

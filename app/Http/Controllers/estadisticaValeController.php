@@ -3,30 +3,26 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\kilometraje;
 use App\Models\empleado;
 use App\Models\departamentos;
 use App\Models\vehiculos;
 use App\Models\area;
 use App\Models\valeCombustible;
-use App\Models\consumo;
 
-class Estadistica extends Controller
+class estadisticaValeController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        // Obtén los datos de consumo
-        $consumo = consumo::all();
-        $vehiculos = vehiculos::all();
-        $departamentos = departamentos::all();
+        $vale = valeCombustible::all();
+        $departamento = departamentos::all();
+        $empleado = empleado::all();
 
-        return view('estadistica.index', compact('consumo', 'vehiculos', 'departamentos'));
+        return view('estadisticasVale.index',compact('vale','departamento','empleado'));
     }
 
-    
     /**
      * Show the form for creating a new resource.
      */

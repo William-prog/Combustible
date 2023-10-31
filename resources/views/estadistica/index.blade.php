@@ -207,7 +207,7 @@
             data: {
                 labels: labels3,
                 datasets: [{
-                    label: 'Total de Gasto por Departamento (de mayor a menor)',
+                    label: 'Total de Gasto por Departamento ',
                     data: data3,
                     borderWidth: 2,
                     backgroundColor: ['rgb(255, 99, 132)',
@@ -223,7 +223,7 @@
                         'rgb(153, 102, 255)',
                         'rgb(255, 218, 158)'
                     ],
-                    borderColor: 'black',
+                    borderColor: 'white',
                     hoverBackgroundColor: 'white',
                     barThickness: 30
                 }]
@@ -264,8 +264,7 @@
             const labels2 = sortedData.map(([descripcion, _]) => descripcion);
             const data2 = sortedData.map(([_, litros]) => litros);
 
-            const colors = ['red', 'blue', 'green', 'purple', 'orange', 'pink'];
-
+            const colors = ['orange','orange','orange','orange','orange','orange','orange','orange','orange','orange',];
             // Elimina la gráfica anterior si existe
             if (chart2) {
                 chart2.destroy();
@@ -276,13 +275,15 @@
                 data: {
                     labels: labels2,
                     datasets: [{
-                        label: 'Litros Consumidos (de mayor a menor)',
+                        label: 'Litros Consumidos',
                         data: data2,
-                        borderWidth: 2,
+                        borderWidth: 1,
                         borderColor: 'black',
                         pointBackgroundColor: colors, // Usa la lista de colores para los puntos
                         fill: false, // Asegúrate de que no se rellene el área debajo de la línea
-                        barThickness: 30
+                        barThickness: 30,
+                        pointRadius: 4,
+                        
                     }]
                 },
                 options: {
@@ -313,108 +314,114 @@
             actualizarGraficas(datosFiltrados); // Actualizar la Gráfica 3
         }
 
-
-
-
         // Código de la Gráfica 4 (myChart4)
-        const ctx4 = document.getElementById('myChart4');
-        const consumoData4 = @json($consumo);
-        const departamentoData = @json($departamentos);
-        let chart4; // Variable para almacenar la instancia de la Gráfica 4
+const ctx4 = document.getElementById('myChart4');
+const consumoData4 = @json($consumo);
+const departamentoData = @json($departamentos);
+let chart4; // Variable para almacenar la instancia de la Gráfica 4
 
-        // Función para actualizar la Gráfica 4 con datos filtrados
-        function actualizarGrafica4(datos) {
-            const numeroValePorDepartamento = {};
+// Función para actualizar la Gráfica 4 con datos filtrados
+function actualizarGrafica4(datos) {
+    const numeroValePorDepartamento = {};
 
-           
-            const departamentoNombrePorCC = {};
-            departamentoData.forEach(item => {
-                departamentoNombrePorCC[item.departamentoCC] = item.nombre;
-            });
+    const departamentoNombrePorCC = {};
+    departamentoData.forEach(item => {
+        departamentoNombrePorCC[item.departamentoCC] = item.nombre;
+    });
 
-            datos.forEach(item => {
-                const CC = item.CC;
+    datos.forEach(item => {
+        const CC = item.CC;
 
-                // Utiliza el nombre del departamento en lugar del CC
-                const departamentoNombre = departamentoNombrePorCC[CC] || CC;
+        // Utiliza el nombre del departamento en lugar del CC
+        const departamentoNombre = departamentoNombrePorCC[CC] || CC;
 
-                if (numeroValePorDepartamento[departamentoNombre]) {
-                    numeroValePorDepartamento[departamentoNombre].push(CC);
-                } else {
-                    numeroValePorDepartamento[departamentoNombre] = [CC];
-                }
-            });
+        if (numeroValePorDepartamento[departamentoNombre]) {
+            numeroValePorDepartamento[departamentoNombre].push(CC);
+        } else {
+            numeroValePorDepartamento[departamentoNombre] = [CC];
+        }
+    });
 
-            const labels4 = Object.keys(numeroValePorDepartamento);
-            const data4 = labels4.map(label => numeroValePorDepartamento[label].length);
+    const labels4 = Object.keys(numeroValePorDepartamento);
+    const data4 = labels4.map(label => numeroValePorDepartamento[label].length);
 
-            // Elimina la gráfica anterior si existe
-            if (chart4) {
-                chart4.destroy();
-            }
+    // Elimina la gráfica anterior si existe
+    if (chart4) {
+        chart4.destroy();
+    }
 
-            var chart4 = new Chart(ctx4, {
-            type: 'doughnut',
-            data: {
-                datasets: [{
-                    data: data4,
-                    borderWidth: 2,
-                    backgroundColor: [
-                        '#FF5733',
-                        '#FFBD4A',
-                        '#3498DB',
-                        '#4BC0C0',
-                        '#9966FF',
-                        '#FF0000',
-                        '#00FF00',
-                        '#0000FF',
-                        '#FFFF00',
-                        '#FF00FF',
-                        '#00FFFF',
-                        '#808080',
-                        '#800000',
-                        '#008000',
-                        '#000080',
-                    ],
-                    borderColor: 'white',
-                }]
+    var chart4 = new Chart(ctx4, {
+        type: 'doughnut',
+        data: {
+            datasets: [{
+                data: data4,
+                borderWidth: 2,
+                backgroundColor: [
+                    '#FF5733',
+                    '#FFBD4A',
+                    '#3498DB',
+                    '#4BC0C0',
+                    '#9966FF',
+                    '#FF0000',
+                    '#00FF00',
+                    '#0000FF',
+                    '#FFFF00',
+                    '#FF00FF',
+                    '#00FFFF',
+                    '#808080',
+                    '#800000',
+                    '#008000',
+                    '#000080',
+                ],
+                borderColor: 'white',
+                borderWidth: 8,
+            }]
+        },
+        options: {
+            responsive: true,
+            aspectRatio: 1,
+            title: {
+                display: true,
+                text: 'Vales por Departamento',
+                fontSize: 20,
+                fontColor: 'black',
             },
-            options: {
-                responsive: true,
-                aspectRatio: 1,
-                title: {
-                    display: true,
-                    text: 'Vales por Departamento',
-                    fontSize: 20,
+            legend: {
+                display: true,
+                position: 'bottom',
+                labels: {
                     fontColor: 'black',
-                },
-                legend: {
-                    display: true,
-                    position: 'bottom',
-                    labels: {
-                        fontColor: 'black',
-                        fontSize: 12,
+                    fontSize: 12,
+                }
+            },
+            tooltips: {
+                callbacks: {
+                    label: function (tooltipItem, data) {
+                        const value = data.datasets[0].data[tooltipItem.index];
+                        return `${value} vales`;
                     }
                 },
-                tooltips: {
-                    callbacks: {
-                        label: function (tooltipItem, data) {
-                            const value = data.datasets[0].data[tooltipItem.index];
-                            return `${value} vales`;
-                        }
-                    },
-                    backgroundColor: 'rgba(0, 0, 0, 0.7',
-                    borderColor: 'black',
-                    borderWidth: 1,
-                    titleFontColor: 'white',
-                    bodyFontColor: 'white',
-                },
-                cutout: '50%', 
+                backgroundColor: 'rgba(0, 0, 0, 0.15',
+                borderColor: 'white',
+                borderWidth: 2,
+                titleFontColor: 'black',
+                bodyFontColor: 'black',
+                bodyFontSize: 25,  // Tamaño de fuente para el cuerpo del tooltip
+            },
+            cutout: '50%',
+            elements: {
+                arc: {
+        borderWidth: 0,
+        shadowColor: 'rgba(0, 0, 0, 0.255)', // Cambia el valor alfa a 0.8 para una sombra más oscura
+        shadowBlur: 10, // Ajusta la intensidad de la sombra
+        shadowOffsetX: 0, // Ajusta el desplazamiento horizontal de la sombra
+        shadowOffsetY: 0, // Ajusta el desplazamiento vertical de la sombra
+    }
             }
-        });
+        }
+    });
+}
 
-        } 
-        // Llamar a esta función inicialmente para mostrar la Gráfica 4 sin filtrar
     </script>
     
 

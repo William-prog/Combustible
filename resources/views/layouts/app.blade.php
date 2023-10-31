@@ -103,13 +103,10 @@
                                             <a href="{{ route('estadistica.index') }}"
                                                 style="cursor: pointer">{{ __('Estadisticas Vehiculos ') }}</a>
                                         </li>
-
-                                        {{-- <li>
-                                            <a href="{{ route('estadistica.litros') }}"
-                                                style="cursor: pointer">{{ __('Estadistic ') }}</a>
-                                        </li> --}}
-
-
+                                        <li>
+                                            <a href="{{ route('estadisticaVale.index') }}"
+                                                style="cursor: pointer">{{ __('Estadisticas Vales ') }}</a>
+                                        </li>
                                     </ul>
                                 </li>
 

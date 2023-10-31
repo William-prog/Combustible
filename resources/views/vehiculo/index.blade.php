@@ -1,10 +1,12 @@
-<script src="https://ajax.cloudflare.com/cdn-cgi/scripts/7d0fa10a/cloudflare-static/rocket-loader.min.js" data-cf-settings="70cf02be0b65b144043f4959-|49" defer=""></script>
+<script src="https://ajax.cloudflare.com/cdn-cgi/scripts/7d0fa10a/cloudflare-static/rocket-loader.min.js"
+    data-cf-settings="70cf02be0b65b144043f4959-|49" defer=""></script>
 <link rel="stylesheet"
-        type="text/css"href="https://cdn.datatables.net/v/bs4/dt-1.10.16/sc-1.4.3/sl-1.2.4/datatables.min.css" />
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    type="text/css"href="https://cdn.datatables.net/v/bs4/dt-1.10.16/sc-1.4.3/sl-1.2.4/datatables.min.css" />
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous" type="70cf02be0b65b144043f4959-text/javascript"></script>
-    <script type="70cf02be0b65b144043f4959-text/javascript" src="https://cdn.datatables.net/v/bs4/dt-1.10.16/sc-1.4.3/sl-1.2.4/datatables.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous" type="70cf02be0b65b144043f4959-text/javascript"></script>
+<script type="70cf02be0b65b144043f4959-text/javascript" src="https://cdn.datatables.net/v/bs4/dt-1.10.16/sc-1.4.3/sl-1.2.4/datatables.min.js"></script>
+
 <div class="row">
     <div class="col-md-12">
         <div class="card border-secondary mb-3">
@@ -34,13 +36,14 @@
                                     <td>{{ $dato->vehiculoAño }}</td>
                                     <td>{{ $dato->vehiculoCombustible }}</td>
                                     <td>
+                                        
                                         <div class="container1">
                                             <a class="btn btn-primary" data-bs-toggle="modal"
-                                                data-bs-target="#modal{{ $dato->id}}"><i
-                                                    class="fas fa-pen-square" style="color: #fafafa;"></i></a>
+                                                data-bs-target="#modalV{{ $dato->id }}"><i class="fas fa-pen-square"
+                                                    style="color: #fafafa;"></i></a>
                                         </div>
-            
-                                        <div class="modal fade" id="modal{{ $dato->id }}" tabindex="-1"
+
+                                        <div class="modal fade" id="modalV{{ $dato->id }}" tabindex="-1"
                                             aria-labelledby="exampleModalLabel" aria-hidden="true">
                                             <div class="modal-dialog">
                                                 <div class="modal-content">
@@ -57,13 +60,13 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div> 
+                                        </div>
                                     </td>
                                 </tr>
                             @endforeach
                             <script>
                                 $(document).ready(function() {
-                                    $('[data-bs-toggle="modal"]').click(function() {
+                                    $('[data-bs-toggle="modalV"]').click(function() {
                                         var target = $(this).data('bs-target');
                                         $(target).modal('show');
                                     });
