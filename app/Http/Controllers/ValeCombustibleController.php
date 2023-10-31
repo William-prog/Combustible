@@ -101,11 +101,14 @@ class ValeCombustibleController extends Controller
      */
     public function update(Request $request, $id)
     {
+<<<<<<< HEAD
         $ActualizarVale = valeCombustible::find($id);
-        $ActualizarVale->valeEstado = $request->valeEstado; // Actualizar el estado con el valor del radio button
+        $ActualizarVale->valeEstado = $request->valeEstado; 
         $ActualizarVale->save();
 
         return redirect('valeCombustible');
+=======
+        
     }
 
     /**
