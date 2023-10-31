@@ -7,9 +7,9 @@
 
 <div class="container ">
 
-        <div class="content  ">
-            <div class="accordion accordion-flush {{--panel-main--}}  " id="accordionExample">
-                <div class="main-content shadow-lg p-3 mb-5 bg-body-tertiary rounded ">
+    <div class="content  ">
+        <div class="accordion accordion-flush {{--panel-main--}}  " id="accordionExample">
+            <div class="main-content shadow-lg p-3 mb-5 bg-body-tertiary rounded ">
 
                 <div class="icon-container shadow-sm p-3 mb-5 bg-body-tertiary rounded ">
                     <div class="icon-box">
@@ -118,26 +118,23 @@
 
 @endsection
 
-    <script>
-        var lastSelectedButtonId = null;
-    
-        function changeIconColor(iconId) {
-            // Obtiene el botón actual
-            var currentButton = document.getElementById(iconId);
-    
-            // Si hay un botón previamente seleccionado, quita su estilo de selección
-            if (lastSelectedButtonId) {
-                var lastSelectedButton = document.getElementById(lastSelectedButtonId);
-                lastSelectedButton.classList.remove('icon-orange');
-            }
-    
-            // Aplica el estilo al icono del botón actual
-            currentButton.classList.add('icon-orange');
-    
-            // Actualiza la variable para el último botón seleccionado
-            lastSelectedButtonId = iconId;
+<script>
+    var lastSelectedButtonId = null;
+
+    function changeIconColor(iconId) {
+        // Obtiene el botón actual
+        var currentButton = document.getElementById(iconId);
+
+        // Si hay un botón previamente seleccionado, quita su estilo de selección
+        if (lastSelectedButtonId) {
+            var lastSelectedButton = document.getElementById(lastSelectedButtonId);
+            lastSelectedButton.classList.remove('icon-orange');
         }
-    </script>
-    
-    
-    
+
+        // Aplica el estilo al icono del botón actual
+        currentButton.classList.add('icon-orange');
+
+        // Actualiza la variable para el último botón seleccionado
+        lastSelectedButtonId = iconId;
+    }
+</script>

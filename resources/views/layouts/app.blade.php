@@ -10,14 +10,10 @@
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css">
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
-
-
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -26,10 +22,13 @@
     <!-- Styles -->
     <script src="https://kit.fontawesome.com/1bf0086160.js" crossorigin="anonymous"></script>
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+        integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous">
     </script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+        integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous">
     </script>
 
 
@@ -47,7 +46,7 @@
             <div class="container-menu">
                 <div class="header-navigation-menu">
                     <div class="header-icon">
-                        <img src="/css/LogoBlanco.png" alt="">
+                        <img src="/img/LogoBlanco.png" alt="">
                     </div>
                     <button class="navbar-nav-toggle">
                         <span></span>
@@ -63,22 +62,23 @@
                                     <a href="{{ route('register') }}">{{ __('Crear cuenta   ') }}<i
                                             class="fas fa-user-plus"></i></a>
                                 </li>
-                                
                             @else
-                            {{-- <li style="font-size: 12px;" class="dropdown">
+                                {{-- <li style="font-size: 12px;" class="dropdown">
                                     <a href="#" class="sub-menu-toggle">
                                         {{ __('A ') }} <span class="caret"><i class="fas fa-indent"></i></span>
-                            </a>
-                            <ul class="sub-menu">
-                                <li>
-                                    <a href="/evaluacion" style="cursor: pointer">{{ __('A1 ') }}<i class="fas fa-chart-bar"></i></a>
+                                    </a>
+                                    <ul class="sub-menu">
+                                        <li>
+                                            <a href="/evaluacion" style="cursor: pointer">{{ __('A1 ') }}<i
+                                                    class="fas fa-chart-bar"></i></a>
+                                        </li>
+                                        <li>
+                                            <a href="/estadisticas" style="cursor: pointer">{{ __('A2 ') }}<i
+                                                    class="fas fa-paste"></i></a>
+                                        </li>
+                                        
+                                    </ul>
                                 </li>
-                                <li>
-                                    <a href="/estadisticas" style="cursor: pointer">{{ __('A2 ') }}<i class="fas fa-paste"></i></a>
-                                </li>
-
-                            </ul>
-                            </li>
 
                                 <li style="font-size: 12px;" class="dropdown">
                                     <a href="#" class="sub-menu-toggle">
@@ -92,13 +92,16 @@
                                     </ul>
                                 </li> --}}
 
+
+
                                 <li style="font-size: 12px;" class="dropdown">
                                     <a href="#" class="sub-menu-toggle">
-                                        {{ __('Vales') }} <span class="caret"><i class="fas fa-indent"></i></span>
+                                        {{ __('Estadisticas') }} <span class="caret"></span>
                                     </a>
                                     <ul class="sub-menu">
                                         <li>
-                                            <a href="{{ route('valeCombustible.create') }}" style="cursor: pointer">{{ __('Crear ') }}<i class="fas fa-folder-plus"></i></a>
+                                            <a href="{{ route('estadistica.index') }}"
+                                                style="cursor: pointer">{{ __('Estadisticas Vehiculos ') }}</a>
                                         </li>
                                         <li>
                                             <a href="{{ route('estadisticaVale.index') }}"
@@ -114,49 +117,62 @@
                                     </a>
                                     <ul class="sub-menu">
                                         <li>
-                                            <a href="{{ route('valeCombustible.index') }}" style="cursor: pointer">{{ __('index ') }}<i class="fas fa-folder-plus"></i></a>
+                                            <a href="{{ route('consumo.index') }}"
+                                                style="cursor: pointer">{{ __('Excel ') }}</a>
                                         </li>
-                                       
+                                        
+
+                                    </ul>
+                                </li>
+                                
+
+                                <li style="font-size: 12px;" class="dropdown">
+                                    <a href="#" class="sub-menu-toggle">
+                                        {{ __('Vales') }} <span class="caret"></span>
+                                    </a>
+                                    <ul class="sub-menu">
+                                        <li>
+                                            <a href="{{ route('valeCombustible.create') }}"
+                                                style="cursor: pointer">{{ __('Crear ') }}</a>
+                                        </li>
+
+                                        <li>
+                                            <a href="{{ route('valeCombustible.index') }}"
+                                                style="cursor: pointer">{{ __('Vales de combustible ') }}</a>
+                                        </li>
+
                                     </ul>
                                 </li>
 
 
+
                                 <li style="font-size: 12px;" class="dropdown">
                                     <a href="#" class="sub-menu-toggle">
-                                        {{ __('Panel') }} <span class="caret"><i class="fas fa-indent"></i></span>
+                                        {{ __('Panel') }} <span class="caret"></span>
                                     </a>
                                     <ul class="sub-menu">
                                         <li>
-                                            <a href="{{ route('panel.index') }}" style="cursor: pointer">{{ __('Panel De Administrador ') }}<i class="fas fa-folder-plus"></i></a>
+                                            <a href="{{ route('panel.index') }}"
+                                                style="cursor: pointer">{{ __('Administrador ') }}</a>
                                         </li>
 
                                     </ul>
                                 </li>
 
-                                <li style="font-size: 12px;" class="dropdown">
-                                    <a href="#" class="sub-menu-toggle">
-                                        {{ __('Excel') }} <span class="caret"><i class="fas fa-indent"></i></span>
+
+                                <li>
+                                    <a href="{{ route('logout') }}"
+                                        onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                        <span class="icon"><i class="fas fa-walking"></i></span>
+                                        <span class="title">
+                                            {{ __('Cerrar Sesion') }}
+                                            <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                                class="d-none">
+                                                @csrf
+                                            </form>
+                                        </span>
                                     </a>
-                                    <ul class="sub-menu">
-                                        <li>
-                                            <a href="{{ route('consumo.index') }}" style="cursor: pointer">{{ __('Excel ') }}<i class="fas fa-folder-plus"></i></a>
-                                        </li>
-
-                                </ul>
-                            </li>
-
-
-                            <li>
-                                <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                                    <span class="icon"><i class="fas fa-power-off"></i></span>
-                                    <span class="title">
-                                        {{ __('Cerrar Sesion') }}
-                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                            @csrf
-                                        </form>
-                                    </span>
-                                </a>
-                            </li>
+                                </li>
 
                             @endguest
                         </ul>
@@ -168,11 +184,14 @@
         <main class="py-4">
             @yield('content')
             <script src="https://kit.fontawesome.com/df7aaa1fc6.js" crossorigin="anonymous"></script>
-            <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
+            <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+                integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
             </script>
-            <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+            <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+                integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
             </script>
-            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous">
+            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+                integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous">
             </script>
 
             <script src="{{ asset('js/navbar-responsive.js') }}"></script>
@@ -234,7 +253,7 @@
                 });
             </script>
 
-            {{-- Busca Empleados --}}
+            {{--  Busca Empleados --}}
             <script>
                 function limitEmp(element) {
                     var max_chars = 2;
@@ -284,7 +303,7 @@
             </script>
 
             <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-            {{-- Busca Departamento --}}
+            {{--  Busca Departamento --}}
             <script>
                 function limitDep(element) {
                     var max_chars = 2;
