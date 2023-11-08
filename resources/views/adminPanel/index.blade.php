@@ -12,9 +12,10 @@
             <div class="main-content shadow-lg p-3 mb-5 bg-body-tertiary rounded ">
 
                 <div class="icon-container shadow-sm p-3 mb-5 bg-body-tertiary rounded ">
-                    <div class="icon-box">
-                        <i class="fas fa-user-tie">
+                    <div class="icon-box" data-bs-toggle="collapse" data-bs-toggle="collapse" data-bs-target="#flush-collapserRol" aria-expanded="false" aria-controls="flush-collapserRol" onclick="changeIconColor('icon5')">
+                        <i id="icon5" class="fas fa-user-tie">
                             <p class="icon-label">Usuario</p>
+
                         </i>
 
                     </div>
@@ -46,6 +47,23 @@
                 </div>
 
             </div>
+
+            <div class="accordion accordion-flush  " id="accordionFlushExample">
+                <div class="accordion-item">
+                    <div id="flush-collapserRol" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+                        <div class="accordion-body ">
+                            <div class="row  ">
+                                <div class="col-md-12">
+                                    sadha
+                                    @include('rol.index')
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
 
             <div class="accordion accordion-flush  " id="accordionFlushExample">
                 <div class="accordion-item">

@@ -126,10 +126,10 @@
     </div>
 </div>
 
-<!-- En la vista con el código para cambiar el estado -->
+
 <div class="row text-center">
-    @if ($datoSolicitante->valeEstado == 'Pendiente')
-    <!-- Mostrar solo los cambios Aceptar/Rechazar -->
+    
+    @if (auth()->user()->role == 'admin' || auth()->user()->role == 'superAdmin')
     <div class="col-md-12 mt-4">
         <div>
             <input type="radio" id="aceptarRadio" name="valeEstado" value="Aceptado">
@@ -148,6 +148,7 @@
     </div>
     @endif
 </div>
+
 
 <!-- Mensaje de confirmación -->
 <div class="row mt-3">

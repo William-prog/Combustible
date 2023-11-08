@@ -10,6 +10,8 @@ use App\Http\Controllers\PanelAdminController;
 use App\Http\Controllers\Estadistica;
 use App\Http\Controllers\estadisticaValeController;
 use App\Http\Controllers\ConsumoController;
+use App\Http\Controllers\rolController;
+
 use Illuminate\Support\Facades\Crypt;
 
 
@@ -40,12 +42,16 @@ Route::resource('vehiculo', VehiculosController::class);
 Route::resource('valeCombustible', ValeCombustibleController::class);
 Route::resource('estadistica', Estadistica::class);
 Route::resource('estadisticaVale', estadisticaValeController::class);
+Route::resource('rol', rolController::class);
 
 
 
 
 
 Route::post('/valeCombustible/{id}','ValeCombustibleController@update')->name('valeCombustible.update');
+
+
+
 
 Route::resource('panel', PanelAdminController::class);
 
@@ -60,6 +66,6 @@ Route::get('/file-import',[ConsumoController::class, 'importView'])->name('impor
 Route::post('/import',[ConsumoController::class, 'import'])->name('import');
 Route::get('/export-consumo',[ConsumoController::class,'exportConsumo'])->name('export');
 
-
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
 

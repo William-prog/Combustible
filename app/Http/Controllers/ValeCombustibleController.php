@@ -9,6 +9,11 @@ use App\Models\area;
 use Carbon\Carbon;
 use App\Models\empleado;
 use Illuminate\Http\Request;
+use App\Mail\solicitudVale;
+use App\Mail\valeAceptado;
+use Illuminate\Support\Facades\Mail;
+use App\Models\User;
+
 
 class ValeCombustibleController extends Controller
 {
@@ -20,8 +25,9 @@ class ValeCombustibleController extends Controller
         $vale = valeCombustible::all();
         $departamento = departamentos::all();
         $empleado = empleado::all();
+        $user = User::all();
         $fechaActual = Carbon::now();
-        return view('valeCombustible.index', compact('vale', 'departamento', 'empleado'));
+        return view('valeCombustible.index', compact('vale', 'departamento', 'empleado','user'));
     }
 
     public function actualizarEstado($id, Request $request)
@@ -72,7 +78,12 @@ class ValeCombustibleController extends Controller
         $registrerVale->valeEstado =  'Pendiente';
 
         $registrerVale->save();
+
+        Mail::to('aevo203@hotmail.com')->send(new solicitudVale());
+        Mail::to('motogato099@gmail.com')->send(new solicitudVale());
+
         return redirect('valeCombustible');
+
     }
 
     /**
@@ -100,16 +111,21 @@ class ValeCombustibleController extends Controller
      * Update the specified resource in storage.
      */
     public function update(Request $request, $id)
-    {
+{
+    $ActualizarVale = valeCombustible::find($id);
+    $estadoAnterior = $ActualizarVale->valeEstado; 
+    $ActualizarVale->valeEstado = $request->valeEstado;
+    $ActualizarVale->save();
 
-        $ActualizarVale = valeCombustible::find($id);
-        $ActualizarVale->valeEstado = $request->valeEstado; 
-        $ActualizarVale->save();
-
-        return redirect('valeCombustible');
-
+    if ($request->valeEstado === 'Aceptado' && $estadoAnterior !== 'Aceptado') {
+        
+        Mail::to('aevo203@hotmail.com')->send(new valeAceptado($request->valeEstado));
         
     }
+
+    return redirect('valeCombustible');
+}
+
 
     /**
      * Remove the specified resource from storage.
@@ -118,4 +134,5 @@ class ValeCombustibleController extends Controller
     {
         //
     }
+    
 }

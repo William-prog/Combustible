@@ -3,23 +3,17 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\empleado;
-use App\Models\departamentos;
-use App\Models\vehiculos;
-use App\Models\area;
 use App\Models\User;
 
-class PanelAdminController extends Controller
+
+class rolController extends Controller
 {
-    
+    /**
+     * Display a listing of the resource.
+     */
     public function index()
     {
-        $empleado = empleado::all();
-        $departamento = departamentos::all();
-        $vehiculo = vehiculos::all();
-        $area = area::all();
-        $usuario = User::all();
-       return view('adminPanel.index', compact('empleado', 'departamento','vehiculo','area','usuario'));
+        //
     }
 
     /**
@@ -59,14 +53,20 @@ class PanelAdminController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $registrerRol = User::find($id);
+        $registrerRol-> name =$request->name;
+        $registrerRol-> email =$request->email;
+        $registrerRol-> role =$request->role;
+       
+
+        $registrerRol->save();
+        return redirect('panel');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
+    
     public function destroy(string $id)
     {
-        //
+       
     }
 }
+
