@@ -41,23 +41,16 @@
 
 <body>
     <div id="app">
+
         <nav class="navbar-custom">
+            @if (auth()->check() && auth()->user()->role == 'superAdmin')
             <div class="container-menu">
                 <div class="header-navigation-menu">
                     <div class="header-icon">
-                        @auth
-                            @if (auth()->check() && auth()->user()->role == 'superAdmin')
-                                <a href="{{ route('panel.index') }}" style="text-decoration: none;">
-                                    <img src="/img/LogoBlanco.png" alt="" style="width: 70px; height: 40px;">
-                                </a>
-                            @else
-                                <img src="/img/LogoBlanco.png" alt="" style="width: 70px; height: 40px;">
-                            @endif
-                        @else
-                            <img src="/img/LogoBlanco.png" alt="" style="width: 70px; height: 40px;">
-                        @endauth
+                        <a href="{{ route('panel.index') }}" style="text-decoration: none;">
+                            <img src="/img/LogoBlanco.png" alt="" style="width: 100px; height: 40px;">
+                        </a>
                     </div>
-    
                     <button class="navbar-nav-toggle">
                         <span></span>
                     </button>
@@ -65,138 +58,232 @@
                         <ul>
                             @guest
                                 <li>
-                                    <a href="{{ route('login') }}">{{ __('Iniciar sesión') }} <i class="fas fa-sign-in-alt"></i></a>
+                                    <a href="{{ route('login') }}">{{ __('Iniciar sesión    ') }}<i
+                                            class="fas fa-sign-in-alt"></i></a>
                                 </li>
                                 <li>
-                                    <a href="{{ route('register') }}">{{ __('Crear cuenta') }} <i class="fas fa-user-plus"></i></a>
+                                    <a href="{{ route('register') }}">{{ __('Crear cuenta   ') }}<i
+                                            class="fas fa-user-plus"></i></a>
                                 </li>
                             @else
-                                @if (auth()->check() && auth()->user()->role == 'superAdmin')
-                                    <li style="font-size: 12px;" class="dropdown">
-                                        <a href="#" class="sub-menu-toggle">
-                                            {{ __('Resumen Técnico') }} <span class="caret"></span> <i class="fas fa-folder-open"></i>
-                                        </a>
-                                        <ul class="sub-menu">
-                                            <li>
-                                                <a href="{{ route('valeCombustible.index') }}" style="cursor: pointer">{{ __('Vales Combustible') }} <i class="fas fa-file-alt"></i></a>
-                                            </li>
-                                            <li>
-                                                <a href="{{ route('estadisticaVale.index') }}" style="cursor: pointer">{{ __('Estadisticas Solicitud') }} <i class="fas fa-chart-bar"></i></a>
-                                            </li>
-                                            <li>
-                                                <a href="{{ route('estadistica.index') }}" style="cursor: pointer">{{ __('Estadisticas Consumo') }} <i class="fas fa-chart-bar"></i></a>
-                                            </li>
-                                        </ul>
-                                    </li>
-    
-                                    <li style="font-size: 12px;" class="dropdown">
-                                        <a href="#" class="sub-menu-toggle">
-                                            {{ __('Vales') }} <span class="caret"></span> <i class="fas fa-outdent"></i>
-                                        </a>
-                                        <ul class="sub-menu">
-                                            <li>
-                                                <a href="{{ route('valeCombustible.create') }}" style="cursor: pointer">{{ __('Vales de Combustible') }} <i class="fas fa-file"></i></a>
-                                            </li>
-                                        </ul>
-                                    </li>
-    
-                                    <li style="font-size: 12px;" class="dropdown">
-                                        <a href="#" class="sub-menu-toggle">
-                                            {{ __('Consumo') }} <span class="caret"></span> <i class="fas fa-coins"></i>
-                                        </a>
-                                        <ul class="sub-menu">
-                                            <li>
-                                                <a href="{{ route('consumo.index') }}" style="cursor: pointer">{{ __('Regístro de Consumos') }} <i class="fas fa-file-csv"></i></a>
-                                            </li>
-                                        </ul>
-                                    </li>
-    
-                                    <li>
-                                        <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                                            <span class="icon"><i class="fas fa-sign-out-alt"></i></span>
-                                            <span class="title">{{ __('Cerrar Sesión') }}</span>
-                                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                               
+                                <li style="font-size: 12px;" class="dropdown">
+                                    <a href="#" class="sub-menu-toggle">
+                                        {{ __('Resumen Tecnico') }} <span class="caret"></span>
+                                    </a>
+                                    <ul class="sub-menu">
+                                        <li>
+                                            <a href="{{ route('valeCombustible.index') }}"
+                                                style="cursor: pointer">{{ __('Vales de combustible ') }}</a>
+                                        </li>
+                                        <li>
+                                            <a href="{{ route('estadisticaVale.index') }}"
+                                                style="cursor: pointer">{{ __('Estadisticas Solicitud ') }}</a>
+                                        </li>
+                                        <li>
+                                            <a href="{{ route('estadistica.index') }}"
+                                                style="cursor: pointer">{{ __('Estadisticas Consumo ') }}</a>
+                                        </li>
+                                    </ul>
+                                </li>
+
+                                <li style="font-size: 12px;" class="dropdown">
+                                    <a href="#" class="sub-menu-toggle">
+                                        {{ __('Vales') }} <span class="caret"></span>
+                                    </a>
+                                    <ul class="sub-menu">
+                                        <li>
+                                            <a href="{{ route('valeCombustible.create') }}"
+                                                style="cursor: pointer">{{ __('Vales de Combustible ') }}</a>
+                                        </li>
+                                    </ul>
+                                </li>
+
+
+                                <li style="font-size: 12px;" class="dropdown">
+                                    <a href="#" class="sub-menu-toggle">
+                                        {{ __('Consumo') }} <span class="caret"></span>
+                                    </a>
+                                    <ul class="sub-menu">
+                                        <li>
+                                            <a href="{{ route('consumo.index') }}"
+                                                style="cursor: pointer">{{ __('Registro de Consumo ') }}</a>
+                                        </li>
+                                        
+
+                                    </ul>
+                                </li>
+                            
+
+                                <li>
+                                    <a href="{{ route('logout') }}"
+                                        onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                        <span class="icon"><i class="fas fa-walking"></i></span>
+                                        <span class="title">
+                                            {{ __('Cerrar Sesion') }}
+                                            <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                                class="d-none">
                                                 @csrf
                                             </form>
-                                        </a>
-                                    </li>
-                                @elseif (auth()->user()->role == 'admin')
-                                    <li style="font-size: 12px;" class="dropdown">
-                                        <a href="#" class="sub-menu-toggle">
-                                            {{ __('Resumen Técnico') }} <span class="caret"></span> <i class="fas fa-folder-open"></i>
-                                        </a>
-                                        <ul class="sub-menu">
-                                            <li>
-                                                <a href="{{ route('valeCombustible.index') }}" style="cursor: pointer">{{ __('Vales Combustible') }} <i class="fas fa-file-alt"></i></a>
-                                            </li>
-                                            <li>
-                                                <a href="{{ route('estadisticaVale.index') }}" style="cursor: pointer">{{ __('Estadisticas Solicitud') }} <i class="fas fa-chart-bar"></i></a>
-                                            </li>
-                                        </ul>
-                                    </li>
-    
-                                    <li style="font-size: 12px;" class="dropdown">
-                                        <a href="#" class="sub-menu-toggle">
-                                            {{ __('Vales') }} <span class="caret"></span> <i class="fas fa-outdent"></i>
-                                        </a>
-                                        <ul class="sub-menu">
-                                            <li>
-                                                <a href="{{ route('valeCombustible.create') }}" style="cursor: pointer">{{ __('Vales de Combustible') }} <i class="fas fa-file"></i></a>
-                                            </li>
-                                        </ul>
-                                    </li>
-    
-                                    <li>
-                                        <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                                            <span class="icon"><i class="fas fa-sign-out-alt"></i></span>
-                                            <span class="title">{{ __('Cerrar Sesión') }}</span>
-                                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                                @csrf
-                                            </form>
-                                        </a>
-                                    </li>
-                                @elseif (auth()->user()->role == 'conductor')
-                                    <li style="font-size: 12px;" class="dropdown">
-                                        <a href="#" class="sub-menu-toggle">
-                                            {{ __('Resumen Técnico') }} <span class="caret"></span> <i class="fas fa-folder-open"></i>
-                                        </a>
-                                        <ul class="sub-menu">
-                                            <li>
-                                                <a href="{{ route('valeCombustible.index') }}" style="cursor: pointer">{{ __('Vales Combustible') }} <i class="fas fa-file-alt"></i></a>
-                                            </li>
-                                        </ul>
-                                    </li>
-    
-                                    <li style="font-size: 12px;" class="dropdown">
-                                        <a href="#" class="sub-menu-toggle">
-                                            {{ __('Vales') }} <span class="caret"></span> <i class="fas fa-outdent"></i>
-                                        </a>
-                                        <ul class="sub-menu">
-                                            <li>
-                                                <a href="{{ route('valeCombustible.create') }}" style="cursor: pointer">{{ __('Vales de Combustible') }} <i class="fas fa-file"></i></a>
-                                            </li>
-                                        </ul>
-                                    </li>
-    
-                                    <li>
-                                        <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                                            <span class="icon"><i class="fas fa-sign-out-alt"></i></span>
-                                            <span class="title">{{ __('Cerrar Sesión') }}</span>
-                                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                                @csrf
-                                            </form>
-                                        </a>
-                                    </li>
-                                @endif
+                                        </span>
+                                    </a>
+                                </li>
+
                             @endguest
                         </ul>
                     </div>
                 </div>
             </div>
+            @endif
         </nav>
-    </div>
-    
-    
+
+        {{-- Menu de admin --}}
+
+
+        <nav class="navbar-custom">
+            @if (auth()->check() && auth()->user()->role == 'conductor')
+            <div class="container-menu">
+                <div class="header-navigation-menu">
+                    <div class="header-icon">
+                        <img src="/img/LogoBlanco.png" alt="">
+                    </div>
+                    <button class="navbar-nav-toggle">
+                        <span></span>
+                    </button>
+                    <div class="navbar-navigation">
+                        <ul>
+                            @guest
+                                <li>
+                                    <a href="{{ route('login') }}">{{ __('Iniciar sesión    ') }}<i
+                                            class="fas fa-sign-in-alt"></i></a>
+                                </li>
+                                <li>
+                                    <a href="{{ route('register') }}">{{ __('Crear cuenta   ') }}<i
+                                            class="fas fa-user-plus"></i></a>
+                                </li>
+                            @else
+                               
+                                <li style="font-size: 12px;" class="dropdown">
+                                    <a href="#" class="sub-menu-toggle">
+                                        {{ __('Resumen Tecnico') }} <span class="caret"></span>
+                                    </a>
+                                    <ul class="sub-menu">
+                                        <li>
+                                            <a href="{{ route('valeCombustible.index') }}"
+                                                style="cursor: pointer">{{ __('Vales de combustible ') }}</a>
+                                        </li>
+                                    </ul>
+                                </li>
+
+                                <li style="font-size: 12px;" class="dropdown">
+                                    <a href="#" class="sub-menu-toggle">
+                                        {{ __('Vales') }} <span class="caret"></span>
+                                    </a>
+                                    <ul class="sub-menu">
+                                        <li>
+                                            <a href="{{ route('valeCombustible.create') }}"
+                                                style="cursor: pointer">{{ __('Vales de Combustible ') }}</a>
+                                        </li>
+                                    </ul>
+                                </li>
+
+                                <li>
+                                    <a href="{{ route('logout') }}"
+                                        onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                        <span class="icon"><i class="fas fa-walking"></i></span>
+                                        <span class="title">
+                                            {{ __('Cerrar Sesion') }}
+                                            <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                                class="d-none">
+                                                @csrf
+                                            </form>
+                                        </span>
+                                    </a>
+                                </li>
+
+                            @endguest
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            @endif
+        </nav>
+
+
+        <nav class="navbar-custom">
+            @if (auth()->check() && auth()->user()->role == 'admin')
+            <div class="container-menu">
+                <div class="header-navigation-menu">
+                    <div class="header-icon">
+                        <img src="/img/LogoBlanco.png" alt="">
+                    </div>
+                    <button class="navbar-nav-toggle">
+                        <span></span>
+                    </button>
+                    <div class="navbar-navigation">
+                        <ul>
+                            @guest
+                                <li>
+                                    <a href="{{ route('login') }}">{{ __('Iniciar sesión    ') }}<i
+                                            class="fas fa-sign-in-alt"></i></a>
+                                </li>
+                                <li>
+                                    <a href="{{ route('register') }}">{{ __('Crear cuenta   ') }}<i
+                                            class="fas fa-user-plus"></i></a>
+                                </li>
+                            @else
+                               
+                                <li style="font-size: 12px;" class="dropdown">
+                                    <a href="#" class="sub-menu-toggle">
+                                        {{ __('Resumen Tecnico') }} <span class="caret"></span>
+                                    </a>
+                                    <ul class="sub-menu">
+                                        <li>
+                                            <a href="{{ route('valeCombustible.index') }}"
+                                                style="cursor: pointer">{{ __('Vales de combustible ') }}</a>
+                                        </li>
+                                        <li>
+                                            <a href="{{ route('estadisticaVale.index') }}"
+                                                style="cursor: pointer">{{ __('Estadisticas Solicitud ') }}</a>
+                                        </li>
+                                    </ul>
+                                </li>
+
+                                <li style="font-size: 12px;" class="dropdown">
+                                    <a href="#" class="sub-menu-toggle">
+                                        {{ __('Vales') }} <span class="caret"></span>
+                                    </a>
+                                    <ul class="sub-menu">
+                                        <li>
+                                            <a href="{{ route('valeCombustible.create') }}"
+                                                style="cursor: pointer">{{ __('Vales de Combustible ') }}</a>
+                                        </li>
+                                    </ul>
+                                </li>
+
+                                <li>
+                                    <a href="{{ route('logout') }}"
+                                        onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                        <span class="icon"><i class="fas fa-walking"></i></span>
+                                        <span class="title">
+                                            {{ __('Cerrar Sesion') }}
+                                            <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                                class="d-none">
+                                                @csrf
+                                            </form>
+                                        </span>
+                                    </a>
+                                </li>
+
+                            @endguest
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            @endif
+        </nav>
+
+
 
 
         <main class="py-4">

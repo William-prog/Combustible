@@ -1,6 +1,5 @@
 <style>
     .image-container {
-        background: black;
         padding: 5px;
         position: absolute;
         top: 20px;
@@ -21,7 +20,7 @@
 <div class="row justify-content-end ">
     <div class="col-md-4 text-center">
         <div class="image-container">
-            <img src="/css/LogoBlanco.png" alt="Logo">
+            <img src="/css/topo-logo.png" alt="Logo">
         </div>
     </div>
     <div class="row">
@@ -124,12 +123,14 @@
         <label for="valeCantidad" class="form-label">Litros en letra:</label>
         <input type="text" value="{{ $datoSolicitante->valeCantidad }}" placeholder="" class="form-control" name="valeCantidad" id="valeCantidad" readonly>
     </div>
+    <input type="hidden" id="valeAutorizo" name="valeAutorizo" value="{{ Auth::user()->name }}">
+
 </div>
 
-
+<!-- En la vista con el código para cambiar el estado -->
 <div class="row text-center">
-    
-    @if (auth()->user()->role == 'admin' || auth()->user()->role == 'superAdmin')
+    @if ($datoSolicitante->valeEstado == 'Pendiente')
+    <!-- Mostrar solo los cambios Aceptar/Rechazar -->
     <div class="col-md-12 mt-4">
         <div>
             <input type="radio" id="aceptarRadio" name="valeEstado" value="Aceptado">
@@ -148,7 +149,6 @@
     </div>
     @endif
 </div>
-
 
 <!-- Mensaje de confirmación -->
 <div class="row mt-3">
