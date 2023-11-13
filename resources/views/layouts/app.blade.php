@@ -74,15 +74,15 @@
                                     <ul class="sub-menu">
                                         <li>
                                             <a href="{{ route('valeCombustible.index') }}"
-                                                style="cursor: pointer">{{ __('Vales de combustible ') }}</a>
+                                                style="cursor: pointer">{{ __('Vales combustible ') }}</a>
                                         </li>
                                         <li>
                                             <a href="{{ route('estadisticaVale.index') }}"
-                                                style="cursor: pointer">{{ __('Estadisticas Solicitud ') }}</a>
+                                                style="cursor: pointer">{{ __('Estadisticas solicitud ') }}</a>
                                         </li>
                                         <li>
                                             <a href="{{ route('estadistica.index') }}"
-                                                style="cursor: pointer">{{ __('Estadisticas Consumo ') }}</a>
+                                                style="cursor: pointer">{{ __('Estadisticas consumo ') }}</a>
                                         </li>
                                     </ul>
                                 </li>
@@ -94,7 +94,7 @@
                                     <ul class="sub-menu">
                                         <li>
                                             <a href="{{ route('valeCombustible.create') }}"
-                                                style="cursor: pointer">{{ __('Vales de Combustible ') }}</a>
+                                                style="cursor: pointer">{{ __('Vales de combustible ') }}</a>
                                         </li>
                                     </ul>
                                 </li>
@@ -107,7 +107,7 @@
                                     <ul class="sub-menu">
                                         <li>
                                             <a href="{{ route('consumo.index') }}"
-                                                style="cursor: pointer">{{ __('Registro de Consumo ') }}</a>
+                                                style="cursor: pointer">{{ __('Registro de consumo ') }}</a>
                                         </li>
                                         
 
@@ -118,7 +118,6 @@
                                 <li>
                                     <a href="{{ route('logout') }}"
                                         onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                                        <span class="icon"><i class="fas fa-walking"></i></span>
                                         <span class="title">
                                             {{ __('Cerrar Sesion') }}
                                             <form id="logout-form" action="{{ route('logout') }}" method="POST"
@@ -170,7 +169,7 @@
                                     <ul class="sub-menu">
                                         <li>
                                             <a href="{{ route('valeCombustible.index') }}"
-                                                style="cursor: pointer">{{ __('Vales de combustible ') }}</a>
+                                                style="cursor: pointer">{{ __('Vales combustible ') }}</a>
                                         </li>
                                     </ul>
                                 </li>
@@ -182,7 +181,7 @@
                                     <ul class="sub-menu">
                                         <li>
                                             <a href="{{ route('valeCombustible.create') }}"
-                                                style="cursor: pointer">{{ __('Vales de Combustible ') }}</a>
+                                                style="cursor: pointer">{{ __('Vales de combustible ') }}</a>
                                         </li>
                                     </ul>
                                 </li>
@@ -190,7 +189,6 @@
                                 <li>
                                     <a href="{{ route('logout') }}"
                                         onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                                        <span class="icon"><i class="fas fa-walking"></i></span>
                                         <span class="title">
                                             {{ __('Cerrar Sesion') }}
                                             <form id="logout-form" action="{{ route('logout') }}" method="POST"
@@ -244,7 +242,7 @@
                                         </li>
                                         <li>
                                             <a href="{{ route('estadisticaVale.index') }}"
-                                                style="cursor: pointer">{{ __('Estadisticas Solicitud ') }}</a>
+                                                style="cursor: pointer">{{ __('Estadisticas solicitud ') }}</a>
                                         </li>
                                     </ul>
                                 </li>
@@ -256,7 +254,7 @@
                                     <ul class="sub-menu">
                                         <li>
                                             <a href="{{ route('valeCombustible.create') }}"
-                                                style="cursor: pointer">{{ __('Vales de Combustible ') }}</a>
+                                                style="cursor: pointer">{{ __('Vales combustible ') }}</a>
                                         </li>
                                     </ul>
                                 </li>
@@ -264,7 +262,6 @@
                                 <li>
                                     <a href="{{ route('logout') }}"
                                         onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                                        <span class="icon"><i class="fas fa-walking"></i></span>
                                         <span class="title">
                                             {{ __('Cerrar Sesion') }}
                                             <form id="logout-form" action="{{ route('logout') }}" method="POST"
@@ -282,6 +279,11 @@
             </div>
             @endif
         </nav>
+
+
+        
+
+
 
 
 
