@@ -129,7 +129,7 @@
                             </tr>
                             <tr>
                                 <td class="bodycopy">
-                                    El colaborador ha solicitado <strong> {{$vale->valeCantidad}} Litros </strong> de combustible para el vehiculo con <strong> Numero Economico {{$vale->valeEconomico}} </strong>
+                                    El colaborador ha solicitado <strong> {{$vale->valeCantidad}} </strong> de combustible para el vehiculo con <strong> Numero Economico {{$vale->valeEconomico}} </strong>
                                     con <strong> {{$vale->valeKilometraje}} km</strong>.
                                 </td>
                             </tr>

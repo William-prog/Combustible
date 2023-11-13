@@ -22,11 +22,11 @@
             lengthMenu: [10, 20, 30, 100],
             "language": {
                 "search": "Buscar:",
-                "lengthMenu": "Mostrar _MENU_ Empleados",
-                "zeroRecords": "Empleado no encontrado",
+                "lengthMenu": "Mostrar _MENU_ Usuarios",
+                "zeroRecords": "Usuario no encontrado",
                 "info": "Página _PAGE_ de _PAGES_",
-                "infoEmpty": "No hay empleado disponibles",
-                "infoFiltered": "(filtrado de _MAX_ Empleado  en total)",
+                "infoEmpty": "No hay usuarios disponibles",
+                "infoFiltered": "(filtrado de _MAX_ Usuarios  en total)",
                 "paginate": {
                     "first": "<i class='fa fa-angle-double-left'></i>",
                     "last": "<i class='fa fa-angle-double-right'></i>",

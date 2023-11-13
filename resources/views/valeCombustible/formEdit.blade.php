@@ -164,7 +164,10 @@
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
     $(document).ready(function() {
+<<<<<<< HEAD
 
+=======
+>>>>>>> a3200774d8bd4372119a6b5a2f4b87e388872ff3
         $("#btnConfirmar").on("click", function() {
             var nuevoEstado = $('input[name="valeEstado"]:checked').val();
             var valeId = $("input[name='valeEstado']:checked").data("vale-id");

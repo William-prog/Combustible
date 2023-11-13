@@ -86,7 +86,7 @@
                         </select>
                     </div>
                     <div class="col-md-4">
-                        <label for="valeArea">Area:</label>
+                        <label for="valeArea">Área:</label>
                         <select class="form-select" aria-label="Default select example" name="valeArea" id="choice2">
                             @foreach ($area as $datoA)
                             <option data-option="{{ $datoA->areaDepartamento }}" value="{{ $datoA->areaNombre }}">

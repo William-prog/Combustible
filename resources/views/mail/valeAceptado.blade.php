@@ -178,7 +178,7 @@ Vale CC: {{ $vale->valeCc }}
                             </tr>
                             <tr>
                                 <td class="bodycopy">
-                                    Servicios y Equipos TOPO S.A de C.V ha solicitado <strong> {{$vale->valeCantidad}} Litros </strong> de combustible para el <strong> {{$vale->valeModelo}} </strong> con <strong> Numero Economico {{$vale->valeEconomico}} </strong>
+                                    Servicios y Equipos TOPO S.A de C.V ha solicitado <strong> {{$vale->valeCantidad}} </strong> de combustible para el <strong> {{$vale->valeModelo}} </strong> con <strong> Numero Economico {{$vale->valeEconomico}} </strong>
                                     y <strong> placas {{$vale->valePlacas}}</strong>.
                                 </td>
                             </tr>

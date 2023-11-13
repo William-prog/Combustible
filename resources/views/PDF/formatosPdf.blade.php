@@ -3,11 +3,10 @@
         font-family: Arial, Helvetica, sans-serif;
         font-size: 10px;
     }
-
 </style>
 
 
-<table width="60%" border="1" cellpadding="0" cellspacing="1" bordercolor="#000000" style="margin-left: 20%; margin-right: 20%; border-collapse:collapse; border-color:#ddd; vertical-align:text-top;">
+<table width="60%" border="0" cellpadding="0" cellspacing="1" bordercolor="#000000" style="margin-left: 20%; margin-right: 20%; border-collapse:collapse; border-color:#ddd; vertical-align:text-top;">
     <tr style="background-color: #A5A8B1;">
         <td style="border-right: 1px solid #A5A8B1; padding-top: 5px; text-align: center;" class="image-container">
             <strong style="font-size: 18px;">
@@ -45,7 +44,7 @@
 
 <br>
 
-<table width="60%" border="" cellpadding="0" cellspacing="1" bordercolor="#000000" style="margin-left: 20%; margin-right: 20%; border-collapse:collapse; border-color:#ddd; vertical-align:text-top;">
+<table width="60%" border="0" cellpadding="0" cellspacing="1" bordercolor="#000000" style="margin-left: 20%; margin-right: 20%; border-collapse:collapse; border-color:#ddd; vertical-align:text-top;">
     <tr>
         <td style="width: 10%; padding-top: 0px; padding-left: 10px; padding-bottom: 0px; padding-right: 10px; border-right: 0px solid #A5A8B1;" class="image-container">
             Solicitante:
@@ -56,7 +55,7 @@
             </div>
         </td>
         <td style="width: 10%; padding-top: 0px; padding-left: 10px; padding-bottom: 0px; padding-right: 10px; border-left: 0px solid #A5A8B1;">
-            Vehiculo:
+            Vehículo:
         </td>
         <td style="width: 10%; padding-top: 0px; padding-left: 10px; padding-bottom: 0px; padding-right: 10px; border-left: 0px solid #A5A8B1;">
             No. Economico:
