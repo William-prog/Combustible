@@ -11,10 +11,34 @@
 <style>
     .container {
         /* From https://css.glass */
-        background: rgba(255, 255, 255, 0.79);
+        background: linear-gradient(to top, rgba(0, 0, 0, 4), rgba(250, 250, 250, 0.59));
         border-radius: 16px;
         box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
         border: 1px solid rgba(255, 255, 255, 0.47);
+        font-weight: bold;
+        color: white;
+    }
+
+    .text-center{
+        color: white;
+    }
+    .modal-dialog{
+        color: black;
+    }
+
+
+    /* Estilo para el hover (paso del mouse) */
+    .btn:hover {
+        background-color: whitesmoke;
+        /* Cambia el color de fondo al pasar el mouse */
+        color: green;
+        /* Cambia el color de texto al pasar el mouse */
+    }
+
+    /* Estilo para el estado activo (cuando se selecciona el botón) */
+    .btn:active {
+        background-color: grey;
+        /* Cambia el color de fondo al hacer clic */
     }
 </style>
 
@@ -37,20 +61,20 @@
                     "previous": "<i class='fa fa-angle-left'></i>",
                     "next": "<i class='fa fa-angle-right'></i>"
                 },
+
                 select: {
                     rows: {
                         _: ""
                     }
                 },
             },
-            buttons: [
-                'copy', 'csv', 'excel', 'pdf', 'print'
+            columnDefs: [{
+                type: 'date',
+                targets: 0
+            }],
+            order: [
+                [0, 'desc']
             ]
-        });
-
-        // Agrega un evento de clic al botón "Exportar a PDF"
-        $('#exportPDF').on('click', function() {
-            table.button('.buttons-pdf').trigger();
         });
     });
 </script>
@@ -70,6 +94,7 @@
                                 <th class="text-center">Área</th>
                                 <th class="text-center">C.C</th>
                                 <th class="text-center">Estado</th>
+
                             </thead>
                             <tbody>
                                 @foreach ($vale as $datoSolicitante)
@@ -94,8 +119,7 @@
                                             <div class="modal-dialog modal-lg">
                                                 <div class="modal-content">
                                                     <div class="modal-header">
-                                                        <h1 class="modal-title fs-5" id="exampleModalLabel">Editar Estado del Vale de: <strong> {{ $datoSolicitante->valeSolicitante}} </strong>
-                                                        </h1>
+                                                        <h5 class="modal-title" id="exampleModalLabel"><strong>Estado del Vale</strong></h5>
                                                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                     </div>
                                                     <div class="modal-body">
@@ -127,7 +151,7 @@
                                             </div>
                                             <div class="modal-body">
                                                 @include('valeCombustible.edit')
-                                                <a class="btn btn-danger"> El vale de combustible ha sido rechazado {{$datoSolicitante->valeSolicitante}}</a>
+                                                <a class="btn btn-danger"> El vale de combustible ha sido rechazado por: {{$datoSolicitante->valeAutorizo}}</a>
                                             </div>
                                         </div>
                                     </div>
@@ -145,7 +169,7 @@
                                             </div>
                                             <div class="modal-body ">
                                                 @include('valeCombustible.edit')
-                                                <a class="btn btn-success"> El vale de combustible ha sido aceptado {{$datoSolicitante->valeSolicitante}}</a>
+                                                <a class="btn btn-success"> El vale de combustible ha sido aceptado por: {{$datoSolicitante->valeAutorizo}}</a>
                                             </div>
                                         </div>
                                     </div>
@@ -157,11 +181,6 @@
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-12">
-            <a class="btn btn-primary" href="#" id="exportPDF">Exportar a PDF</a>
         </div>
     </div>
 </div>

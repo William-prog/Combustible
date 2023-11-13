@@ -1,12 +1,12 @@
-@foreach($valesRegistrados as $vale)
+@foreach($valesRegistrados as $registro)
 @if($vale->aceptadaPorMi && $vale->solicitadoPorMi)
-    <script src="https://kit.fontawesome.com/1bf0086160.js" crossorigin="anonymous"></script>
-    <title>Topo Email</title>
-     Vale Numero: {{ $vale->valeNumero }}
-     Vale Economico: {{ $vale->valeEconomico }}
-     Vale CC: {{ $vale->valeCc }}    
+<script src="https://kit.fontawesome.com/1bf0086160.js" crossorigin="anonymous"></script>
+<title>Topo Email</title>
+Vale Numero: {{ $registro->valeNumero }}
+Vale Economico: {{ $registro->valeEconomico }}
+Vale CC: {{ $registro->valeCc }}
 
-    
+
 @endif
 @endforeach
 <script src="https://kit.fontawesome.com/1bf0086160.js" crossorigin="anonymous"></script>
@@ -143,7 +143,7 @@
                         <table width="100%" align="left" border="0" cellpadding="0" cellspacing="0">
                             <tr>
                                 <td height="70" style="padding: 0 2px 2px 0;">
-                                    <img class="fix" src="/img/LogoBlanco.png" width="100" height="100" border="0" alt="" />
+                                    <img class="fix" src="/css/LogoBlanco.png" width="100" height="100" border="0" alt="" />
                                 </td>
                             </tr>
                         </table>
@@ -173,13 +173,13 @@
                         <table width="100%" border="0" cellspacing="0" cellpadding="0">
                             <tr>
                                 <td class="h2">
-                                    {{$vale->valeMarca}}
+                                    {{$registro->valeMarca}}
                                 </td>
                             </tr>
                             <tr>
                                 <td class="bodycopy">
-                                    Servicios y Equipos TOPO S.A de C.V ha solicitado <strong> {{$vale->valeCantidad}} Litros </strong> de combustible para el <strong> {{$vale->valeModelo}} </strong> con <strong> Numero Economico {{$vale->valeEconomico}} </strong>
-                                    y <strong> placas {{$vale->valePlacas}}</strong>.
+                                    Servicios y Equipos TOPO S.A de C.V ha solicitado <strong> {{$registro->valeCantidad}} Litros </strong> de combustible para el <strong> {{$registro->valeModelo}} </strong> con <strong> Numero Economico {{$registro->valeEconomico}} </strong>
+                                    y <strong> placas {{$registro->valePlacas}}</strong>.
                                 </td>
                             </tr>
                         </table>
@@ -201,7 +201,7 @@
                                                 <table class="buttonwrapper" bgcolor="#FF771F" border="0" cellspacing="0" cellpadding="0">
                                                     <tr>
                                                         <td class="button" height="45">
-                                                            <a href="{{ url('/valeCombustible/pdf/'.$vale->id)}}">Descargar Vale</a>
+                                                            <a href="{{ url('/informePDF/PDF/{id}">Descargar Vale</a>
                                                         </td>
                                                     </tr>
                                                 </table>
