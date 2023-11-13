@@ -3,13 +3,13 @@
 <style>
     .container {
         /* From https://css.glass */
-        background: linear-gradient(to top, rgba(0, 0, 0, 0.4), rgba(255, 255, 255, 0.1));
+        background: linear-gradient(to top, rgba(0, 0, 0, 0.2), rgba(255, 255, 255, 45));
         border-radius: 16px;
         box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
         backdrop-filter: blur(9.7px);
         -webkit-backdrop-filter: blur(9.7px);
         border: 1px solid rgba(255, 255, 255, 0.47);
-        color: white;
+        font-weight: bold;
     }
 
     .table th {
@@ -19,7 +19,7 @@
     }
 
     .table td {
-        color: white;
+        color: black;
         font-weight: bold;
 
     }
@@ -31,8 +31,7 @@
         /* Cambia el color de texto al pasar el mouse */
     }
 </style>
-
-<div class="container justify-content-center">
+<div class="container">
     <div class="col-md-12 text-center">
         <div class="row justify-content-center">
             <div class="col-md-4">
@@ -48,7 +47,9 @@
             </div>
         </div>
     </div>
+</div>
 
+<div class="container justify-content-center mt-5">
     <div class="row">
         <div class="col-md-6 mt-3">
             <div class="container">
@@ -124,7 +125,7 @@
                     borderWidth: 1,
                     backgroundColor: 'rgba(135, 206, 235, 10)',
                     hoverBorderColor: 'white',
-                    
+
                 }]
             },
             options: {

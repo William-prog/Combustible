@@ -145,7 +145,7 @@
     </div>
     <br><br>
     <div class="text-center text-primary mt-4">
-        <button id="btnConfirmar" class="btn btn-success" disabled>Confirmar</button>
+        <button id="btnConfirmar" class="btn btn-success">Confirmar</button>
     </div>
     <!-- Mensaje de confirmación -->
     <div class="col-md-12 mt-3">
@@ -164,14 +164,6 @@
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
     $(document).ready(function() {
-        $("input[name='valeEstado']").change(function() {
-            if ($("#aceptarRadio").is(":checked") || $("#rechazarRadio").is(":checked")) {
-                $("#btnConfirmar").prop("disabled", false);
-            } else {
-                $("#btnConfirmar").prop("disabled", true);
-            }
-        });
-
         $("#btnConfirmar").on("click", function() {
             var nuevoEstado = $('input[name="valeEstado"]:checked').val();
             var valeId = $("input[name='valeEstado']:checked").data("vale-id");

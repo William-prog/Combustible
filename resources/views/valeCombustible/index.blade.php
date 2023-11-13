@@ -19,10 +19,12 @@
         color: white;
     }
 
-    .text-center{
+    .text-center,
+    .text {
         color: white;
     }
-    .modal-dialog{
+
+    .modal-dialog {
         color: black;
     }
 
@@ -76,6 +78,17 @@
                 [0, 'desc']
             ]
         });
+        table.on('order.dt search.dt', function() {
+            table.rows({
+                filter: 'applied'
+            }).nodes().each(function(cell, i) {
+                var data = table.row(cell).data();
+                if (data[6] == 'Pendiente') {
+                    table.row(cell).remove();
+                    table.row.add(data).draw(false);
+                }
+            });
+        }).draw();
     });
 </script>
 
@@ -100,15 +113,15 @@
                                 @foreach ($vale as $datoSolicitante)
                                 <tr>
                                     <td class="text-center">{{ $datoSolicitante->valeFecha }}</td>
-                                    <td class="text-center">{{ $datoSolicitante->valeSolicitante }}</td>
-                                    <td class="text-center">
+                                    <td class="text">{{ $datoSolicitante->valeSolicitante }}</td>
+                                    <td class="text">
                                         @foreach ($departamento as $datoDepartamento)
                                         @if ($datoSolicitante->valeDepartamento == $datoDepartamento->id)
                                         {{ $datoDepartamento->departamentoNombre }}
                                         @endif
                                         @endforeach
                                     </td>
-                                    <td class="text-center">{{ $datoSolicitante->valeArea }}</td>
+                                    <td class="text">{{ $datoSolicitante->valeArea }}</td>
                                     <td class="text-center">{{ $datoSolicitante->valeCc }}</td>
                                     <td class="d-flex justify-content-center">
                                         @if ($datoSolicitante->valeEstado == 'Pendiente')
