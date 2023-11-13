@@ -1,7 +1,7 @@
 <div class="row">
     <div class="col-md-12">
         <div  class="card ">
-            <div class="card-header mb-3"  style="background-color: #FF771F; color: white;"    >Registrar Vehiculo</div>
+            <div class="card-header mb-3"  style="background-color: #FF771F; color: white;"    >Registrar Vehículo</div>
             <div class="card-body">
             
                 <form>

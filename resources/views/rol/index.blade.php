@@ -46,17 +46,17 @@
 <div class="row">
     <div class="col-md-12">
         <div class="card border-secondary mb-3">
-            <div class="card-header"style="background-color: #FF771F; color: white;">{{ __('Empleados') }}</div>
+            <div class="card-header"style="background-color: #FF771F; color: white;">{{ __('Usuarios') }}</div>
             <div class="card-body">
                 <div class="table-responsive">
                     <table id="tablaRol" class="table table-striped custom-table">
                         <thead>
                             <tr class="text-center" style="background-color: #FF771F; color: white;">
-                             
                                 <th>Nombre</th>
                                 <th>Email</th>
                                 <th>Rol</th>
                                 <th>Acciones</th>
+
                             </tr>
                         </thead>
                         <tbody>

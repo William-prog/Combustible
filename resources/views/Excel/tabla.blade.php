@@ -1,5 +1,5 @@
 <link href="{{ asset('/css/tablaExcel.css') }}" rel="stylesheet">
-<h1 class="h2">Previsualizacion del Archivo</h1>
+<h1 class="h2">Previsualización del archivo</h1>
 <br>
 <div class="row">
     <table class="table table-hover table-responsive text-center" style="width: 100% ">

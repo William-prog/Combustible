@@ -10,7 +10,7 @@
 <div class="row">
     <div class="col-md-12">
         <div class="card border-secondary mb-3">
-            <div class="card-header" style="background-color: #FF771F; color: white;">{{ __('Vehiculo') }}</div>
+            <div class="card-header" style="background-color: #FF771F; color: white;">{{ __('Vehículo') }}</div>
             <div class="card-body">
 
                 <div class="table-responsive">

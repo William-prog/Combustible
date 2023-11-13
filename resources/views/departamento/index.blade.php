@@ -47,8 +47,8 @@
                             <tr style="background-color: #FF771F; color: white;">
                                 <th>Departamento</th>
                                 <th>CC</th>
-                                <th>Descripcion</th>
-                                <th>Operacion</th>
+                                <th>Descripción</th>
+                                <th>Operación</th>
                                 <th>Acciones</th>
                             </tr>
                         </thead>

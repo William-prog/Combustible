@@ -17,6 +17,12 @@ use App\Models\User;
 
 class ValeCombustibleController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function informePDF($id)
     {
         $departamento = departamentos::all();
@@ -25,9 +31,10 @@ class ValeCombustibleController extends Controller
         $pdf = \PDF::loadView('PDF.formatosPdf', compact('id', 'registro', 'empleado', 'departamento'));
         return $pdf->stream('responsiva.pdf', array("Attachment" => true));
     }
+    
     public function index()
     {
-        $vale = valeCombustible::all();
+        $vale = valeCombustible::orderBy('created_at', 'desc')->get();
         $departamento = departamentos::all();
         $empleado = empleado::all();
         $user = User::all();
@@ -86,7 +93,7 @@ class ValeCombustibleController extends Controller
         $registrerVale->save();
 
         Mail::to('alonsomendez653@gmail.com')->send(new solicitudVale());
-        Mail::to('motogato099@gmail.com')->send(new solicitudVale());
+        Mail::to('aevo203@hotmail.com')->send(new solicitudVale());
 
         return redirect('valeCombustible');
     }
@@ -126,6 +133,7 @@ class ValeCombustibleController extends Controller
         if ($request->valeEstado === 'Aceptado' && $estadoAnterior !== 'Aceptado') {
 
             Mail::to('alonsomendez653@gmail.com')->send(new valeAceptado($request->valeEstado));
+            Mail::to('aevo203@hotmail.com')->send(new valeAceptado($request->valeEstado));
         }
 
         return redirect('valeCombustible');

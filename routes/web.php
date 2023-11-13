@@ -29,7 +29,7 @@ use Illuminate\Support\Facades\Crypt;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect()->route('valeCombustible.index');
 });
 
 Auth::routes();

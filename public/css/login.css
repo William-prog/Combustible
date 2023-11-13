@@ -1,7 +1,6 @@
-<style>
     body {
         font-family: 'Lato', sans-serif;
-        font-size: 18px;
+        font-size: 17px;
     }
 
     .card {
@@ -28,63 +27,44 @@
         font-size: 16px;
     }
 
-    .btn {
-        background-color: #FFA500;
-        color: #000;
-        padding: 15px;
-        font-size: 16px;
-        border-radius: 4px;
-        cursor: pointer;
+    .custom-btn {
+        position: relative;
+        overflow: hidden;
+        z-index: 1;
+        color: #fff; /* Color del texto en el botón */
+        padding: 10px 20px; /* Ajusta el relleno (padding) según tus necesidades */
+        font-size: 16px; /* Ajusta el tamaño de la fuente según tus necesidades */
+        background-color: #ffA500; /* Color naranja del botón */
+        border: none; /* Elimina el borde del botón si lo hay */
+        transition: background-color 0.3s ease-in-out;
     }
-
-    .btn-primary {
-        background-color: #FFA500;
-        color: #000;
-        border-color: #FFA500;
-        margin: 0 auto;
-        display: block;
-        margin-top: 20px;
-    }
-
-    .custom-btn.btn-7 {
-        background-color: #FFA500;
-        line-height: 54px;
-        padding: 0 25px;
-        border: none;
-        color: #fff;
-    }
-
-    .custom-btn.btn-7 span:before,
-    .custom-btn.btn-7 span:after {
-        position: absolute;
+    
+    .custom-btn:before {
         content: "";
-        left: 0;
-        top: 0;
-        background: rgba(251, 75, 2, 1);
-        box-shadow: -7px -7px 20px 0px rgba(255, 255, 255, .9),
-            -4px -4px 5px 0px rgba(255, 255, 255, .9),
-            7px 7px 20px 0px rgba(0, 0, 0, .2),
-            4px 4px 5px 0px rgba(0, 0, 0, .3);
-        transition: all 0.3s ease;
+        position: absolute;
+        z-index: -1;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 0;
+        height: 0;
+        border-radius: 50%;
+        background: radial-gradient(circle at center, transparent 10%, #000 20%, transparent 30%); /* Cambiado a negro (#000) */
+        opacity: 0;
+        transition: width 0.3s ease-in-out, height 0.3s ease-in-out, opacity 0.3s ease-in-out;
     }
-
-    .custom-btn.btn-7 span:before {
-        width: 2px;
-        height: 0%;
+    
+    .custom-btn:hover:before {
+        width: 300px;
+        height: 300px;
+        opacity: 1;
     }
-
-    .custom-btn.btn-7 span:after {
-        height: 2px;
-        width: 0%;
+    
+    .custom-btn:hover {
+        background-color: #000; /* Color negro al pasar el mouse */
+        color: #fff; /* Color del texto en el botón al pasar el mouse */
     }
-
-    .custom-btn.btn-7 span:hover:before {
-        height: 100%;
-    }
-
-    .custom-btn.btn-7 span:hover:after {
-        width: 100%;
-    }
+    
 
     .row.justify-content-center {
         padding: 30px;
@@ -99,4 +79,15 @@
         margin: 0 auto; /* Centra el card horizontalmente */
     }
     
+    .custom-label {
+        white-space: nowrap; /* Evita el desbordamiento de texto */
+        display: inline-block; /* Asegura que el texto se muestre en una línea */
+        margin-bottom: 0; /* Evita un margen inferior adicional */
+        text-align: left;
+    }
+    
+    .form-group {
+        display: flex;
+        align-items: center;
+    }
     

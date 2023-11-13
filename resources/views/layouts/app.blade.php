@@ -30,6 +30,9 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
         integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous">
     </script>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512..." crossorigin="anonymous" />
+
 
 
     <!-- Styles -->
@@ -39,6 +42,9 @@
 
 </head>
 
+
+
+ {{-- Menu de SuperAdmin --}}
 <body>
     <div id="app">
 
@@ -62,39 +68,45 @@
                                             class="fas fa-sign-in-alt"></i></a>
                                 </li>
                                 <li>
-                                    <a href="{{ route('register') }}">{{ __('Crear cuenta   ') }}<i
+                                    <a href="{{ route('register') }}">{{ __('Crear Cuenta   ') }}<i
                                             class="fas fa-user-plus"></i></a>
                                 </li>
                             @else
                                
                                 <li style="font-size: 12px;" class="dropdown">
                                     <a href="#" class="sub-menu-toggle">
-                                        {{ __('Resumen Tecnico') }} <span class="caret"></span>
+                                        {{ __('Resumen Técnico') }} <span class="caret"></span><i class="far fa-file"></i>
                                     </a>
                                     <ul class="sub-menu">
                                         <li>
                                             <a href="{{ route('valeCombustible.index') }}"
-                                                style="cursor: pointer">{{ __('Vales combustible ') }}</a>
+                                                style="cursor: pointer">{{ __('Vales Combustible ') }}<i class="fas fa-truck"></i>
+                                            </a>
                                         </li>
                                         <li>
                                             <a href="{{ route('estadisticaVale.index') }}"
-                                                style="cursor: pointer">{{ __('Estadisticas solicitud ') }}</a>
+                                                style="cursor: pointer">{{ __('Estadísticas Solicitud ') }} <i class="fas fa-chart-line"></i>
+                                            </a>
                                         </li>
                                         <li>
                                             <a href="{{ route('estadistica.index') }}"
-                                                style="cursor: pointer">{{ __('Estadisticas consumo ') }}</a>
+                                                style="cursor: pointer">{{ __('Estadísticas Consumo ') }}<i class="fas fa-chart-pie"></i>
+                                            </a>
                                         </li>
                                     </ul>
                                 </li>
 
                                 <li style="font-size: 12px;" class="dropdown">
                                     <a href="#" class="sub-menu-toggle">
-                                        {{ __('Vales') }} <span class="caret"></span>
+                                        {{ __('Vales') }} <span class="caret"></span><i class="fas fa-folder-open"></i>
+                                    </i>
+
                                     </a>
                                     <ul class="sub-menu">
                                         <li>
                                             <a href="{{ route('valeCombustible.create') }}"
-                                                style="cursor: pointer">{{ __('Vales de combustible ') }}</a>
+                                                style="cursor: pointer">{{ __('Vales de Combustible ') }}<i class="fas fa-gas-pump"></i>
+                                            </a>
                                         </li>
                                     </ul>
                                 </li>
@@ -102,12 +114,13 @@
 
                                 <li style="font-size: 12px;" class="dropdown">
                                     <a href="#" class="sub-menu-toggle">
-                                        {{ __('Consumo') }} <span class="caret"></span>
+                                        {{ __('Consumo') }} <span class="caret"></span><i class="fas fa-dollar-sign"></i>
+
                                     </a>
                                     <ul class="sub-menu">
                                         <li>
                                             <a href="{{ route('consumo.index') }}"
-                                                style="cursor: pointer">{{ __('Registro de consumo ') }}</a>
+                                                style="cursor: pointer">{{ __('Regístro de Consumo ') }}<i class="fas fa-file-csv"></i></a>
                                         </li>
                                         
 
@@ -119,7 +132,7 @@
                                     <a href="{{ route('logout') }}"
                                         onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                                         <span class="title">
-                                            {{ __('Cerrar Sesion') }}
+                                            {{ __('Cerrar Sesión') }}&nbsp;<i class="fas fa-sign-out-alt"></i>
                                             <form id="logout-form" action="{{ route('logout') }}" method="POST"
                                                 class="d-none">
                                                 @csrf
@@ -136,7 +149,10 @@
             @endif
         </nav>
 
-        {{-- Menu de admin --}}
+        {{-- Menu de conductor --}}
+
+
+
 
 
         <nav class="navbar-custom">
@@ -153,35 +169,35 @@
                         <ul>
                             @guest
                                 <li>
-                                    <a href="{{ route('login') }}">{{ __('Iniciar sesión    ') }}<i
+                                    <a href="{{ route('login') }}">{{ __('Iniciar Sesión    ') }}<i
                                             class="fas fa-sign-in-alt"></i></a>
                                 </li>
                                 <li>
-                                    <a href="{{ route('register') }}">{{ __('Crear cuenta   ') }}<i
+                                    <a href="{{ route('register') }}">{{ __('Crear Cuenta   ') }}<i
                                             class="fas fa-user-plus"></i></a>
                                 </li>
                             @else
                                
                                 <li style="font-size: 12px;" class="dropdown">
                                     <a href="#" class="sub-menu-toggle">
-                                        {{ __('Resumen Tecnico') }} <span class="caret"></span>
+                                        {{ __('Resumen Técnico') }} <span class="caret"></span><i class="far fa-file"></i>
                                     </a>
                                     <ul class="sub-menu">
                                         <li>
                                             <a href="{{ route('valeCombustible.index') }}"
-                                                style="cursor: pointer">{{ __('Vales combustible ') }}</a>
+                                                style="cursor: pointer">{{ __('Vales Combustible ') }}<i class="fas fa-truck"></i></a>
                                         </li>
                                     </ul>
                                 </li>
 
                                 <li style="font-size: 12px;" class="dropdown">
                                     <a href="#" class="sub-menu-toggle">
-                                        {{ __('Vales') }} <span class="caret"></span>
+                                        {{ __('Vales') }} <span class="caret"></span><i class="fas fa-folder-open"></i>
                                     </a>
                                     <ul class="sub-menu">
                                         <li>
                                             <a href="{{ route('valeCombustible.create') }}"
-                                                style="cursor: pointer">{{ __('Vales de combustible ') }}</a>
+                                                style="cursor: pointer">{{ __('Vales de Combustible ') }}<i class="fas fa-gas-pump"></i></a>
                                         </li>
                                     </ul>
                                 </li>
@@ -190,7 +206,7 @@
                                     <a href="{{ route('logout') }}"
                                         onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                                         <span class="title">
-                                            {{ __('Cerrar Sesion') }}
+                                            {{ __('Cerrar Sesión') }}&nbsp;<i class="fas fa-sign-out-alt"></i>
                                             <form id="logout-form" action="{{ route('logout') }}" method="POST"
                                                 class="d-none">
                                                 @csrf
@@ -207,8 +223,12 @@
             @endif
         </nav>
 
+         {{-- Menu de admin --}}
 
-        <nav class="navbar-custom">
+
+
+         
+         <nav class="navbar-custom">
             @if (auth()->check() && auth()->user()->role == 'admin')
             <div class="container-menu">
                 <div class="header-navigation-menu">
@@ -222,39 +242,39 @@
                         <ul>
                             @guest
                                 <li>
-                                    <a href="{{ route('login') }}">{{ __('Iniciar sesión    ') }}<i
+                                    <a href="{{ route('login') }}">{{ __('Iniciar Sesión    ') }}<i
                                             class="fas fa-sign-in-alt"></i></a>
                                 </li>
                                 <li>
-                                    <a href="{{ route('register') }}">{{ __('Crear cuenta   ') }}<i
+                                    <a href="{{ route('register') }}">{{ __('Crear Cuenta   ') }}<i
                                             class="fas fa-user-plus"></i></a>
                                 </li>
                             @else
                                
                                 <li style="font-size: 12px;" class="dropdown">
                                     <a href="#" class="sub-menu-toggle">
-                                        {{ __('Resumen Tecnico') }} <span class="caret"></span>
+                                        {{ __('Resumen Técnico') }} <span class="caret"></span><i class="far fa-file"></i>
                                     </a>
                                     <ul class="sub-menu">
                                         <li>
-                                            <a href="{{ route('valeCombustible.index') }}"
-                                                style="cursor: pointer">{{ __('Vales de combustible ') }}</a>
+                                            <a href="{{ route('valeCombustible.create') }}"
+                                                style="cursor: pointer">{{ __('Vales de Combustible ') }}<i class="fas fa-gas-pump"></i></a>
                                         </li>
                                         <li>
                                             <a href="{{ route('estadisticaVale.index') }}"
-                                                style="cursor: pointer">{{ __('Estadisticas solicitud ') }}</a>
+                                                style="cursor: pointer">{{ __('Estadísticas Solicitud ') }}<i class="fas fa-chart-line"></i></a>
                                         </li>
                                     </ul>
                                 </li>
 
                                 <li style="font-size: 12px;" class="dropdown">
                                     <a href="#" class="sub-menu-toggle">
-                                        {{ __('Vales') }} <span class="caret"></span>
+                                        {{ __('Vales') }} <span class="caret"></span><i class="fas fa-folder-open"></i>
                                     </a>
                                     <ul class="sub-menu">
                                         <li>
                                             <a href="{{ route('valeCombustible.create') }}"
-                                                style="cursor: pointer">{{ __('Vales combustible ') }}</a>
+                                                style="cursor: pointer">{{ __('Vales Combustible ') }}<i class="fas fa-truck"></i></a>
                                         </li>
                                     </ul>
                                 </li>
@@ -263,7 +283,8 @@
                                     <a href="{{ route('logout') }}"
                                         onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                                         <span class="title">
-                                            {{ __('Cerrar Sesion') }}
+                                            {{ __('Cerrar Sesión') }}&nbsp;<i class="fas fa-sign-out-alt"></i>
+
                                             <form id="logout-form" action="{{ route('logout') }}" method="POST"
                                                 class="d-none">
                                                 @csrf

@@ -22,6 +22,10 @@ class ConsumoController extends Controller
     // public function importView(Request $request){
     //     return view('importFile');
     // }
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
  
     public function import(Request $request){
         Excel::import(new ImportConsumo, $request->file('file')->store('files'));

@@ -54,7 +54,7 @@
                         <div class="accordion-body ">
                             <div class="row  ">
                                 <div class="col-md-12">
-                                    sadha
+                                    
                                     @include('rol.index')
                                 </div>
                             </div>

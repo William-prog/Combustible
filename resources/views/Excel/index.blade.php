@@ -22,7 +22,7 @@
 
 
         <div class="container">
-            <h4 class=" h3 text-center">Instrucciones:</h4><br>
+            <h4 class=" h3 text-center">Instrucciónes:</h4><br>
             <div class="content">
                 <div class="pagination">
                     <!-- Aquí se generan los botones de paginación dinámicamente --><br>
