@@ -1,15 +1,14 @@
-
 @extends('layouts.app')
 @section('content')
 <style>
     .container {
-        /* Cambiamos el fondo a negro */
-        background: rgba(0, 0, 0, 0.24);
+        background: linear-gradient(to top, rgba(0, 0, 0, 0.5), rgba(255, 255, 255, 0.1));
         border-radius: 16px;
         box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
         backdrop-filter: blur(9.7px);
         -webkit-backdrop-filter: blur(9.7px);
         border: 2px solid rgba(255, 255, 255, 0.47);
+        font-weight: bold;
         color: white;
     }
 
@@ -18,7 +17,8 @@
     .container h5,
     .container h6 {
         color: white;
-    
+        font-weight: bold;
+
     }
 
     .logo-image {
@@ -64,11 +64,11 @@
                 <div class="row">
                     <div class="col-md-2">
                         <label for="valeNumero" class="form-label">No. empleado:</label>
-                        <input type="number" class="form-control" placeholder="" id="valeNumero" name="valeNumero"required>
+                        <input type="number" class="form-control" placeholder="" id="valeNumero" name="valeNumero" required>
                     </div>
                     <div class="col-md-6">
                         <label for="valeSolicitante" class="form-label">Solicitante:</label>
-                        <input type="text" placeholder="" class="form-control" name="valeSolicitante" id="valeSolicitante"required>
+                        <input type="text" placeholder="" class="form-control" name="valeSolicitante" id="valeSolicitante" readonly required>
                     </div>
                     <div class="col-md-4">
                         <label for="valeFecha" class="form-label">Fecha:</label>
@@ -79,7 +79,7 @@
                 <div class="row mt-3">
                     <div class="col-md-6">
                         <label for="valeDepartamento">Departamento:</label>
-                        <select class="form-select" aria-label="Default select example" name="valeDepartamento" id="choice1"required>
+                        <select class="form-select" aria-label="Default select example" name="valeDepartamento" id="choice1" required>
                             @foreach ($departamento as $dato)
                             <option value="{{ $dato->id }}">{{ $dato->departamentoNombre }}</option>
                             @endforeach
@@ -109,19 +109,19 @@
         <hr>
         <div class="col-md-2">
             <label for="valeEconomico" class="form-label">No. economico:</label>
-            <input type="number" placeholder="" class="form-control" name="valeEconomico" id="valeEconomico"required>
+            <input type="number" placeholder="" class="form-control" name="valeEconomico" id="valeEconomico" required>
         </div>
         <div class="col-md-2">
             <label for="valePlacas" class="form-label">Placas:</label>
-            <input type="text" placeholder="" class="form-control" name="valePlacas" id="valePlacas"required>
+            <input type="text" placeholder="" class="form-control" name="valePlacas" id="valePlacas" readonly required>
         </div>
         <div class="col-md-6">
             <label for="valeModelo" class="form-label">Modelo:</label>
-            <input type="text" placeholder="" class="form-control" name="valeModelo" id="valeModelo"required>
+            <input type="text" placeholder="" class="form-control" name="valeModelo" id="valeModelo" readonly required>
         </div>
         <div class="col-md-2">
             <label for="valeCombustible" class="form-label">Combustible:</label>
-            <input type="text" placeholder="" class="form-control" name="valeCombustible" id="valeCombustible"required>
+            <input type="text" placeholder="" class="form-control" name="valeCombustible" id="valeCombustible" readonly required>
 
         </div>
     </div>
@@ -130,20 +130,20 @@
 
         <div class="col-md-2">
             <label for="valeMarca" class="form-label">Marca:</label>
-            <input type="text" placeholder="" class="form-control" name="valeMarca" id="valeMarca"required>
+            <input type="text" placeholder="" class="form-control" name="valeMarca" id="valeMarca" readonly required>
         </div>
         <div class="col-md-2">
             <label for="valeAño" class="form-label">Año:</label>
-            <input type="number" placeholder="" class="form-control" name="valeAño" id="valeAño"required>
+            <input type="number" placeholder="" class="form-control" name="valeAño" id="valeAño" readonly required>
 
         </div>
         <div class="col-md-2">
             <label for="valeKilometraje" class="form-label">Kilometraje:</label>
-            <input type="number" placeholder="" class="form-control" name="valeKilometraje" id="valeKilometraje"required>
+            <input type="number" placeholder="" class="form-control" name="valeKilometraje" id="valeKilometraje" required>
         </div>
         <div class="col-md-2">
             <label for="valeLitros" class="form-label">Litros:</label>
-            <input type="number" placeholder="" class="form-control" name="valeLitros" id="valeLitros"required>
+            <input type="number" placeholder="" class="form-control" name="valeLitros" id="valeLitros" required>
 
         </div>
         <div class="col-md-4">

@@ -1,12 +1,12 @@
 @foreach($valesRegistrados as $vale)
 @if($vale->aceptadaPorMi && $vale->solicitadoPorMi)
-    <script src="https://kit.fontawesome.com/1bf0086160.js" crossorigin="anonymous"></script>
-    <title>Topo Email</title>
-     Vale Numero: {{ $vale->valeNumero }}
-     Vale Economico: {{ $vale->valeEconomico }}
-     Vale CC: {{ $vale->valeCc }}    
+<script src="https://kit.fontawesome.com/1bf0086160.js" crossorigin="anonymous"></script>
+<title>Topo Email</title>
+Vale Numero: {{ $vale->valeNumero }}
+Vale Economico: {{ $vale->valeEconomico }}
+Vale CC: {{ $vale->valeCc }}
 
-    
+
 @endif
 @endforeach
 <script src="https://kit.fontawesome.com/1bf0086160.js" crossorigin="anonymous"></script>
@@ -201,7 +201,7 @@
                                                 <table class="buttonwrapper" bgcolor="#FF771F" border="0" cellspacing="0" cellpadding="0">
                                                     <tr>
                                                         <td class="button" height="45">
-                                                            <a href="{{ url('/valeCombustible/pdf/'.$vale->id)}}">Descargar Vale</a>
+                                                            <a href="{{ route('informePDF', ['id' => $vale->id]) }}" >Descargar Vale</a>
                                                         </td>
                                                     </tr>
                                                 </table>

@@ -94,7 +94,7 @@
                         <table width="100%" align="left" border="0" cellpadding="0" cellspacing="0">
                             <tr>
                                 <td height="70" style="padding: 0 2px 2px 0;">
-                                    <img class="fix" src="img/LogoBlanco.png" width="100" height="100" border="0" alt="" />
+                                    <img class="fix" src="css/LogoBlanco.png" width="100" height="100" border="0" alt="" />
                                 </td>
                             </tr>
                         </table>
@@ -129,7 +129,7 @@
                             </tr>
                             <tr>
                                 <td class="bodycopy">
-                                    El colaborador ha solicitado <strong> {{$vale->valeCantidad}} Litros </strong> de combustible para el vehiculo con <strong> Numero Economico {{$vale->valeCombustibleNoEco}} </strong>
+                                    El colaborador ha solicitado <strong> {{$vale->valeCantidad}} Litros </strong> de combustible para el vehiculo con <strong> Numero Economico {{$vale->valeEconomico}} </strong>
                                     con <strong> {{$vale->valeKilometraje}} km</strong>.
                                 </td>
                             </tr>

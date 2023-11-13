@@ -3,34 +3,35 @@
 <style>
     .container {
         /* From https://css.glass */
-        background: rgba(255, 255, 255, 0.74);
+        background: linear-gradient(to top, rgba(0, 0, 0, 0.4), rgba(255, 255, 255, 0.1));
         border-radius: 16px;
         box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
         backdrop-filter: blur(9.7px);
         -webkit-backdrop-filter: blur(9.7px);
         border: 1px solid rgba(255, 255, 255, 0.47);
+        color: white;
     }
 
-    /* Estilo para las tablas */
-    .table {
-        background-color: #fff;
-        /* Fondo blanco para la tabla */
-    }
-
-    /* Estilo para las celdas de encabezado de la tabla */
     .table th {
         background-color: orange;
-        /* Fondo gris oscuro para el encabezado de la tabla */
         color: #fff;
-        /* Texto blanco para el encabezado */
+
     }
 
-    /* Estilo para las celdas de datos de la tabla */
     .table td {
-        background-color: #f5f5f5;
-        /* Fondo gris claro para las celdas de datos */
+        color: white;
+        font-weight: bold;
+
+    }
+
+    .btn:hover {
+        background-color: whitesmoke;
+        /* Cambia el color de fondo al pasar el mouse */
+        color: green;
+        /* Cambia el color de texto al pasar el mouse */
     }
 </style>
+
 <div class="container justify-content-center">
     <div class="col-md-12 text-center">
         <div class="row justify-content-center">
@@ -48,16 +49,15 @@
         </div>
     </div>
 
-    <div class="my-4"></div>
     <div class="row">
-        <div class="col-md-6">
+        <div class="col-md-6 mt-3">
             <div class="container">
                 <div>
                     <canvas id="myChart1"></canvas>
                 </div>
             </div>
         </div>
-        <div class="col-md-6">
+        <div class="col-md-6 mt-3">
             <div class="container">
                 <canvas id="myChartz1"></canvas>
             </div>
@@ -82,6 +82,8 @@
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/numeral.js/2.0.6/numeral.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.0/html2pdf.bundle.min.js"></script>
+
 
 <script>
     // Variables globales para las gráficas
@@ -117,19 +119,43 @@
             data: {
                 labels: sortedData1,
                 datasets: [{
-                    label: 'Vales Vehículo',
+                    label: '',
                     data: data1,
                     borderWidth: 1,
-                    backgroundColor: 'rgba(1, 0, 0, 0.5)',
+                    backgroundColor: 'rgba(135, 206, 235, 10)',
+                    hoverBorderColor: 'white',
+                    
                 }]
             },
             options: {
+                animation: {
+                    duration: 2000,
+                    easing: 'easeOutBack',
+                },
                 scales: {
                     y: {
                         beginAtZero: true,
                         precision: 0,
                         ticks: {
                             stepSize: 1
+                        },
+                        title: {
+                            display: true,
+                            text: 'Vales',
+                            font: {
+                                weight: 'bold',
+                                size: 14
+                            }
+                        }
+                    },
+                    x: {
+                        title: {
+                            display: true,
+                            text: 'Vehículos',
+                            font: {
+                                weight: 'bold',
+                                size: 14
+                            }
                         }
                     }
                 }
@@ -158,22 +184,44 @@
         chartz1 = new Chart(ctxz1, {
             type: 'bar',
             data: {
-                labels: sortedData2,
+                labels: sortedData2, // Etiquetas en el eje X (C.C)
                 datasets: [{
-                    label: 'Cantidad de vales',
-                    data: sortedValues2,
-                    borderColor: 'rgb(100, 150, 225)',
-                    backgroundColor: 'rgba(255, 210, 190, 0.5)',
+                    label: '', // Etiqueta en el eje Y
+                    data: sortedValues2, // Datos en el eje Y
+                    borderColor: 'rgb(200, 150, 225)',
+                    backgroundColor: 'rgba(1, 0, 0, 0.5)',
                     borderWidth: 1
                 }]
             },
             options: {
+                animation: {
+                    duration: 2000, // Duración de la animación en milisegundos
+                    easing: 'easeOutBack', // Efecto de animación (puedes ajustar esto)
+                },
                 scales: {
                     y: {
                         beginAtZero: true,
                         precision: 0,
                         ticks: {
                             stepSize: 1
+                        },
+                        title: {
+                            display: true,
+                            text: 'Vales',
+                            font: {
+                                weight: 'bold',
+                                size: 14
+                            }
+                        }
+                    },
+                    x: {
+                        title: {
+                            display: true,
+                            text: 'Centro de Costos',
+                            font: {
+                                weight: 'bold',
+                                size: 14
+                            }
                         }
                     }
                 }

@@ -45,13 +45,9 @@ Route::resource('estadisticaVale', estadisticaValeController::class);
 Route::resource('rol', rolController::class);
 
 
-
-
-
 Route::post('/valeCombustible/{id}','ValeCombustibleController@update')->name('valeCombustible.update');
 
-
-
+Route::get('/formatosPdfPDF/pdf/{id}',[ValeCombustibleController::class,'informePDF'])->name('informePDF');
 
 Route::resource('panel', PanelAdminController::class);
 

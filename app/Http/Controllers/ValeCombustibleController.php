@@ -17,9 +17,14 @@ use App\Models\User;
 
 class ValeCombustibleController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+    public function informePDF($id)
+    {
+        $departamento = departamentos::all();
+        $empleado = empleado::all();
+        $registro = valeCombustible::find($id);
+        $pdf = \PDF::loadView('PDF.formatosPdf', compact('id', 'registro', 'empleado', 'departamento'));
+        return $pdf->stream('responsiva.pdf', array("Attachment" => true));
+    }
     public function index()
     {
         $vale = valeCombustible::all();
@@ -27,7 +32,7 @@ class ValeCombustibleController extends Controller
         $empleado = empleado::all();
         $user = User::all();
         $fechaActual = Carbon::now();
-        return view('valeCombustible.index', compact('vale', 'departamento', 'empleado','user'));
+        return view('valeCombustible.index', compact('vale', 'departamento', 'empleado', 'user'));
     }
 
     public function actualizarEstado($id, Request $request)
@@ -76,14 +81,14 @@ class ValeCombustibleController extends Controller
         $registrerVale->valeCantidad = $request->valeCantidad;
 
         $registrerVale->valeEstado =  'Pendiente';
+        $registrerVale->valeAutorizo = '';
 
         $registrerVale->save();
 
-        Mail::to('aevo203@hotmail.com')->send(new solicitudVale());
+        Mail::to('alonsomendez653@gmail.com')->send(new solicitudVale());
         Mail::to('motogato099@gmail.com')->send(new solicitudVale());
 
         return redirect('valeCombustible');
-
     }
 
     /**
@@ -111,20 +116,20 @@ class ValeCombustibleController extends Controller
      * Update the specified resource in storage.
      */
     public function update(Request $request, $id)
-{
-    $ActualizarVale = valeCombustible::find($id);
-    $estadoAnterior = $ActualizarVale->valeEstado; 
-    $ActualizarVale->valeEstado = $request->valeEstado;
-    $ActualizarVale->save();
+    {
+        $ActualizarVale = valeCombustible::find($id);
+        $estadoAnterior = $ActualizarVale->valeEstado;
+        $ActualizarVale->valeEstado = $request->valeEstado;
+        $ActualizarVale->valeAutorizo = $request->valeAutorizo;
+        $ActualizarVale->save();
 
-    if ($request->valeEstado === 'Aceptado' && $estadoAnterior !== 'Aceptado') {
-        
-        Mail::to('aevo203@hotmail.com')->send(new valeAceptado($request->valeEstado));
-        
+        if ($request->valeEstado === 'Aceptado' && $estadoAnterior !== 'Aceptado') {
+
+            Mail::to('alonsomendez653@gmail.com')->send(new valeAceptado($request->valeEstado));
+        }
+
+        return redirect('valeCombustible');
     }
-
-    return redirect('valeCombustible');
-}
 
 
     /**
@@ -134,5 +139,4 @@ class ValeCombustibleController extends Controller
     {
         //
     }
-    
 }

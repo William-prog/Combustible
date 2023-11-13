@@ -15,6 +15,10 @@
         max-height: 90%;
         /* Asegura que la imagen no sea más alta que el contenedor */
     }
+    .h5{
+        font-weight: bold;
+
+    }
 </style>
 
 <div class="row justify-content-end ">
@@ -25,7 +29,7 @@
     </div>
     <div class="row">
         <div class="col-md-8">
-            <h5>Servicios y Equipos Topo S.A de C.V</h5>
+            <h4>Servicios y Equipos Topo S.A de C.V</h4>
         </div>
     </div>
     <div class="row">
@@ -134,14 +138,14 @@
     <div class="col-md-12 mt-4">
         <div>
             <input type="radio" id="aceptarRadio" name="valeEstado" value="Aceptado">
-            <label for="aceptarRadio" class="btn btn-success">Aceptar</label>
+            <label for="aceptarRadio" class="btn btn-primary">Aceptar</label>
             <input type="radio" id="rechazarRadio" name="valeEstado" value="Rechazado">
             <label for="rechazarRadio" class="btn btn-danger">Rechazar</label>
         </div>
     </div>
     <br><br>
     <div class="text-center text-primary mt-4">
-        <button id="btnConfirmar" class="btn btn-primary" disabled>Confirmar</button>
+        <button id="btnConfirmar" class="btn btn-success" disabled>Confirmar</button>
     </div>
     <!-- Mensaje de confirmación -->
     <div class="col-md-12 mt-3">
