@@ -3,7 +3,7 @@
 <style>
     .container {
         /* From https://css.glass */
-        background: linear-gradient(to top, rgba(0, 0, 0, 0.5), rgba(255, 255, 255, 0.1));
+        background: linear-gradient(to top, rgba(0, 0, 0, 0.4), rgba(255, 255, 255, 0.1));
         border-radius: 16px;
         box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
         backdrop-filter: blur(9.7px);
@@ -29,12 +29,6 @@
         /* Cambia el color de fondo al pasar el mouse */
         color: green;
         /* Cambia el color de texto al pasar el mouse */
-    }
-
-    /* Estilo para el estado activo (cuando se selecciona el botón) */
-    .btn:active {
-        background-color: grey;
-        /* Cambia el color de fondo al hacer clic */
     }
 </style>
 
@@ -129,7 +123,8 @@
                     data: data1,
                     borderWidth: 1,
                     backgroundColor: 'rgba(135, 206, 235, 10)',
-
+                    hoverBorderColor: 'white',
+                    
                 }]
             },
             options: {

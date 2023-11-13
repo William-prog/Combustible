@@ -154,7 +154,7 @@
                                                 <table class="buttonwrapper" bgcolor="#FF771F" border="0" cellspacing="0" cellpadding="0">
                                                     <tr>
                                                         <td class="button" height="45">
-                                                            <a href="{{ url('informePDF', ['id' => $vale->id]) }}">Ver Vale</a>
+                                                            <a href="{{ url('/valeCombustible')}}">Ver Vale</a>
                                                         </td>
                                                     </tr>
                                                 </table>

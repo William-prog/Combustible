@@ -125,7 +125,7 @@ class ValeCombustibleController extends Controller
 
         if ($request->valeEstado === 'Aceptado' && $estadoAnterior !== 'Aceptado') {
 
-            Mail::to('aevo203@hotmail.com')->send(new valeAceptado($request->valeEstado));
+            Mail::to('alonsomendez653@gmail.com')->send(new valeAceptado($request->valeEstado));
         }
 
         return redirect('valeCombustible');
