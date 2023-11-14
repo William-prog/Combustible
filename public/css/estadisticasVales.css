@@ -1,0 +1,26 @@
+.container {
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.2), rgba(255, 255, 255, 45));
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(9.7px);
+    -webkit-backdrop-filter: blur(9.7px);
+    border: 0.1px solid rgba(255, 255, 255, 0.47);
+    font-weight: bold;
+}
+
+.table th {
+    background-color: orange;
+    color: #fff;
+
+}
+
+.table td {
+    color: black;
+    font-weight: bold;
+
+}
+
+.btn:hover {
+    background-color: whitesmoke;
+    color: green;
+}

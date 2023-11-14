@@ -1,0 +1,26 @@
+.container {
+    background: linear-gradient(to top, rgba(0, 0, 0, 4), rgba(250, 250, 250, 0.59));
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.47);
+    font-weight: bold;
+    color: white;
+}
+
+.text-center,
+.text {
+    color: white;
+}
+
+.modal-dialog {
+    color: black;
+}
+
+.btn:hover {
+    background-color: whitesmoke;
+    color: green;
+}
+
+.btn:active {
+    background-color: grey;
+}

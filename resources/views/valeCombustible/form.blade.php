@@ -1,44 +1,10 @@
 @extends('layouts.app')
 @section('content')
-<style>
-    .container {
-        background: linear-gradient(to top, rgba(0, 0, 0, 0.5), rgba(255, 255, 255, 0.1));
-        border-radius: 16px;
-        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
-        backdrop-filter: blur(9.7px);
-        -webkit-backdrop-filter: blur(9.7px);
-        border: 2px solid rgba(255, 255, 255, 0.47);
-        font-weight: bold;
-        color: white;
-    }
 
-    /* Estilo para los títulos h4, h5 y h6 dentro del contenedor */
-    .container h4,
-    .container h5,
-    .container h6 {
-        color: white;
-        font-weight: bold;
+<link href="{{ asset('/css/valeFormulario.css') }}" rel="stylesheet">
 
-    }
-
-    .logo-image {
-        position: absolute;
-        top: 50px;
-        right: 40px;
-        max-width: 30px;
-        /* Ajusta el ancho máximo según tus necesidades */
-        height: auto;
-    }
-
-    .container img {
-        max-width: 20%;
-        height: auto;
-        display: block;
-
-    }
-</style>
 <div class="container">
-    <img src="/css/LogoBlanco.png" alt="Logo" class="logo-image">
+    <img src="/img/LogoBlanco.png" alt="Logo" class="logo-image">
     <div class="row justify-content-center">
         <link rel="stylesheet" href="estilos.css">
         <div class="row mt-3">
