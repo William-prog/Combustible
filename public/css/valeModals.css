@@ -1,0 +1,18 @@
+.image-container {
+    padding: 5px;
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    max-width: 300px;
+    height: 80px;
+}
+
+.image-container img {
+    max-width: 90%;
+    max-height: 90%;
+}
+
+.h5 {
+    font-weight: bold;
+
+}

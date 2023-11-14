@@ -1,30 +1,10 @@
-<style>
-    .image-container {
-        padding: 5px;
-        position: absolute;
-        top: 20px;
-        right: 30px;
-        max-width: 300px;
-        /* Ajusta el ancho máximo según tus necesidades */
-        height: 80px;
-    }
 
-    .image-container img {
-        max-width: 90%;
-        /* Asegura que la imagen no sea más ancha que el contenedor */
-        max-height: 90%;
-        /* Asegura que la imagen no sea más alta que el contenedor */
-    }
-    .h5{
-        font-weight: bold;
-
-    }
-</style>
+<link href="{{ asset('/css/valeModals.css') }}" rel="stylesheet">
 
 <div class="row justify-content-end ">
     <div class="col-md-4 text-center">
         <div class="image-container">
-            <img src="/css/topo-logo.png" alt="Logo">
+            <img src="/img/topo-logo.png" alt="Logo">
         </div>
     </div>
     <div class="row">
@@ -131,7 +111,6 @@
 
 </div>
 
-<!-- En la vista con el código para cambiar el estado -->
 <div class="row text-center">
     @if ($datoSolicitante->valeEstado == 'Pendiente')
     <!-- Mostrar solo los cambios Aceptar/Rechazar -->
@@ -180,11 +159,9 @@
                     if (response === 'Aceptado') {
                         $("#mensajeConfirmacion").html("El vale fue aceptado").addClass(
                             "alert alert-success").show();
-                        // Puedes agregar aquí lógica adicional para actualizar la interfaz según el nuevo estado.
                     } else if (response === 'Rechazado') {
                         $("#mensajeConfirmacion").html("El vale fue rechazado").addClass(
                             "alert alert-danger").show();
-                        // Puedes agregar aquí lógica adicional para actualizar la interfaz según el nuevo estado.
                     }
                 },
             });

@@ -1,6 +1,3 @@
-
-
-
 @extends('layouts.app')
 
 @section('content')
@@ -11,41 +8,7 @@
 <script src="https://cdn.datatables.net/buttons/1.7.1/js/dataTables.buttons.min.js"></script>
 <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/1.7.1/css/buttons.dataTables.min.css">
 
-<style>
-    .container {
-        /* From https://css.glass */
-        background: linear-gradient(to top, rgba(0, 0, 0, 4), rgba(250, 250, 250, 0.59));
-        border-radius: 16px;
-        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-        border: 1px solid rgba(255, 255, 255, 0.47);
-        font-weight: bold;
-        color: white;
-    }
-
-    .text-center,
-    .text {
-        color: white;
-    }
-
-    .modal-dialog {
-        color: black;
-    }
-
-
-    /* Estilo para el hover (paso del mouse) */
-    .btn:hover {
-        background-color: whitesmoke;
-        /* Cambia el color de fondo al pasar el mouse */
-        color: green;
-        /* Cambia el color de texto al pasar el mouse */
-    }
-
-    /* Estilo para el estado activo (cuando se selecciona el botón) */
-    .btn:active {
-        background-color: grey;
-        /* Cambia el color de fondo al hacer clic */
-    }
-</style>
+<link href="{{ asset('/css/valeCombustible.css') }}" rel="stylesheet">
 
 <script type="70cf02be0b65b144043f4959-text/javascript">
     $(document).ready(function() {
@@ -96,12 +59,11 @@
 </script>
 
 <div class="container">
-
     <div class="row justify-content-center">
         <div class="col-md-12">
             <div>
                 <div>
-                    <div>
+                    <div class="table-responsive">
                         <table id="valeTable" class="table table-striped table-bordered" cellspacing="1" width="100%">
                             <thead style="background-color: #FF771F; color: white;">
                                 <th class="text-center">Fecha</th>

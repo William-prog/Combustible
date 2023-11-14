@@ -1,9 +1,4 @@
-<style>
-    body {
-        font-family: Arial, Helvetica, sans-serif;
-        font-size: 10px;
-    }
-</style>
+<link href="{{ asset('/css/estiloPDF.css') }}" rel="stylesheet"> 
 
 
 <table width="60%" border="0" cellpadding="0" cellspacing="1" bordercolor="#000000" style="margin-left: 20%; margin-right: 20%; border-collapse:collapse; border-color:#ddd; vertical-align:text-top;">
@@ -180,7 +175,7 @@
             </strong>
         </td>
         <td style="height: 5%; width: 40%; padding-top: 10px; padding-left: 10px; padding-bottom: 10px; padding-right: 10px; border-left: 2px solid #000;">
-            <img src="css/sello-topo.jpeg" width="70%" alt="">
+            <img src="img/sello-topo.jpeg" width="70%" alt="">
         </td>
     </tr>
 

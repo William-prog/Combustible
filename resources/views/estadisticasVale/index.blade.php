@@ -1,36 +1,8 @@
 @extends('layouts.app')
 @section('content')
-<style>
-    .container {
-        /* From https://css.glass */
-        background: linear-gradient(to top, rgba(0, 0, 0, 0.2), rgba(255, 255, 255, 45));
-        border-radius: 16px;
-        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-        backdrop-filter: blur(9.7px);
-        -webkit-backdrop-filter: blur(9.7px);
-        border: 1px solid rgba(255, 255, 255, 0.47);
-        font-weight: bold;
-    }
 
-    .table th {
-        background-color: orange;
-        color: #fff;
+<link href="{{ asset('/css/estadisticasVales.css') }}" rel="stylesheet">
 
-    }
-
-    .table td {
-        color: black;
-        font-weight: bold;
-
-    }
-
-    .btn:hover {
-        background-color: whitesmoke;
-        /* Cambia el color de fondo al pasar el mouse */
-        color: green;
-        /* Cambia el color de texto al pasar el mouse */
-    }
-</style>
 <div class="container">
     <div class="col-md-12 text-center">
         <div class="row justify-content-center">
@@ -49,54 +21,55 @@
     </div>
 </div>
 
-<div class="container justify-content-center mt-5">
+<div class="container mt-4">
     <div class="row">
-        <div class="col-md-6 mt-3">
+        <div class="col-lg-6 mt-3">
             <div class="container">
                 <div>
                     <canvas id="myChart1"></canvas>
                 </div>
             </div>
         </div>
-        <div class="col-md-6 mt-3">
+        <div class="col-lg-6 mt-3">
             <div class="container">
                 <canvas id="myChartz1"></canvas>
             </div>
         </div>
     </div>
+
     <div class="my-4"></div>
+
     <div class="row">
-        <div class="col-md-6">
+        <div class="col-lg-6">
             <div class="container">
-                <div>
+                <div class="table-responsive">
                     <div id="table-container"></div>
                 </div>
             </div>
         </div>
-        <div class="col-md-6">
+        <div class="col-lg-6">
             <div class="container">
-                <div id="table-container2"></div>
+                <div class="table-responsive">
+                    <div id="table-container2"></div>
+                </div>
             </div>
         </div>
     </div>
 </div>
-
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/numeral.js/2.0.6/numeral.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.0/html2pdf.bundle.min.js"></script>
 
 
 <script>
-    // Variables globales para las gráficas
     let chart1;
     let chartz1;
-    let datosIniciales = <?php echo json_encode($vale) ?>; // Almacena los datos iniciales
-    let datosInicialesTabla2 = <?php echo json_encode($vale) ?>; // Datos iniciales para la segunda tabla
-    let departamentos = <?php echo json_encode($departamento) ?>; // Datos de los departamentos
+    let datosIniciales = <?php echo json_encode($vale) ?>;
+    let datosInicialesTabla2 = <?php echo json_encode($vale) ?>;
+    let departamentos = <?php echo json_encode($departamento) ?>;
 
-    // Función para actualizar las gráficas y la tabla principal
+    // Actualiza las gráficas y la tabla principal
     function actualizarGraficasYTabla(datosFiltrados) {
-        // Actualizar gráfica 1
         const ctx1 = document.getElementById('myChart1');
 
         const ValesAceptados1 = datosFiltrados.filter(item => item.valeEstado === "Aceptado");
@@ -112,7 +85,7 @@
         const data1 = sortedData1.map(key => ValeContador1[key]);
 
         if (chart1) {
-            chart1.destroy(); // Destruye la gráfica anterior si existe
+            chart1.destroy();
         }
 
         chart1 = new Chart(ctx1, {
@@ -174,21 +147,21 @@
             data[valeCostos] = valesPorCentroCostos.length;
         });
 
-        // Ordenar los datos de mayor a menor
+        // Ordena los datos 
         const sortedData2 = uniqueValeCostos.sort((a, b) => data[b] - data[a]);
         const sortedValues2 = sortedData2.map(key => data[key]);
 
         if (chartz1) {
-            chartz1.destroy(); // Destruye la gráfica anterior si existe
+            chartz1.destroy();
         }
 
         chartz1 = new Chart(ctxz1, {
             type: 'bar',
             data: {
-                labels: sortedData2, // Etiquetas en el eje X (C.C)
+                labels: sortedData2,
                 datasets: [{
-                    label: '', // Etiqueta en el eje Y
-                    data: sortedValues2, // Datos en el eje Y
+                    label: '',
+                    data: sortedValues2,
                     borderColor: 'rgb(200, 150, 225)',
                     backgroundColor: 'rgba(1, 0, 0, 0.5)',
                     borderWidth: 1
@@ -196,8 +169,8 @@
             },
             options: {
                 animation: {
-                    duration: 2000, // Duración de la animación en milisegundos
-                    easing: 'easeOutBack', // Efecto de animación (puedes ajustar esto)
+                    duration: 3000,
+                    easing: 'easeOutBack',
                 },
                 scales: {
                     y: {
@@ -229,7 +202,7 @@
             }
         });
 
-        // Actualizar tabla principal
+        // Actualiza tabla principal
         const tableContainer = document.getElementById('table-container');
         const table = document.createElement('table');
         table.classList.add('table');
@@ -265,7 +238,7 @@
             const cellCombustible = document.createElement('td');
             const cellVales = document.createElement('td');
 
-            // Agrega una clase personalizada para centrar solo esta celda
+            // Agrega una clase para centrar solo esta celda
             cellEco.classList.add('text-center');
             cellCombustible.classList.add('text-center');
             cellVales.classList.add('text-center');
@@ -286,26 +259,26 @@
 
 
         table.appendChild(tbody);
-        tableContainer.innerHTML = ''; // Limpiar el contenedor antes de agregar la nueva tabla
+        tableContainer.innerHTML = '';
         tableContainer.appendChild(table);
 
-        // Actualizar segunda tabla
+        // Actualiza segunda tabla
         actualizarTabla2(datosInicialesTabla2);
     }
-    // Mapear los departamentos a un objeto para facilitar la búsqueda
+
     const departamentoMap = {};
     departamentos.forEach(depto => {
         departamentoMap[depto.id] = depto.departamentoNombre;
     });
 
-    // Función para obtener el nombre del departamento
+
     function obtenerNombreDepartamento(deptoNumero) {
         return departamentoMap[deptoNumero] || 'Desconocido';
     }
 
 
 
-    // Actualizar segunda tabla
+    // Actualiza segunda tabla
     function actualizarTabla2(datosFiltrados) {
         const tableContainer2 = document.getElementById('table-container2');
         const table2 = document.createElement('table');
@@ -338,7 +311,6 @@
             const cellValeCc = document.createElement('td');
             const cellVales2 = document.createElement('td');
 
-            // Aquí obtenemos el nombre del departamento y lo mostramos en lugar del número
             cellDepartamento.textContent = obtenerNombreDepartamento(item.valeDepartamento);
             cellArea.textContent = item.valeArea;
             cellValeCc.textContent = item.valeCc;
@@ -353,12 +325,12 @@
         });
 
         table2.appendChild(tbody2);
-        tableContainer2.innerHTML = ''; // Limpiar el contenedor antes de agregar la nueva tabla
+        tableContainer2.innerHTML = '';
         tableContainer2.appendChild(table2);
     }
 
 
-    // Función para agrupar los datos por No.Eco y contarlos
+    // Agrupa los datos por No.Eco
     function groupDataByEconomico(data) {
         const groupedData = [];
         data.forEach(item => {
@@ -376,7 +348,7 @@
         return groupedData;
     }
 
-    // Función para agrupar los datos por Departamento, Área y ValeCc y contarlos
+    // Agrupa los datos por Departamento, Área y ValeCc
     function groupDataByDepartamentoAreaValeCc(data) {
         const groupedData = [];
         data.forEach(item => {
@@ -398,27 +370,25 @@
         return groupedData;
     }
 
-    // Función para ordenar los datos por la cantidad de vales en orden descendente
+    // Ordena los datos por la cantidad de vales
     function sortDataByValesDesc(data) {
         return data.sort((a, b) => b.count - a.count);
     }
 
-    // Función para filtrar y actualizar las gráficas al cargar la página
+    // Filtra y actualiza las gráficas 
     function filtrarYActualizarGraficas() {
         var fecha_Desde_Filtro = $('#Fecha_Desde_Filtro').val();
         var fecha_Hasta_Filtro = $('#Fecha_Hasta_Filtro').val();
 
         if (!fecha_Desde_Filtro || !fecha_Hasta_Filtro) {
-            // Mostrar un mensaje que las fechas son obligatorias
             alert('Por favor, seleccione ambas fechas.');
-            return; // Detener la ejecución de la función
+            return;
         }
 
-        // Filtrar datos por fechas
+        // Filtra los datos por fechas
         var datosFiltrados;
 
         if (!fecha_Desde_Filtro || !fecha_Hasta_Filtro) {
-            // Si no se han seleccionado fechas, usar todos los datos
             datosFiltrados = datosIniciales;
         } else {
             datosFiltrados = datosIniciales.filter(function(e) {
@@ -426,14 +396,10 @@
             });
         }
 
-        // Actualizar gráficas y tabla principal
         actualizarGraficasYTabla(datosFiltrados);
-
-        // Actualizar segunda tabla
         actualizarTabla2(datosFiltrados);
     }
 
-    // Llamar a la función para cargar datos iniciales
     actualizarGraficasYTabla(datosIniciales);
 </script>
 @endsection
