@@ -191,12 +191,13 @@
 /*Responsive Navbar*/
 
 @media(max-width: 1200px){
-	.navbar-custom .navbar-navigation ul > li{
-		margin:0 15px;
-	}
+    .navbar-custom .navbar-navigation ul > li{
+        margin:0 15px;
+    }
 }
 
 @media(max-width: 1000px){
+   
     .header-icon span{
         display: none;
         font-size: 12px;
@@ -204,52 +205,52 @@
     .header-icon>img{
         width: 150px;
     }
-	.navbar-custom{
-		padding:15px;
-	}
-	.navbar-custom .navbar-nav-toggle{
-		display: flex;
-	}
-  .navbar-custom .navbar-navigation{
-  	max-height: 0;
-  	flex-basis: 100%;
-  	max-width: 100%;
-  	overflow: hidden;
-  	transition: all 0.5s ease;
-  }
 
-  .navbar-custom .navbar-navigation ul{
-  	background-color: #222222;
-    margin-top:12px;
-    /* min-height: 400px; */
-  }
-  .navbar-custom .navbar-navigation ul > li{
-  	display: block;
-    margin:0;
 
-  }
-  .navbar-custom .navbar-navigation ul > li > a::before{
-     content: none;
-  }
-  .navbar-custom .navbar-navigation ul > li > a {
-    padding: 12px 15px;
-    border-bottom:1px solid rgba(255,255,255,0.2);
-    font-size: 12px;
- }
- .navbar-custom .navbar-navigation ul > li > .sub-menu{
- 	max-height: 0;
- 	overflow: hidden;
- 	position: relative;
- 	width: 100%;
- 	box-shadow: none;
- 	margin:0;
- 	visibility: visible;
- 	opacity: 1;
- 	background-color: transparent;
- 	border: none;
- }
- .navbar-custom .navbar-navigation ul > li > .sub-menu > li > a{
- 	color: var(--text-color);
- 	padding:14px 20px 12px 40px;
- }
+    .navbar-custom{
+        padding:15px;
+    }
+    .navbar-custom .navbar-nav-toggle{
+        display: flex;
+    }
+    .navbar-custom .navbar-navigation{
+        max-height: initial; 
+        flex-basis: 100%;
+        max-width: 100%;
+        overflow: visible; 
+        transition: all 0.5s ease;
+        background-color: #222222;
+        margin-top: 12px;
+    }
+    .navbar-custom .navbar-navigation ul{
+        max-height: initial; 
+    }
+    .navbar-custom .navbar-navigation ul > li{
+        display: block;
+        margin: 0;
+    }
+    .navbar-custom .navbar-navigation ul > li > a::before{
+        content: none;
+    }
+    .navbar-custom .navbar-navigation ul > li > a {
+        padding: 12px 15px;
+        border-bottom: 1px solid rgba(255,255,255,0.2);
+        font-size: 12px;
+    }
+    .navbar-custom .navbar-navigation ul > li > .sub-menu{
+        max-height: initial; 
+        overflow: visible; 
+        position: relative;
+        width: 100%;
+        box-shadow: none;
+        margin: 0;
+        visibility: visible;
+        opacity: 1;
+        background-color: transparent;
+        border: none;
+    }
+    .navbar-custom .navbar-navigation ul > li > .sub-menu > li > a{
+        color: var(--text-color);
+        padding: 14px 20px 12px 40px;
+    }
 }

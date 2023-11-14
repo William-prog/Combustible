@@ -160,7 +160,7 @@
             <div class="container-menu">
                 <div class="header-navigation-menu">
                     <div class="header-icon">
-                        <img src="/img/LogoBlanco.png" alt="">
+                        <img src="/img/topo-logo-header_b.png" alt="" style="width: 100px; height: 40px;">
                     </div>
                     <button class="navbar-nav-toggle">
                         <span></span>
@@ -233,7 +233,7 @@
             <div class="container-menu">
                 <div class="header-navigation-menu">
                     <div class="header-icon">
-                        <img src="/img/LogoBlanco.png" alt="">
+                        <img src="/img/topo-logo-header_b.png" alt="" style="width: 100px; height: 40px;">
                     </div>
                     <button class="navbar-nav-toggle">
                         <span></span>

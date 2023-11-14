@@ -7,7 +7,7 @@
 
 <div class="container ">
 
-    <div class="content  ">
+   
         <div class="accordion accordion-flush {{--panel-main--}}  " id="accordionExample">
             <div class="main-content shadow-lg p-3 mb-5 bg-body-tertiary rounded ">
 
