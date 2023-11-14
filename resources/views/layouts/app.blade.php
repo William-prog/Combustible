@@ -54,7 +54,7 @@
                 <div class="header-navigation-menu">
                     <div class="header-icon">
                         <a href="{{ route('panel.index') }}" style="text-decoration: none;">
-                            <img src="/img/LogoBlanco.png" alt="" style="width: 100px; height: 40px;">
+                            <img src="/img/topo-logo-header_b.png" alt="" style="width: 100px; height: 40px;">
                         </a>
                     </div>
                     <button class="navbar-nav-toggle">

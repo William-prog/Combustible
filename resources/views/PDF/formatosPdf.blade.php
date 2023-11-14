@@ -58,7 +58,7 @@
             Vehículo:
         </td>
         <td style="width: 10%; padding-top: 0px; padding-left: 10px; padding-bottom: 0px; padding-right: 10px; border-left: 0px solid #A5A8B1;">
-            No. Economico:
+            No. Económico:
         </td>
         <td style="width: 40%; padding-top: 0px; padding-left: 0px; padding-bottom: 0px; padding-right: 0px; border-left: 0px solid #A5A8B1;">
             <div style="background-color: white; border: 1px solid black; height: 1%; text-align: center; padding-top: 5%; padding-bottom: 5%;">

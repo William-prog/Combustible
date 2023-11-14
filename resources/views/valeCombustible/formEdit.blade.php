@@ -137,7 +137,7 @@
     <!-- Mostrar solo los cambios Aceptar/Rechazar -->
     <div class="col-md-12 mt-4">
         <div>
-            <input type="radio" id="aceptarRadio" name="valeEstado" value="Aceptado">
+            <input type="radio" id="aceptarRadio" checked name="valeEstado" value="Aceptado">
             <label for="aceptarRadio" class="btn btn-primary">Aceptar</label>
             <input type="radio" id="rechazarRadio" name="valeEstado" value="Rechazado">
             <label for="rechazarRadio" class="btn btn-danger">Rechazar</label>
@@ -164,10 +164,6 @@
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
     $(document).ready(function() {
-<<<<<<< HEAD
-
-=======
->>>>>>> a3200774d8bd4372119a6b5a2f4b87e388872ff3
         $("#btnConfirmar").on("click", function() {
             var nuevoEstado = $('input[name="valeEstado"]:checked').val();
             var valeId = $("input[name='valeEstado']:checked").data("vale-id");

@@ -129,8 +129,8 @@
                                     <td class="d-flex justify-content-center">
                                         @if ($datoSolicitante->valeEstado == 'Pendiente')
                                         <a class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal{{$datoSolicitante->id}}"><i class="fas fa-hourglass-half"></i></a>
-                                        <!-- como filtrar datos por JSON por fechas -->
-                                        <!-- Modal -->
+                                   
+                                        <!-- Modal Pendiente-->
                                         <div class="modal fade" id="modal{{$datoSolicitante->id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                             <div class="modal-dialog modal-lg">
                                                 <div class="modal-content">

@@ -108,7 +108,7 @@
         <h5>Datos del Vehículo</h5>
         <hr>
         <div class="col-md-2">
-            <label for="valeEconomico" class="form-label">No. economico:</label>
+            <label for="valeEconomico" class="form-label">No. económico:</label>
             <input type="number" placeholder="" class="form-control" name="valeEconomico" id="valeEconomico" required>
         </div>
         <div class="col-md-2">
