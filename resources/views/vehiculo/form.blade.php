@@ -28,16 +28,27 @@
                     <div>
                         <label for="usuarioRol" class="form-label">Año:</label>
                         <select class="form-select" name="usuarioRol" id="usuarioRol" required>
-                            <option value="">Selecciona un año</option>
-                            <!-- JavaScript para generar opciones de años -->
-                            <script>
-                                var select = document.getElementById("vehiculoAño");
-                                var currentYear = new Date().getFullYear();
-                                var startYear = 1990;
-                                
-                               
-                            </script>
-                        </select>
+    <option value="">Selecciona un año</option>
+</select>
+
+<script>
+    
+    var select = document.getElementById("usuarioRol");
+   
+    var currentYear = new Date().getFullYear();
+    var startYear = 1990;
+
+    for (var year = currentYear; year >= startYear; year--) {
+       
+        var option = document.createElement("option");
+       
+        option.value = year;
+        option.textContent = year;
+   
+        select.appendChild(option);
+    }
+</script>
+
                     </div>
                     
                     <br>
