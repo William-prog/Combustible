@@ -257,8 +257,9 @@
                                     </a>
                                     <ul class="sub-menu">
                                         <li>
-                                            <a href="{{ route('valeCombustible.create') }}"
-                                                style="cursor: pointer">{{ __('Vales de Combustible ') }}<i class="fas fa-gas-pump"></i></a>
+                                            <a href="{{ route('valeCombustible.index') }}"
+                                                style="cursor: pointer">{{ __('Vales Combustible ') }}<i class="fas fa-truck"></i>
+                                            </a>
                                         </li>
                                         <li>
                                             <a href="{{ route('estadisticaVale.index') }}"
