@@ -114,22 +114,27 @@
 <div class="row text-center">
     @if ($datoSolicitante->valeEstado == 'Pendiente')
     <!-- Mostrar solo los cambios Aceptar/Rechazar -->
+    
     <div class="col-md-12 mt-4">
+        @if (auth()->check() && auth()->user()->role == 'superAdmin'|| auth()->check() && auth()->user()->role == 'admin')
         <div>
             <input type="radio" id="aceptarRadio" checked name="valeEstado" value="Aceptado">
             <label for="aceptarRadio" class="btn btn-primary">Aceptar</label>
             <input type="radio" id="rechazarRadio" name="valeEstado" value="Rechazado">
             <label for="rechazarRadio" class="btn btn-danger">Rechazar</label>
         </div>
+       
     </div>
     <br><br>
     <div class="text-center text-primary mt-4">
         <button id="btnConfirmar" class="btn btn-success">Confirmar</button>
     </div>
+    @endif
     <!-- Mensaje de confirmación -->
     <div class="col-md-12 mt-3">
         <div id="mensajeConfirmacion" style="display: none;"></div>
     </div>
+    
     @endif
 </div>
 
